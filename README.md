@@ -45,13 +45,16 @@ Base 64 encode the key
 $ cat ~/Downloads/key.json | base64
 ```
 
+Enable the App Engine Admin API
+`https://console.developers.google.com/apis/library/appengine.googleapis.com?project=<project-name>`
+
 ## Github
 
 Create a repository
 
 Go to the secrets page
 
-https://github.com/\<username\>/\<repo\>/settings/secrets
+`https://github.com/<username>/<repo>/settings/secrets`
 
 Add a secret with name SA_EMAIL and as value the service account email address
 
