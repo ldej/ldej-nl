@@ -1,0 +1,4 @@
+baseURL = "https://ldej.nl"
+languageCode = "en-us"
+title = "ldej"
+theme = "pixyll"

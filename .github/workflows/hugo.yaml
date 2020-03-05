@@ -1,0 +1,27 @@
+name: Hugo
+on: [push]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v2
+
+      - name: Setup gcloud environment
+        uses: GoogleCloudPlatform/github-actions@0.1.1
+        with:
+          # The version of the gcloud SDK to be installed.  Example: 275.0.0
+          version: '275.0.0'
+          # The service account email which will be used for authentication.
+          service_account_email: ${{ secrets.SA_EMAIL }}
+          # The service account key which will be used for authentication.
+          # Base64 encode the .json first! cat myfile.json | base64
+          # https://github.com/GoogleCloudPlatform/github-actions/tree/master/setup-gcloud#inputs
+          service_account_key: ${{ secrets.SA_KEY }}
+
+      - name: Deploy
+        run: |
+          gcloud app deploy --quiet --project ldej-nl
