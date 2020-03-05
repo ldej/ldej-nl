@@ -2,8 +2,13 @@ package main
 
 import (
 	"net/http"
+	"os"
 )
 
 func main() {
-	http.ListenAndServe("", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {}))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	http.ListenAndServe(":"+port, nil)
 }

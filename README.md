@@ -3,7 +3,7 @@
 ## Hugo
 Install hugo
 ```shell script
-$ sudo apt install hugo
+$ go get -u github.com/gohugoio/hugo@v0.66.0
 ```
 Start new site
 ```shell script

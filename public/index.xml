@@ -1,21 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
       <title>ldej on ldej </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://ldej.nl/</link>
+    <link>/</link>
     <language>en-us</language>
     
     
-    <updated>Thu, 05 Mar 2020 12:57:09 IST</updated>
+    <updated>Thu, 05 Mar 2020 17:51:17 IST</updated>
     
     <item>
-      <title>Initial Post</title>
-      <link>https://ldej.nl/posts/initial-post/</link>
-      <pubDate>Thu, 05 Mar 2020 12:57:09 IST</pubDate>
+      <title>First Post</title>
+      <link>/post/first-post/</link>
+      <pubDate>Thu, 05 Mar 2020 17:51:17 IST</pubDate>
       
-      <guid>https://ldej.nl/posts/initial-post/</guid>
-      <description></description>
+      <guid>/post/first-post/</guid>
+      <description>Wow</description>
     </item>
     
   </channel>
