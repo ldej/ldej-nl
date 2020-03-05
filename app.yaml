@@ -13,7 +13,7 @@ handlers:
     redirect_http_response_code: 301
 
   # index files
-  - url: /([^.]+)/?$  # urls with no dot in them
+  - url: /([^.]+)/$  # urls with no dot in them
     static_files: public/\1/index.html
     upload: public/(.+)/index.html
     expiration: "15m"
