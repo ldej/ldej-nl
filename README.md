@@ -19,7 +19,7 @@ $ echo 'theme = "ananke"' >> config.toml
 ```
 Create post
 ```shell script
-$ hugo new posts/first-post.md
+$ hugo new post/first-post.md
 ```
 Serve
 ```shell script
