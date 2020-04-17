@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Two ways to group HTTP handlers in Go - ldej</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="">
+
+  
+  
+
+  
+  
+
+  
+  
+
+  <link rel="stylesheet" type="text/css" href="/css/combined-min.css">
+  
+
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="" class="site-title">ldej</a>
+      <nav class="site-nav right">
+      <a href="/about/">About</a>
+<a href="/tags/">Tags</a>
+<a href="/contact/">Contact</a>
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">Two ways to group HTTP handlers in Go</h1>
+        <span class="post-meta">Apr 17, 2020 </span><br>
+        
+      </div>
+
+      <article class="post-content">
+      <h1 id="the-standard-library">The Standard Library</h1>
+<p><a href="https://blog.merovius.de/2017/06/18/how-not-to-use-an-http-router.html">https://blog.merovius.de/2017/06/18/how-not-to-use-an-http-router.html</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">App</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#75715e">// We could use http.Handler as a type here; using the specific type has
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// the advantage that static analysis tools can link directly from
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// h.UserHandler.ServeHTTP to the correct definition. The disadvantage is
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// that we have slightly stronger coupling. Do the tradeoff yourself.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">UserHandler</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">UserHandler</span>
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">h</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">App</span>) <span style="color:#a6e22e">ServeHTTP</span>(<span style="color:#a6e22e">res</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">req</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">head</span> <span style="color:#66d9ef">string</span>
+    <span style="color:#a6e22e">head</span>, <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">URL</span>.<span style="color:#a6e22e">Path</span> = <span style="color:#a6e22e">ShiftPath</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">URL</span>.<span style="color:#a6e22e">Path</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">head</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;user&#34;</span> {
+        <span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">UserHandler</span>.<span style="color:#a6e22e">ServeHTTP</span>(<span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">req</span>)
+        <span style="color:#66d9ef">return</span>
+    }
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#a6e22e">res</span>, <span style="color:#e6db74">&#34;Not Found&#34;</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusNotFound</span>)
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">UserHandler</span> <span style="color:#66d9ef">struct</span> {
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">h</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">UserHandler</span>) <span style="color:#a6e22e">ServeHTTP</span>(<span style="color:#a6e22e">res</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">req</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">head</span> <span style="color:#66d9ef">string</span>
+    <span style="color:#a6e22e">head</span>, <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">URL</span>.<span style="color:#a6e22e">Path</span> = <span style="color:#a6e22e">ShiftPath</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">URL</span>.<span style="color:#a6e22e">Path</span>)
+    <span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strconv</span>.<span style="color:#a6e22e">Atoi</span>(<span style="color:#a6e22e">head</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;Invalid user id %q&#34;</span>, <span style="color:#a6e22e">head</span>), <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusBadRequest</span>)
+        <span style="color:#66d9ef">return</span>
+    }
+    <span style="color:#66d9ef">switch</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">Method</span> {
+    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;GET&#34;</span>:
+        <span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">handleGet</span>(<span style="color:#a6e22e">id</span>)
+    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;PUT&#34;</span>:
+        <span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">handlePut</span>(<span style="color:#a6e22e">id</span>)
+    <span style="color:#66d9ef">default</span>:
+        <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#a6e22e">res</span>, <span style="color:#e6db74">&#34;Only GET and PUT are allowed&#34;</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusMethodNotAllowed</span>)
+    }
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">a</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">App</span>{
+        <span style="color:#a6e22e">UserHandler</span>: new(<span style="color:#a6e22e">UserHandler</span>),
+    }
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:8000&#34;</span>, <span style="color:#a6e22e">a</span>)
+}
+</code></pre></div><h1 id="inside-your-service">Inside your service</h1>
+<p><a href="https://pace.dev/blog/2018/05/09/how-I-write-http-services-after-eight-years.html">https://pace.dev/blog/2018/05/09/how-I-write-http-services-after-eight-years.html</a></p>
+<blockquote>
+<p>A Server struct is an object that represents the service, and holds all of its dependencies.</p>
+<p>All of my components have a single server structure that usually ends up looking something like this:</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">app</span>
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">server</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#a6e22e">db</span>     <span style="color:#f92672">*</span><span style="color:#a6e22e">someDatabase</span>
+    <span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">someRouter</span>
+    <span style="color:#a6e22e">email</span>  <span style="color:#a6e22e">EmailSender</span>
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">server</span>) <span style="color:#a6e22e">routes</span>() {
+    <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/api/&#34;</span>, <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">handleAPI</span>())
+    <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/about&#34;</span>, <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">handleAbout</span>())
+    <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">handleIndex</span>())
+}
+</code></pre></div>
+      </article>
+
+       
+      <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="/tags/go">go</a>
+        
+            ,&nbsp;
+            <a href="/tags/web">web</a>
+        
+      </p>
+       
+
+      
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+      <nav class="social-icons icons">
+<a class="fa fa-rss rss" href="/index.xml"></a>
+
+</nav>
+
+          <small>
+            Copyright &#169; 2020<br>
+            Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a>
+          </small>
+        </div>
+      </div>
+    </footer>
+
+    
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+
+</body>
+</html>
+
