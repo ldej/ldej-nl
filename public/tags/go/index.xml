@@ -1,17 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>ldej on ldej </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>/</link>
+    <title>go on ldej</title>
+    <link>/tags/go/</link>
+    <description>Recent content in go on ldej</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Fri, 17 Apr 2020 16:49:37 +0530</lastBuildDate>
     
+	<atom:link href="/tags/go/index.xml" rel="self" type="application/rss+xml" />
     
-    <updated>Fri, 17 Apr 2020 16:49:37 IST</updated>
     
     <item>
       <title>http.Handle vs http.HandleFunc</title>
       <link>/post/1.http.handle_vs_http.handlefunc/</link>
-      <pubDate>Fri, 17 Apr 2020 16:49:37 IST</pubDate>
+      <pubDate>Fri, 17 Apr 2020 16:49:37 +0530</pubDate>
       
       <guid>/post/1.http.handle_vs_http.handlefunc/</guid>
       <description>&lt;code&gt;http.HandleFunc&lt;/code&gt; is a helper function to make your function &lt;code&gt;http.Handle&lt;/code&gt; compatible</description>
@@ -19,4 +22,3 @@
     
   </channel>
 </rss>
-
