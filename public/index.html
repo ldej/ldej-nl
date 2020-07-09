@@ -52,51 +52,21 @@
                         
                             
                                 <div class="post">
-  <a class="post-link" href="/post/grouping-handlers/">
-  <p class="post-meta left">Apr 17, 2020</p>
+  <a class="post-link" href="/post/working-in-the-trenches/">
+  <p class="post-meta left">Jul 9, 2020</p>
   
   <div class="clearfix"></div>
-  <h3 class="h2 post-title">Two ways to group HTTP handlers in Go </h3>
-  <p class="post-summary">The Standard Library https://blog.merovius.de/2017/06/18/how-not-to-use-an-http-router.html
-type App struct { // We could use http.Handler as a type here; using the specific type has  // the advantage that static analysis tools can link directly from  // h.UserHandler.ServeHTTP to the correct definition. The disadvantage is  // that we have slightly stronger coupling. Do the tradeoff yourself.  UserHandler *UserHandler } func (h *App) ServeHTTP(res http.ResponseWriter, req *http.Request) { var head string head, req.</p>
+  <h3 class="h2 post-title">Working in the Trenches </h3>
+  <p class="post-summary">Working in the trenches Whenever I join a project I&rsquo;m curious to find out what the situation is like. Which technology stack are they using? What is the developer experience like? What is the technical debt? Are they doing agile development? I like to be surprised in a positive way, but for this project it was rather the opposite. I&rsquo;m not going to disclose too many details as I don&rsquo;t want to call them out publicly.</p>
   </a>
   
-   
-  <p class="post-meta">Tags:&nbsp;
-  
-      
-      <a href="/tags/go">go</a>
-  
-      ,&nbsp;
-      <a href="/tags/web">web</a>
-  </p>
   
 </div>
 
                             
                         
                             
-                                <div class="post">
-  <a class="post-link" href="/post/httphandle_vs_httphandlefunc/">
-  <p class="post-meta left">Apr 17, 2020</p>
-  
-  <div class="clearfix"></div>
-  <h3 class="h2 post-title">http.Handle vs http.HandleFunc </h3>
-  <p class="post-summary"><code>http.HandleFunc</code> is a helper function to make your function <code>http.Handle</code> compatible</p>
-  </a>
-  
-   
-  <p class="post-meta">Tags:&nbsp;
-  
-      
-      <a href="/tags/go">go</a>
-  
-      ,&nbsp;
-      <a href="/tags/web">web</a>
-  </p>
-  
-</div>
-
+                        
                             
                         
                     
@@ -111,6 +81,7 @@ type App struct { // We could use http.Handler as a type here; using the specifi
       <nav class="social-icons icons">
 <a class="fa fa-rss rss" href="/index.xml"></a>
 
+<a class="fa fa-github github" href="https://github.com/ldej"></a>
 </nav>
 
           <small>

@@ -6,25 +6,33 @@
     <language>en-us</language>
     
     
-    <updated>Fri, 17 Apr 2020 17:04:26 IST</updated>
+    <updated>Mon, 01 Jun 2020 12:50:27 IST</updated>
     
     <item>
-      <title>Two ways to group HTTP handlers in Go</title>
-      <link>/post/grouping-handlers/</link>
-      <pubDate>Fri, 17 Apr 2020 17:04:26 IST</pubDate>
+      <title>Working in the Trenches</title>
+      <link>/post/working-in-the-trenches/</link>
+      <pubDate>Thu, 09 Jul 2020 17:58:21 IST</pubDate>
       
-      <guid>/post/grouping-handlers/</guid>
-      <description>The Standard Library https://blog.merovius.de/2017/06/18/how-not-to-use-an-http-router.html
-type App struct { // We could use http.Handler as a type here; using the specific type has  // the advantage that static analysis tools can link directly from  // h.UserHandler.ServeHTTP to the correct definition. The disadvantage is  // that we have slightly stronger coupling. Do the tradeoff yourself.  UserHandler *UserHandler } func (h *App) ServeHTTP(res http.ResponseWriter, req *http.Request) { var head string head, req.</description>
+      <guid>/post/working-in-the-trenches/</guid>
+      <description>Working in the trenches Whenever I join a project I&amp;rsquo;m curious to find out what the situation is like. Which technology stack are they using? What is the developer experience like? What is the technical debt? Are they doing agile development? I like to be surprised in a positive way, but for this project it was rather the opposite. I&amp;rsquo;m not going to disclose too many details as I don&amp;rsquo;t want to call them out publicly.</description>
     </item>
     
     <item>
-      <title>http.Handle vs http.HandleFunc</title>
-      <link>/post/httphandle_vs_httphandlefunc/</link>
-      <pubDate>Fri, 17 Apr 2020 16:49:37 IST</pubDate>
+      <title>Contact</title>
+      <link>/contact/</link>
+      <pubDate>Mon, 01 Jun 2020 12:50:27 IST</pubDate>
       
-      <guid>/post/httphandle_vs_httphandlefunc/</guid>
-      <description>&lt;code&gt;http.HandleFunc&lt;/code&gt; is a helper function to make your function &lt;code&gt;http.Handle&lt;/code&gt; compatible</description>
+      <guid>/contact/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jun 2020 12:49:49 IST</pubDate>
+      
+      <guid>/about/</guid>
+      <description>The about page</description>
     </item>
     
   </channel>
