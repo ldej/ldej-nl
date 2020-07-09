@@ -4,8 +4,6 @@ date: 2020-07-09T17:58:21+05:30
 draft: false
 ---
 
-# Working in the trenches
-
 Whenever I join a project I'm curious to find out what the situation is like. Which technology stack are they using? What is the developer experience like? What is the technical debt? Are they doing agile development? I like to be surprised in a positive way, but for this project it was rather the opposite. I'm not going to disclose too many details as I don't want to call them out publicly. I will say that it's a project in the educational industry.
 
 One of the first things I notice is that their Gitlab contains 1000+ repositories. I'm working on one product but there are multiple products in these repositories. This is either going to be a well structured project or a splintered mess. The project is just a couple of years old and has less than 100 employees and a number of external parties developing for them.
