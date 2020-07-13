@@ -1,0 +1,108 @@
+.circle {
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.icons a.github { background: url(images/icons/github.png) left top no-repeat; }
+.icons a.linkedin { background: url(images/icons/linkedin.png) left top no-repeat; }
+
+.site-title {
+    text-transform: uppercase;
+    font-family: Lato,Helvetica,sans-serif;
+    letter-spacing: .1rem;
+    font-size: 1.0rem;
+}
+
+@keyframes transformTextIn {
+    0%   { content: 'ldej'; }
+    8%   { content: 'ladej'; }
+    16%  { content: 'laudej'; }
+    24%  { content: 'laurdej'; }
+    32%  { content: 'lauredej'; }
+    40%  { content: 'laurendej'; }
+    48%  { content: 'laurencdej'; }
+    56%  { content: 'laurencedej'; }
+    64%  { content: 'laurence dej'; }
+    72%  { content: 'laurence de j'; }
+    80%  { content: 'laurence de jo'; }
+    88%  { content: 'laurence de jon'; }
+    100% { content: 'laurence de jong'; }
+}
+
+@keyframes transformTextOut {
+    100% { content: 'ldej'; }
+    88%  { content: 'ldejg'; }
+    80%  { content: 'ldejng'; }
+    72%  { content: 'ldejong'; }
+    64%  { content: 'lde jong'; }
+    56%  { content: 'l de jong'; }
+    48%  { content: 'le de jong'; }
+    40%  { content: 'lce de jong'; }
+    32%  { content: 'lnce de jong'; }
+    24%  { content: 'lence de jong'; }
+    16%  { content: 'lrence de jong'; }
+    8%   { content: 'lurence de jong'; }
+    0%   { content: 'laurence de jong'; }
+}
+
+.logo-animated {
+    width: 15em;
+}
+
+.logo-animated span {
+    display: none;
+}
+
+.logo-animated:before {
+    animation: transformTextOut 0.4s ease-in-out;
+    content: 'LdeJ';
+}
+
+.logo-animated:hover:before {
+    animation: transformTextIn 0.4s ease-in-out;
+    content: 'Laurence de Jong';
+}
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 90rem;
+}
+
+.site-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    margin-top: 1.6rem;
+    margin-bottom: 3.2rem;
+}
+
+.about {
+    text-align: center;
+}
+
+.icons {
+    list-style: none;
+    padding: 0;
+}
+
+.icons a {
+    height: 25px;
+    width: 25px;
+}
+
+.icons li {
+    display: inline-block;
+}
+
+.avatar img {
+    height: 250px;
+}

@@ -1,0 +1,21 @@
+{{ partial "head.html" . }}
+<div class="site-wrapper">
+    {{ partial "header.html" . }}
+    {{ if isset .Site.Params "description" }}
+    <meta name="description" content="{{ .Site.Params.description }}">
+    {{ end }}
+    <div class="content centered">
+        <div class="about">
+            <div class="avatar">
+                <img class="circle" src="{{ resources.Get "images/ldej.jpg" }}" />
+            </div>
+            <h1>Laurence de Jong</h1>
+            <h2>Full Stack Software Engineer</h2>
+            <ul class="icons">
+                <li><a class="fa fa-github github" href="https://github.com/ldej"></a></li>
+                <li><a class="fa fa-linkedin linkedin" href="https://www.linkedin.com/in/laurencedejong/"></a></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+</div>

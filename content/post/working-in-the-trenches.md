@@ -4,7 +4,9 @@ date: 2020-07-09T17:58:21+05:30
 draft: false
 ---
 
-Whenever I join a project I'm curious to find out what the situation is like. Which technology stack are they using? What is the developer experience like? What is the technical debt? Are they doing agile development? I like to be surprised in a positive way, but for this project it was rather the opposite. I'm not going to disclose too many details as I don't want to call them out publicly. I will say that it's a project in the educational industry.
+Whenever I join a project I'm curious to find out what the situation is like. Which technology stack are they using? What is the developer experience like? What is the technical debt? Are they doing agile development? I like to be surprised in a positive way, but for this project it was rather the opposite. 
+
+I'm not going to disclose too many details as I don't want to call them out publicly. I will say that it's a project in the educational industry.
 
 One of the first things I notice is that their Gitlab contains 1000+ repositories. I'm working on one product but there are multiple products in these repositories. This is either going to be a well structured project or a splintered mess. The project is just a couple of years old and has less than 100 employees and a number of external parties developing for them.
 
@@ -40,15 +42,11 @@ Without documentation, version control, dependency management and tests it can t
 
 Changing anything in any applet or backend service feels like juggling with loaded guns.
 
-
-
 As a developer you want to be able to experiment without breaking things for other people. Using a central environment or database for developers is unfortunately a common practise. This project was suffering the same faith. Remember the dev environment I referred to? The dev environment is what developers work against. You run the main project locally, but everything else is coming from dev. The applets will connect to the gateway of dev by default. This is how many developers work but it also creates a single point of failure. If any developer experiments a bit too much, all developers might be stuck due to a broken environment. Next to that, who is going to make sure that the database is in any way representative of the other environments?
 
 There is an option for developers to get their database to run locally. But this also means you run out-of-sync quickly with the other environments. Also, the applets will still connect to backend services on dev, using the dev database. This leads to data incompatibilities. Running all 40 services locally is not an option. After starting the 8th service my machine completely froze, incapable of handling all those memory hungry jvms.
 
 The dev environment requires 7 machines. These machines were not hosted in any of the big cloud providers, instead they were managed by a cloud provider. There is no web interface to see or manage anything when it comes to instances. You basically have to live with what is provided. The only way to get another instance is by requesting it (with a very good reason), getting it approved and waiting a number of days. The dev machines are running an older version of an operation system and have not seen a security patch since the day they were created.
-
-
 
 Let's say you made changes to code and feel confident that it is going to work. When your changes are merged you need to get them deployed to the dev environment. The way to do that is by going to their Jenkins instance which, as you may expect by now, has not been updated since the day it has been setup. Jenkins contains many jobs for building services, in fact it also contains many views (groups of jobs). Nobody had ever invested time in setting up a good build pipeline. They had never heard of or seen the option to parameterise jobs. As a result they copied each job for each service for every release for every environment. Over a small period of time this has lead to a completely filled up hard disk and the regular task of cleaning up jobs in Jenkins to make space.
 
@@ -62,8 +60,6 @@ The developer experience was terrible. You never know where to find code, there 
 
 The dev environment, and all other environments for that matter, did not have any aggregated logging, monitoring or alerting. The logs for dev could be accessed by checking the docker logs of the containers. We did not have access to other environments. Logs were not traceable for requests or for users. Quite often services would be down for extended periods of time without anybody noticing. Issues on production would often be reported by tenants or their users. Issues would be debugged by trying to reproduce them on dev or locally, many times without avail.
 
-
-
 I started this story with a number of questions. One of them is: "Are they doing agile development?" Well, the short answer is no, but they wanted to. They work in sprints of 4 weeks. That's a bit long to my taste. However, that is not the worst part of this. Each sprint consists of 2 weeks of development, 1 week of testing on QA and 1 week of testing on staging after which the deployment to production would happen. You might be wondering what the developers are doing during the other two weeks. They are fixing bugs that have been introduced by their changes that have been tested, they are fixing bugs that have been reported by their customers and quite often they continue developing on the items that did not manage to be finished in the 2 weeks of development.
 
 During the last 2 weeks of the sprint there are what they call grooming sessions of about an hour every day. In a grooming session the various product owners walk through the stories that are lined up for the coming sprint. The stories include requests from tenants, internal requests for more functionality and some reported bugs. Stories vary in size from a small enhancement to work that might take more than a sprint. Requests from tenants can be bugs or enhancements, quite often they were enhancements disguised as bugs. In case they are actual bugs they are often not more than a small email, possibly with a screenshot. In some cases the environment and login credentials would be mentioned, but these credentials would not be tested and the bug would not be reproduced or confirmed before the grooming session. 
@@ -73,6 +69,3 @@ The grooming sessions are attended by product owners, developers, testers and th
 Planning of what would fit in the sprint is difficult, even if you are very good at splitting up stories and making estimations. However, in this case the estimation is done by the product owners before the grooming sessions. They would grade the complexity of a story as "easy", "medium" or "hard". How do you know if the groomed stories fit in the sprint? You don't. Nobody looks at the capacity, nobody tracks the velocity. In the end this means that every sprint will be filled up with items that the product owners would like to see in that sprint. This also results in every sprint not being finished on time and big stories being completely transferred to the next sprint.
 
 If you look at the types of stories I mentioned you might see that a critical one is missing: technical debt. Who is going to automate deployment? Who makes time for setting up a testing framework? Who is going to upgrade dependencies? No time is planned for any of the activities that make sure that a developer is working in a workable environment. Because of this, dependencies of all services were stuck on where they were when they got included, the MongoDB database was stuck on it's initial version, the operating systems were living in the past. If you don't plan time for keeping up with the essentials, then how do you make time for improving the situation?
-
-
-
