@@ -34,7 +34,7 @@ jobs:
           extended: false # optional, default is false
       
       - name: Build
-        run: hugo --minify -D
+        run: hugo --environment production --minify -D
       
       - name: Deploy
         run: |

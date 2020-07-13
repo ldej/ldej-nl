@@ -2,9 +2,10 @@
 title: "Working in the Trenches"
 date: 2020-07-09T17:58:21+05:30
 draft: false
+summary: "I joined a project which turns out to have substantial technical debt."
 ---
 
-Whenever I join a project I'm curious to find out what the situation is like. Which technology stack are they using? What is the developer experience like? What is the technical debt? Are they doing agile development? I like to be surprised in a positive way, but for this project it was rather the opposite. 
+Whenever I join a project I'm curious to find out what the situation is like. Which technology stack are they using? What is the developer experience like? What is the technical debt? Are they doing agile development? I like to be positively surprised, but for this project it was rather the contrary. 
 
 I'm not going to disclose too many details as I don't want to call them out publicly. I will say that it's a project in the educational industry.
 
