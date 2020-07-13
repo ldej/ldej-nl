@@ -5,5 +5,4 @@ draft: false
 slug: "about"
 ---
 
-The about page
 
