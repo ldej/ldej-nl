@@ -1,1 +1,2 @@
-baseURL = "ldej.nl"
+baseURL = "https://ldej.nl/"
+googleAnalytics = "UA-11319855-2"
