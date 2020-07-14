@@ -20,6 +20,15 @@
 .icons a.github { background: url(images/icons/github.png) left top no-repeat; }
 .icons a.linkedin { background: url(images/icons/linkedin.png) left top no-repeat; }
 
+.reddit {
+    padding-top: 2em;
+}
+
+.reddit h4 {
+    max-width: 600px;
+    margin: auto;
+}
+
 .site-title {
     text-transform: uppercase;
     font-family: Lato,Helvetica,sans-serif;
