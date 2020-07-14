@@ -3,6 +3,8 @@ title: "Working in the Trenches"
 date: 2020-07-09T17:58:21+05:30
 draft: false
 summary: "I joined a project which turns out to have substantial technical debt."
+tags:
+- Developer Experience
 
 reddit:
   created: 1594708583 

@@ -1,3 +1,9 @@
 languageCode = "en-us"
 title = "ldej"
 theme = ["pixyll"]
+
+[indexes]
+    tag = "tags"
+
+[params]
+    paginate = 10
