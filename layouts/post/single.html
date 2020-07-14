@@ -22,7 +22,9 @@
       </p>
       {{ end }} {{ end }}
 
-      {{ partial "reddit.html" . }}
+      {{ if .Params.reddit }}
+        {{ partial "reddit.html" . }}
+      {{ end }}
 
       {{ partial "comments.html" . }}
     </div>
