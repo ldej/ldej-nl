@@ -159,3 +159,10 @@
         font-size: 1rem;
     }
 }
+
+.post-meta a {
+    color: #7a7a7a;
+    font-size: 1em;
+    font-style: normal;
+    text-decoration: underline;
+}

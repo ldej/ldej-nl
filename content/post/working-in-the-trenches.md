@@ -5,7 +5,6 @@ draft: false
 summary: "I joined a project which turns out to have substantial technical debt."
 tags:
 - Developer Experience
-
 reddit:
   created: 1594708583 
   url: https://www.reddit.com/r/ldej/comments/hqwgj8/discuss_working_in_the_trenches/

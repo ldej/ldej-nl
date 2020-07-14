@@ -7,7 +7,7 @@
         <span class="post-meta">{{ .Date.Format "Jan 2, 2006" }} {{ if isset .Params "author" }} by {{ .Params.author }} {{ end }}</span><br>
         <h1 class="py2">{{ .Title }}</h1>
         {{ $baseurl := .Site.BaseURL }}
-        <p>Source: <a href="{{ .Params.source }}">{{ .Params.source }}</a>
+        <p><a href="{{ .Params.source }}">Source</a></p>
       </div>
 
       <article class="post-content">
