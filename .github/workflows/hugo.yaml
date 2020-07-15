@@ -13,17 +13,17 @@ jobs:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Setup gcloud environment
-        uses: GoogleCloudPlatform/github-actions@0.1.1
-        with:
-          # The version of the gcloud SDK to be installed.  Example: 275.0.0
-          version: '275.0.0'
-          # The service account email which will be used for authentication.
-          service_account_email: ${{ secrets.SA_EMAIL }}
-          # The service account key which will be used for authentication.
-          # Base64 encode the .json first! cat myfile.json | base64
-          # https://github.com/GoogleCloudPlatform/github-actions/tree/master/setup-gcloud#inputs
-          service_account_key: ${{ secrets.SA_KEY }}
+#      - name: Setup gcloud environment
+#        uses: GoogleCloudPlatform/github-actions@0.1.1
+#        with:
+#          # The version of the gcloud SDK to be installed.  Example: 275.0.0
+#          version: '275.0.0'
+#          # The service account email which will be used for authentication.
+#          service_account_email: ${{ secrets.SA_EMAIL }}
+#          # The service account key which will be used for authentication.
+#          # Base64 encode the .json first! cat myfile.json | base64
+#          # https://github.com/GoogleCloudPlatform/github-actions/tree/master/setup-gcloud#inputs
+#          service_account_key: ${{ secrets.SA_KEY }}
 
       - name: Hugo setup
         uses: peaceiris/actions-hugo@v2.4.12
@@ -35,7 +35,14 @@ jobs:
       
       - name: Build
         run: hugo --environment production --minify -D
-      
-      - name: Deploy
-        run: |
-          gcloud app deploy --quiet --project ldej-nl
+
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+#      - name: Deploy
+#        run: |
+#          gcloud app deploy --quiet --project ldej-nl
