@@ -60,8 +60,9 @@ Add a secret with name SA_EMAIL and as value the service account email address
 
 Add a secret with name SA_KEY and as value the base64 encoded key
 
-## Code
+## Firebase
 
-Configure the app.yaml
+https://gohugo.io/hosting-and-deployment/hosting-on-firebase/
 
-Add the github workflow
+https://github.com/marketplace/actions/github-action-for-firebase
+
