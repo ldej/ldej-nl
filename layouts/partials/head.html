@@ -27,12 +27,10 @@
     <!-- Fonts -->
     {{ partial "fonts.html" }}
 
-    <style>
-        {{ readFile "public/css/combined-min.css" | safeCSS }}
-    </style>
-
     {{ $mycss := resources.Get "css/my.css"}}
-    {{ $mycssbundle := slice $mycss | resources.Concat "mybundle.css" | minify | fingerprint }}
+    {{ $combinedcss := resources.Get "css/combined.css"}}
+    {{ $syntaxcss := resources.Get "css/syntax.css"}}
+    {{ $mycssbundle := slice $combinedcss $mycss $syntaxcss | resources.Concat "mybundle.css" | minify | fingerprint }}
     <style>
         {{ $mycssbundle.Content | safeCSS }}
     </style>

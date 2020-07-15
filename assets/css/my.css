@@ -3,27 +3,6 @@
     border-radius: 50%;
 }
 
-.social-icons {
-    list-style: none;
-}
-
-.social-icons a {
-    height: 25px;
-    width: 25px;
-    opacity: 0.8;
-    transition: opacity 0.5s;
-}
-
-.social-icons a:hover {
-    transition: opacity 0.5s;
-    opacity: 1;
-}
-
-.social-icons li {
-    display: inline-block;
-    padding: 10px;
-}
-
 .reddit {
     padding-top: 2em;
 }
@@ -34,7 +13,6 @@
 }
 
 .site-title {
-    text-transform: uppercase;
     font-family: Lato,Helvetica,sans-serif;
     letter-spacing: .1rem;
     font-size: 1.0rem;
@@ -112,56 +90,8 @@
     margin-bottom: 3.2rem;
 }
 
-.about {
-    text-align: center;
-}
-
 .avatar img {
     height: 250px;
-}
-
-@media screen and (min-width: 48em) {
-    .h1,
-    h1 {
-        font-size: 2.250rem;
-    }
-
-    .h2,
-    h2 {
-        font-size: 1.8rem;
-    }
-
-    .h3,
-    h3 {
-        font-size: 1.325rem;
-    }
-
-    .h4,
-    h4 {
-        font-size: 1.150rem;
-    }
-}
-
-@media screen and (max-width: 48em) {
-    .h1,
-    h1 {
-        font-size: 2.0rem;
-    }
-
-    .h2,
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    .h3,
-    h3 {
-        font-size: 1.213rem;
-    }
-
-    .h4,
-    h4 {
-        font-size: 1rem;
-    }
 }
 
 .post-meta a {
