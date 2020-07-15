@@ -3,22 +3,26 @@
     border-radius: 50%;
 }
 
-.icons {
+.social-icons {
     list-style: none;
-    padding: 0;
 }
 
-.icons a {
+.social-icons a {
     height: 25px;
     width: 25px;
+    opacity: 0.8;
+    transition: opacity 0.5s;
 }
 
-.icons li {
+.social-icons a:hover {
+    transition: opacity 0.5s;
+    opacity: 1;
+}
+
+.social-icons li {
     display: inline-block;
+    padding: 10px;
 }
-
-.icons a.github { background: url(images/icons/github.png) left top no-repeat; }
-.icons a.linkedin { background: url(images/icons/linkedin.png) left top no-repeat; }
 
 .reddit {
     padding-top: 2em;

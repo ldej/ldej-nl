@@ -28,14 +28,20 @@
     <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic&subset=latin,cyrillic-ext,cyrillic&display=swap'>
     <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Lato:900,300&display=swap'>
 
-    <link rel="stylesheet" type="text/css" href="/css/combined-min.css">
+    <style>
+        {{ readFile "public/css/combined-min.css" | safeCSS }}
+    </style>
 
     {{ $mycss := resources.Get "css/my.css"}}
     {{ $mycssbundle := slice $mycss | resources.Concat "mybundle.css" | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $mycssbundle.RelPermalink }}" integrity="{{ $mycssbundle.Data.Integrity }}">
+    <style>
+        {{ $mycssbundle.Content | safeCSS }}
+    </style>
 
     {{ $myjs := resources.Get "js/my.js" }}
     {{ $myjsbundle := slice $myjs | resources.Concat "js/bundle.js" }}
-    <script src="{{ $myjsbundle.RelPermalink }}" integrity="{{ $myjsbundle.Data.Integrity }}" defer></script>
+    <script>
+        {{ $myjsbundle.Content | safeJS }}
+    </script>
 </head>
 <body class="">
