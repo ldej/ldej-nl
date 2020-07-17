@@ -788,7 +788,7 @@ body {
     -webkit-box-sizing: border-box
 }
 
-.gist, .gist .highlight {
+.gist, .gist {
     font-size: .75rem
 }
 
@@ -950,14 +950,16 @@ pre, code {
 }
 
 code span {
-    margin-bottom: 0px;
-    margin-top: 0px;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 .highlight {
-    font-size: 1rem;
+    font-size: 12px;
     margin-bottom: 1rem;
     border: lightgray solid 1px;
+    border-radius: 6px;
+    line-height: 20px;
 }
 
 pre {
