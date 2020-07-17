@@ -8,7 +8,7 @@
       {{ if isset .Params "tags" }} {{ if len .Params.tags }}
         {{ range $i, $e := .Params.tags }}
           {{if $i}} ·&nbsp;{{end}}
-          {{ . }}
+          <span class="tag">{{ partial "svg/label.html" }} {{ . }}</span>
         {{ end }}
       {{ end }}
       {{ end }}

@@ -94,9 +94,15 @@
     height: 250px;
 }
 
-.post-meta a {
+span.tag {
     color: #7a7a7a;
     font-size: 1em;
     font-style: normal;
-    text-decoration: underline;
+    border: 1px lightgrey solid;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.tag svg {
+    fill: #7a7a7a;
 }
