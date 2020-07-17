@@ -11,7 +11,7 @@
           {{ if isset .Params "tags" }} {{ if len .Params.tags }}
             {{ range $i, $e := .Params.tags }}
               {{if $i}} ·&nbsp;{{end}}
-              <a href="{{ $baseurl }}{{ $.Site.LanguagePrefix }}/tags/{{ . | urlize }}"><span class="tag">{{ partial "svg/label.html" }} {{ . }}</span></a>
+              <a href="{{ $baseurl }}{{ $.Site.LanguagePrefix }}/tags/{{ . | urlize }}"><span class="tag">{{ partial "svg/label.html" }}&nbsp;{{ . }}</span></a>
               {{ end }}
             {{ end }}
           {{ end }}

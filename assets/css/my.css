@@ -100,7 +100,7 @@ span.tag {
     font-style: normal;
     border: 1px lightgrey solid;
     border-radius: 4px;
-    padding: 4px;
+    padding: 5px;
 }
 
 .tag svg {
