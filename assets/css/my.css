@@ -106,3 +106,20 @@ span.tag {
 .tag svg {
     fill: #7a7a7a;
 }
+
+.tip {
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    padding: 1em;
+    border: 1px lightgrey solid;
+    border-radius: 10px;
+    background: lightyellow;
+}
+
+.tip-title {
+    font-size: 1rem;
+}
+
+.tip-content, .tip-content p {
+    font-size: 0.8rem;
+}

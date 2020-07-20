@@ -903,9 +903,13 @@ body {
     font-size: 1rem;
     font-weight: 300;
     margin: 0;
-    padding: .25em 0;
+    padding: .5em 0;
     color: #7a7a7a;
     font-style: italic
+}
+
+.post-summary {
+    margin-top: 1em;
 }
 
 .pagination .button {
@@ -952,6 +956,15 @@ pre, code {
 code span {
     margin-bottom: 0;
     margin-top: 0;
+}
+
+p code, li code, .tip-content code {
+    background: #636363;
+    color: white;
+    border-radius: 5px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 1px;
 }
 
 .highlight {
@@ -1016,7 +1029,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     .meta, .post-meta {
         margin: 0;
         padding: 0;
-        font-size: 1.25rem
+        font-size: 1rem
     }
 
     .h1, h1 {
@@ -1036,7 +1049,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     }
 
     p, li {
-        font-size: 1.25rem;
+        font-size: 1rem;
         line-height: 1.8
     }
 
@@ -1118,7 +1131,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     }
 
     .posts .post-meta .post-author {
-        padding-bottom: .2em
+        padding-bottom: .5em
     }
 
     .post-link .post-title {

@@ -2,6 +2,9 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 draft: true
+summary:
+tags:
+- 
 
 #reddit:
 #  created: 1594708583 
