@@ -1,5 +1,5 @@
 ---
-title: "Go Intellij Magic"
+title: "Go IntelliJ Magic"
 date: 2020-07-13T15:24:06+05:30
 source: https://www.youtube.com/watch?v=arZiFSerU1k
 tags: 

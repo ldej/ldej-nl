@@ -7,6 +7,7 @@ theme = ["pixyll"]
 
 [params]
     paginate = 10
+    description = "A place where Laurence de Jong writes about things."
 
 [sitemap]
   #changefreq = "monthly"

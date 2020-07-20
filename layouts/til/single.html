@@ -4,30 +4,26 @@
   <div class="post p2 p-responsive wrap" role="main">
     <div class="measure">
       <div class="post-header mb2">
-        <span class="post-meta">{{ .Date.Format "Jan 2, 2006" }} {{ if isset .Params "author" }} by {{ .Params.author }} {{ end }}</span><br>
-        <h1 class="py2">{{ .Title }}</h1>
+        <h1>{{ .Title }}</h1>
         {{ $baseurl := .Site.BaseURL }}
-        <p><a href="{{ .Params.source }}">Source</a></p>
+        <span class="post-meta">{{ .Date.Format "Jan 2, 2006" }} · <a href="{{ .Params.source }}">Source</a> ·
+          {{ if isset .Params "tags" }} {{ if len .Params.tags }}
+            {{ range $i, $e := .Params.tags }}
+              {{if $i}} ·&nbsp;{{end}}
+              <a href="{{ $baseurl }}{{ $.Site.LanguagePrefix }}/tags/{{ . | urlize }}"><span class="tag">{{ partial "svg/label.html" }}&nbsp;{{ . }}</span></a>
+            {{ end }}
+          {{ end }}
+          {{ end }}
+        </span>
       </div>
 
       <article class="post-content">
       {{ .Content }}
       </article>
 
-      {{ if isset .Params "tags" }} {{ if len .Params.tags }}
-      <p class="post-meta">&nbsp;
-        {{ range $i, $e := .Params.tags }}
-            {{if $i}},&nbsp;{{end}}
-            <a href="{{ $baseurl }}{{ $.Site.LanguagePrefix }}/tags/{{ . | urlize }}"><span class="tag">{{ partial "svg/label.html" }}&nbsp;{{ . }}</span></a>
-        {{ end }}
-      </p>
-      {{ end }} {{ end }}
-
       {{ if .Params.reddit }}
         {{ partial "reddit.html" . }}
       {{ end }}
-
-      {{ partial "comments.html" . }}
     </div>
   </div>
 </div>
