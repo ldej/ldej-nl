@@ -22,7 +22,7 @@ To create your static website, you need to have Hugo installed. You can easily i
 
 I've got Go installed, the language that Hugo is written in and uses for its templates, so I'm using Go's dependency management:
 
-```shell script
+```zsh
 $ mkdir -p ~/projects/my-site
 $ cd ~/projects/my-site
 $ go mod init github.com/ldej/my-site
@@ -55,7 +55,7 @@ $ git submodule add https://github.com/lxndrblz/anatole.git themes/anatole
 
 Add the theme to the site configuration:
 ```shell script
-echo 'theme = "anatole"' >> config.toml
+$ echo 'theme = "anatole"' >> config.toml
 ```
 
 Create your first content:
@@ -111,7 +111,7 @@ $ firebase login
 ```
 
 In the root of your project run `firebase init`. It is going to ask you a number of questions:
-```shell script
+```console {hl_lines=[18]}
 $ firebase init
 
      ######## #### ########  ######## ########     ###     ######  ########
