@@ -123,3 +123,26 @@ span.tag {
 .tip-content, .tip-content p {
     font-size: 0.8rem;
 }
+
+.post-content figure {
+    text-align: center;
+}
+
+.big-point {
+    margin: 15px;
+}
+
+.big-point-number {
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+    width: 40px;
+    background-color: #888;
+    border-radius: 50%;
+    display: inline-block;
+    color: white;
+}
+
+.big-point-title {
+    display: inline;
+}

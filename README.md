@@ -1,5 +1,7 @@
 # What have I done
 
+![Hugo](https://github.com/ldej/ldej-nl/workflows/Hugo/badge.svg)
+
 ## Hugo
 Install hugo
 ```shell script

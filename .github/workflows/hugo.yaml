@@ -22,7 +22,7 @@ jobs:
           extended: false # optional, default is false
       
       - name: Build
-        run: hugo --environment production --minify -D
+        run: hugo --environment production --minify
 
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
