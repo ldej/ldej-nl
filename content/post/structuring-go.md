@@ -1,7 +1,7 @@
 ---
 title: "A Collection of Structuring Go"
 date: 2020-07-21T11:07:11+05:30
-draft: true
+draft: false
 summary: "Because a lot of smart people have written a lot of articles on how to structure your go application."
 tags:
 - Go
