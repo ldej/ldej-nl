@@ -2,7 +2,7 @@
 title: "A Collection of Structuring Go"
 date: 2020-07-21T11:07:11+05:30
 draft: false
-summary: "Because a lot of smart people have written a lot of articles on how to structure your go application."
+summary: "A lot of smart people have written a lot of articles on how to structure your go application. This is a collection and summary of the most important points."
 tags:
 - Go
 - Web

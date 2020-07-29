@@ -1,9 +1,6 @@
 {{ partial "head.html" . }}
 <div class="site-wrapper">
     {{ partial "header.html" . }}
-    {{ if isset .Site.Params "description" }}
-    <meta name="description" content="{{ .Site.Params.description }}">
-    {{ end }}
     <div class="content centered">
         <div class="about center">
             <div class="avatar">
