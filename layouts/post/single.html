@@ -1,12 +1,16 @@
 {{ partial "head.html" . }}
 <div class="site-wrap">
   {{ partial "header.html" . }}
+  <div class="hero-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ .Params.Image }}')">
+      <div class="hero-text">
+          <h1 class="py2">{{ .Title }}</h1>
+      </div>
+  </div>
   <div class="post p2 p-responsive wrap" role="main">
     <div class="measure">
       <div class="post-header mb2">
         {{ $baseurl := .Site.BaseURL }}
 
-        <h1 class="py2">{{ .Title }}</h1>
         <span class="post-meta">{{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} minute read ·
           {{ if isset .Params "tags" }} {{ if len .Params.tags }}
             {{ range $i, $e := .Params.tags }}

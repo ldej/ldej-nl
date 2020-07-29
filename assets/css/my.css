@@ -101,6 +101,7 @@ span.tag {
     border: 1px lightgrey solid;
     border-radius: 4px;
     padding: 5px;
+    white-space: nowrap;
 }
 
 .tag svg {
@@ -145,4 +146,26 @@ span.tag {
 
 .big-point-title {
     display: inline;
+}
+
+.hero-image {
+    /* Set a specific height */
+    height: 300px;
+    width: 100%;
+
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: grid;
+    place-items: center;
+}
+
+.hero-text {
+    text-align: center;
+    color: white;
+    max-width: 48rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }

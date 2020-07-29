@@ -89,7 +89,7 @@
       "dateModified": "{{ .Lastmod.Format "2006-01-02" }}",
       "image": {
         "@type": "imageObject",
-        "url": "{{ with .Params.image }}{{ .Permalink }}{{ end }}"
+        "url": "{{ .Site.BaseURL }}{{ .Params.image }}"
       },
       "publisher": {
         "@type": "Organization",
