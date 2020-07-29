@@ -8,10 +8,10 @@ tags:
 - Go
 - Web
 
-#reddit:
-#  created: 1594708583 
-#  url: https://www.reddit.com/r/ldej/comments/hqwgj8/discuss_working_in_the_trenches/
-#  title: "Working in the Trenches"
+reddit:
+  created: 1596007315
+  url: https://www.reddit.com/r/ldej/comments/hzwa38/a_collection_of_structuring_go/
+  title: "A Collection of Structuring Go"
 ---
 
 I've been making web applications in Go for the past three years. The first project I joined used a flat hierarchy where all files are in the root of the project. When the project reached around 30 files we started grouping files into packages based on functionality. I made some mistakes and regularly ended up with cyclic dependencies. I searched and found structures that all looked very different from each other. None of them gave a satisfying guideline on how to structure an application in Go.

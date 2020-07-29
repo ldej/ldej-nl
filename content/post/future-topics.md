@@ -19,3 +19,5 @@ AppEngine
 ## Go microservices
 
 https://ewanvalentine.io/microservices-in-golang-part-1/
+
+https://withblue.ink/2019/03/20/hugo-and-ipfs-how-this-blog-works-and-scales.html
