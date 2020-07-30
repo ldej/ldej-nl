@@ -9,15 +9,18 @@ draft: true
 #  title: "Working in the Trenches"
 ---
 
-https://github.com/evanw/esbuild
-IPFS
-Hugo extensions
-Go-wasm
-gRPC
-AppEngine
-
-## Go microservices
-
-https://ewanvalentine.io/microservices-in-golang-part-1/
-
-https://withblue.ink/2019/03/20/hugo-and-ipfs-how-this-blog-works-and-scales.html
+- https://github.com/evanw/esbuild
+- IPFS
+- Hugo extensions
+- Go-wasm
+- gRPC
+- AppEngine
+- go-kit
+- https://ewanvalentine.io/microservices-in-golang-part-1/
+- https://withblue.ink/2019/03/20/hugo-and-ipfs-how-this-blog-works-and-scales.html
+- https://lpfann.me/post/decentralized-site/
+- https://tarunbatra.com/blog/decentralization/Deploy-your-website-on-IPFS-Why-and-How/
+- https://teetotality.blog/posts/how-this-blog-was-made/
+- https://medium.com/pinata/what-is-an-ipfs-pinning-service-f6ed4cd7e475
+- https://medium.com/textileio/easy-personal-ipfs-pinning-service-with-textile-9d366da4e420
+- https://pinata.cloud/
