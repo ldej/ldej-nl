@@ -7,6 +7,7 @@ image: /images/ladakh1.webp
 tags:
 - Go
 - Web
+- Domain-Driven Design
 
 reddit:
   created: 1596007315
@@ -373,41 +374,24 @@ Repository: [github.com/katzien/go-structure-examples](https://github.com/katzie
 
 Kat has given a number of great talks for if you prefer to digest content via video and audio. She goes over the same structures as Jon Calhoun. The linked repository contains links to her videos.
 
+## Windi Chandra
+
+Article: [Domain-Driven Design in Go](https://medium.com/learnfazz/domain-driven-design-in-go-253155543bb1)
+
+Windi takes the DDD approach quite literally and structures the folders according to the theory. The folders in the root are named after the 4 layers described in DDD. Within the domain package there are four packages named after the terms that are used in DDD. By separating the domain I can imagine a situation in which this can lead to circular dependencies between entities and value objects. There is a usage of, as recognized by Windi, flawed singleton pattern where global variables are used instead of dependency injection.
+
+```shell script
+my-windi-app
+├── application
+├── domain
+│   ├── entity
+│   ├── repository
+│   ├── service
+│   └── value
+├── infrastructure
+└── interface
+```
+
 ## Conclusion
 
-I have learned a lot, reading through all these articles and repositories and watching videos. I've got another 20 or so links to go through which I might eventually add here too. Also, I should write another article about the structure that I'm going to use for my next project.
-
-<!--
-https://medium.com/learnfazz/domain-driven-design-in-go-253155543bb1
-https://dev.to/stevensunflash/using-domain-driven-design-ddd-in-golang-3ee5
-https://engineering.grab.com/domain-driven-development-in-golang
-
-
-https://www.youtube.com/watch?v=KCyMtx5ev80
-
-https://manuel.kiessling.net/2012/09/28/applying-the-clean-architecture-to-go-applications/
-https://github.com/golang-standards/project-layout
-https://itnext.io/structuring-a-production-grade-rest-api-in-golang-c0229b3feedc
-Eddy Kiselman https://www.youtube.com/watch?v=YfLPZOpJQjY&feature=youtu.be
-https://www.perimeterx.com/tech-blog/2019/ok-lets-go/
-https://blog.learngoprogramming.com/code-organization-tips-with-packages-d30de0d11f46
-https://blog.learngoprogramming.com/special-packages-and-directories-in-go-1d6295690a6b
-
-https://changelog.com/gotime/94
-
-Composition of interfaces
-http://josebalius.com/posts/go-app-structure/
-
-Not that much about structure
-https://engineering.kablamo.com.au/posts/2020/testing-go
-https://eli.thegreenplace.net/2019/simple-go-project-layout-with-modules/
-https://aaf.engineering/go-web-application-structure-pt-1/
-https://www.sohamkamani.com/blog/2017/09/13/how-to-build-a-web-application-in-golang/
-https://itnext.io/structuring-a-production-grade-rest-api-in-golang-c0229b3feedc
-https://tutorialedge.net/golang/go-project-structure-best-practices/
-https://cgansen.github.io/sxsw-go-talk/#/
-
-Too basic:
-https://www.wolfe.id.au/2020/03/10/how-do-i-structure-my-go-project/
-
- --!>
+I have learned a lot, reading through all these articles and repositories and watching videos. I will write another article about the structure that I'm going to use for my next project.
