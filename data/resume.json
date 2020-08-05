@@ -1,0 +1,248 @@
+{
+  "basics": {
+    "name": "Laurence de Jong",
+    "label": "Software Engineer",
+    "picture": "/images/ldej.webp",
+    "email": "resume@ldej.nl",
+    "phone": "+91 844 8244 800",
+    "website": "https://ldej.nl",
+    "summary": "",
+    "location": "Gurgaon, India"
+  },
+  "work": [
+    {
+      "company": "Xebia",
+      "location": "Gurgaon, India",
+      "position": "Senior Consultant",
+      "website": "https://xebia.com",
+      "startDate": "Feb 2020",
+      "endDate": "present",
+      "highlights": [
+        "Gave talks on Google Cloud, Go Architecture, IPFS and  at the bi-weekly knowledge exchange sessions.",
+        "Participated as judge at the Hackaton of the technical university in Dheradun.",
+        "Participated in the hiring process by interviewing potential new hires."
+      ],
+      "clients": [
+        {
+          "company": "Unifyed",
+          "position": "Senior Software Engineer",
+          "location": "Gurgaon, India (remote due to lockdown)",
+          "website": "https://www.unifyed.com",
+          "startDate": "Mar 2020",
+          "endDate": "Jul 2020",
+          "keywords": "mongodb, nginx, microservices, jenkins, scrum",
+          "highlights": [
+            "Implemented performance optimizations in a number of ways including hosting static files with nginx.",
+            "Planned and upgraded their running MongoDB PSA clusters from version 3.4 to 4.2. Upgraded MongoDB drivers in all microservices and resolved compatibility issues.",
+            "Identified and planned technical debt backlog.",
+            "Took Scrum Master role and set up a team that worked according to the Scrum methodology.",
+            "Enabled proper refinement, planning, daily stand-ups, demos and retrospective.",
+            "Implemented automated building and deployment of the platform using Jenkins."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Xebia",
+      "position": "Consultant Software Engineer",
+      "location": "Hilversum, The Netherlands",
+      "website": "https://xebia.com",
+      "startDate": "May 2017",
+      "endDate": "Jan 2020",
+      "highlights": [
+        "Gave talks on blockchain and IPFS at the bi-weekly knowledge exchange sessions.",
+        "Participated in bi-monthly innovation days.",
+        "Interviewed potential new hires.",
+        "Co-organized DjangoGirls Amsterdam 2019."
+      ],
+      "clients": [
+        {
+          "company": "Duxxie",
+          "position": "Platform Developer",
+          "location": "Utrecht, The Netherlands",
+          "website": "https://duxxie.nl",
+          "startDate": "Jun 2018",
+          "endDate": "Jan 2020",
+          "keywords": "go, gcp app engine, algolia, react, circleci, scrum",
+          "highlights": [
+            "Tech lead for the development of the platform.",
+            "Developed on the backend written in Go with automated deployment to Google Cloud Platform App Engine. Front-end uses React.",
+            "Onboarding of external suppliers on the platform and integration of their systems.",
+            "Migration of App Engine from runtime v1 to v2.",
+            "Implementation of a catalogue search using Algolia.",
+            "Introduced a CSM for the product catalogue.",
+            "Involved in the daily Scrum operation including refinement, planning, demos, retrospective and daily stand-ups.",
+            "Interviewed potential new hires.",
+            "Occasional back-up for customer support."
+          ]
+        },
+        {
+          "company": "Nextail",
+          "position": "Full-Stack Developer",
+          "location": "Amsterdam, The Netherlands",
+          "website": "http://www.nextail.nl",
+          "startDate": "Jun 2017",
+          "endDate": "May 2018",
+          "keywords": "go, gcp app engine, algolia, circleci, vue.js, scrum",
+          "highlights": [
+            "Develop a multi-tenant e-commerce platform.",
+            "Backend is written in Go with automated deployment to Google Cloud Platform App Engine.",
+            "Incorporate legacy IBM WebSphere e-commerce backend.",
+            "Implement product catalogue search using Algolia.",
+            "Launch of the platform for multiple brands.",
+            "Front-end uses Vue.js and includes a cms using Firebase as a backend.",
+            "Involved in the daily Scrum operation including refinement, planning, demos, retrospective and daily stand-ups.",
+            "Leading development team with remote workers."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Contracts11",
+      "position": "Software Engineer",
+      "location": "Groningen, The Netherlands",
+      "website": "https://contracts11.com",
+      "startDate": "Feb 2015",
+      "endDate": "Nov 2016",
+      "keywords": "python, falcon, livescript, mithril, aws, microservices, rpc, nats, docker, rancher, elasticsearch, logstash, kibana, alertmanager",
+      "highlights": [
+        "Involved in the research of a language to describe business processes. Generate models, database schemas, front-end and back-end functionality based on the descriptions.",
+        "Research in decentralized technologies, smart contracts, Internet-of-Things and LoRaWAN.",
+        "Develop a back office system for a liquor trader that could process price lists in various formats. The system could show price trends across the market and advise on selling and buying.",
+        "Backend uses Python, Falcon and a self-developed rpc system using NATS as message bus.",
+        "Front-end uses Livescript, Mithril and communicated to the backend using a custom rpc library.",
+        "Set up continuous integration using Jenkins.",
+        "Set up Postgres database.",
+        "Set up monitoring, logging and alerting using ElasticSearch, Logstash, Kibana and Alertmanager.",
+        "Set up Docker orchestration using Rancher.",
+        "Set up automated deployment to AWS using EC2, ECS and S3 buckets.",
+        "Collect and prioritize client requirements and inquiries with weekly demos.",
+        "Helped organize the Web11 conference.",
+        "Speaker at Web11 conference.",
+        "Speaker at PyGrunn 2015."
+      ]
+    },
+    {
+      "company": "Paylogic",
+      "position": "Software Developer",
+      "location": "Groningen, The Netherlands",
+      "website": "https://paylogic.com",
+      "startDate": "Sep 2011",
+      "endDate": "Sep 2014",
+      "keywords": "python, django, sqlalchemy, django, pytest",
+      "highlights": [
+        "Research and select a Continuous Integration tool (selected Jenkins).",
+        "Set up Jenkins including a build farm.",
+        "Set up automated database generation for local development.",
+        "Set up automated testing using pytest.",
+        "Set up automated database migrations using Alembic (SQLAlchemy).",
+        "Developed back-end functionality for the ticketing platform using Python, Django, SQLAlchemy, pytest.",
+        "Developed front-end functionality using JavaScript/jQuery.",
+        "Analyzed and solved database performance issues.",
+        "Speaker at PyGrunn 2012."
+      ]
+    },
+    {
+      "company": "Ytec",
+      "position": "Junior Software Developer",
+      "location": "Groningen, The Netherlands",
+      "website": "https://ytec.nl",
+      "startDate": "Nov 2009",
+      "endDate": "Jul 2010",
+      "keywords": "python, django",
+      "highlights": [
+        "Building web shops using Python and Django.",
+        "Building a front-end using JS/jQuery.",
+        "Answering client inquiries."
+      ]
+    },
+    {
+      "company": "Dacolian / Q-Free",
+      "position": "Intern",
+      "location": "Beilen, The Netherlands",
+      "website": "https://www.q-free.com",
+      "startDate": "Apr 2009",
+      "endDate": "Jul 2009",
+      "highlights": [
+        "Developed a video de-interlace filter in C++ using MS DirectShow."
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "DjangoGirls",
+      "position": "Coach",
+      "website": "https://djangogirls.org",
+      "startDate": "Nov 2014",
+      "endDate": "present",
+      "summary": "",
+      "highlights": [
+        "Organised: 03-02-2018 - Amsterdam",
+        "I was a coach at:",
+        "25-05-2019 - Groningen",
+        "03-11-2018 - Groningen",
+        "04-11-2017 - Groningen",
+        "20-05-2017 - Groningen",
+        "12-11-2016 - Groningen",
+        "23-04-2016 - Groningen",
+        "24-10-2015 - Novi Sad, Serbia",
+        "19-09-2015 - Groningen",
+        "21-03-2015 - Groningen",
+        "22-11-2014 - Groningen"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Groningen",
+      "area": "Computing Science",
+      "studyType": "Master of Science (MSc)",
+      "startDate": "Sep 2012",
+      "endDate": "Sep 2015",
+      "courses": [
+        "Advanced Software Architecture",
+        "Web and Cloud Computing",
+        "Information Systems",
+        "Software Maintenance and Evolution",
+        "Software Patterns",
+        "Machine Learning",
+        "Scientific Visualizations",
+        "Robotics",
+        "Ethics and Information Technology",
+        "Law in Information Technology",
+        "Languages and Machines",
+        "Image Processing",
+        "Compiler Building",
+        "Ubiquitous Computing",
+        "Discrete Structures",
+        "Science Philosophy"
+      ]
+    },
+    {
+      "institution": "Hanzehogeschool Groningen",
+      "area": "Technische Informatica",
+      "studyType": "Bachelor of Applied Science (B.A.Sc.)",
+      "startDate": "Sep 2007",
+      "endDate": "Jul 2012",
+      "courses": [
+        "Embedded Software Engineering"
+      ]
+    }
+  ],
+  "publications": [
+    {
+      "name": "Thesis: Decentralized Link Sharing, Towards a Framework for Decentralized Applications",
+      "publisher": "University of Groningen",
+      "releaseDate": "Aug 2015",
+      "website": "http://fse.studenttheses.ub.rug.nl/13283/1/Laurence.de.Jong.s2314363.Thesis.V4.pdf",
+      "summary": ""
+    },
+    {
+      "name": "Applying link analysis algorithms to psychopathology symptom networks",
+      "publisher": "University of Groningen",
+      "releaseDate": "Oct 2014",
+      "website": "https://core.ac.uk/reader/232449792",
+      "summary": ""
+    }
+  ]
+}

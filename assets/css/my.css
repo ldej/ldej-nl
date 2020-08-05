@@ -169,3 +169,82 @@ span.tag {
     padding-left: 2rem;
     padding-right: 2rem;
 }
+
+.timeline-container {
+    max-width: 1024px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    padding: 3em 0em 1em 1em;
+    position: relative;
+    color: #333;
+    border-left: 2px solid lightgrey;
+}
+
+.timeline-item p {
+    font-size: 1rem;
+}
+
+.timeline-item::before {
+     content: attr(date-is);
+     position: absolute;
+     left: 2em;
+     top: 1.5em;
+     display: block;
+     font-family: 'Roboto', sans-serif;
+     font-weight: 700;
+     font-size: .785rem;
+}
+
+.timeline-item::after {
+     width: 10px;
+     height: 10px;
+     display: block;
+     top: 1em;
+     position: absolute;
+     left: -8px;
+     border-radius: 10px;
+     content: '';
+     border: 2px solid darkgray;
+     background: white;
+}
+
+.highlights ul {
+    padding-inline-start: 20px;
+    font-size: 0.9rem;
+}
+
+.position {
+    font-weight: bold;
+}
+
+.keywords {
+    font-style: italic;
+}
+
+.resume-basics .avatar {
+    float: left;
+    place-items: center;
+    display: grid;
+    margin-right: 1em;
+}
+
+.resume-basics .details p {
+    line-height: 1.2;
+}
+
+.resume-basics .summary {
+    clear: both;
+}
+
+.post-content table {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+}
+.post-content table td {
+    padding: 5px;
+    border: 1px solid gray;
+}
