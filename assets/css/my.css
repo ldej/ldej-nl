@@ -169,8 +169,7 @@ span.tag {
 
 .timeline-container {
     max-width: 1024px;
-    width: 90%;
-    margin: 0 auto;
+    margin: 0 0 0 5px;
 }
 
 .timeline-item {
@@ -188,7 +187,7 @@ span.tag {
      content: attr(date-is);
      position: absolute;
      left: 2em;
-     top: 1.5em;
+     top: 1.0em;
      display: block;
      font-family: 'Roboto', sans-serif;
      font-weight: 700;
