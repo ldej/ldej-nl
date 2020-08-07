@@ -121,7 +121,7 @@ span.tag {
     font-size: 1rem;
 }
 
-.tip-content, .tip-content p {
+.tip-content, .tip-content p, .tip-content li {
     font-size: 0.8rem;
 }
 

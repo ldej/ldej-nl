@@ -63,10 +63,11 @@
           "website": "https://duxxie.nl",
           "startDate": "Jun 2018",
           "endDate": "Jan 2020",
-          "keywords": "go, gcp app engine, algolia, react, circleci, scrum",
+          "keywords": "go, gcp app engine, event-sourcing, algolia, react, circleci, scrum",
           "highlights": [
             "Tech lead for the development of the platform.",
             "Developed on the backend written in Go with automated deployment to Google Cloud Platform App Engine. Front-end uses React.",
+            "Worked with and expanded the custom event-sourcing system which uses GCP Task Queues.",
             "Onboarding of external suppliers on the platform and integration of their systems.",
             "Migration of App Engine from runtime v1 to v2.",
             "Implementation of a catalogue search using Algolia.",

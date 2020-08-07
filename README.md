@@ -142,3 +142,12 @@ func main() {
     fmt.Println("done")
 }
 ```
+
+## Hero images
+
+Transform with GIMP to width of 1440 pixels
+Use
+```
+$ sudo apt install webp
+$ cwebp <image.jpg> -o <image.webp>
+```

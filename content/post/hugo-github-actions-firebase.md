@@ -8,6 +8,7 @@ tags:
 - Hugo
 - Firebase
 - Github Actions
+- Web
 
 reddit:
   created: 1595246336
