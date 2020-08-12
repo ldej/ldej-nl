@@ -9,7 +9,7 @@
             <h1>{{ .Title }}</h1>
             <p>{{ .Description }}</p>
             <div class="posts">
-                {{ range (where .Site.RegularPages "Type" "post").GroupByDate "2006" }}
+                {{ range (where .Site.RegularPages "Type" "post").GroupByDate "Jan 2006" }}
                     <h3>{{ .Key }}</h3>
                     <ul>
                     {{ range .Pages }}

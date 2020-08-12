@@ -291,3 +291,7 @@ a.pdf {
         display: none;
     }
 }
+
+.posts li {
+    padding-bottom: 1em;
+}

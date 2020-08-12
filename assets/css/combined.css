@@ -911,7 +911,8 @@ body {
 }
 
 .post-summary {
-    margin-top: 1em;
+    display: block;
+    color: #333;
 }
 
 .pagination .button {
