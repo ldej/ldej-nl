@@ -1,4 +1,6 @@
 {{ $resume := .Site.Data.resume }}
+<a class="pdf" href="/Laurence.de.Jong-resume.pdf">download as pdf</a>
+
 <div class="resume">
     <div class="resume-basics">
         <div class="avatar mobile-block">
@@ -10,10 +12,8 @@
         </div>
         <div class="details">
             <h1>{{ $resume.basics.name }}</h1>
-{{/*            <p class="location">{{ $resume.basics.location }}</p>*/}}
-{{/*            <p><a href="mailto:info-remove-@ldej.nl">info@ldej.nl</a> · <a>{{ $resume.basics.phone }}</a> · <a href="{{ $resume.basics.website }}=">ldej.nl</a></p>*/}}
-{{/*            <p><a href="https://www.linkedin.com/in/laurencedejong/">linkedin.com/in/laurencedejong</a></p>*/}}
-{{/*            <p><a href="https://github.com/ldej">github.com/ldej</a></p>*/}}
+            <p><a href="mailto:info-remove-@ldej.nl">info@ldej.nl</a> · <a>{{ $resume.basics.phone }}</a></p>
+            <p><a href="https://www.linkedin.com/in/laurencedejong/">linkedin.com/in/laurencedejong</a> · <a href="https://github.com/ldej">github.com/ldej</a></p>
         </div>
     </div>
     <div class="summary">
@@ -35,8 +35,8 @@
     <h2>Experience</h2>
     <div class="resume-work timeline-container">
         {{ range $resume.work }}
-            <div class="job timeline-item" date-is="{{ .startDate }} - {{ .endDate }}">
-                <h3><a href="{{ .website }}">{{ .company }}</a> · <span class="position">{{ .position }}</span> · {{ .location }}</h3>
+            <div class="job timeline-item">
+                <h3><a href="{{ .website }}">{{ .company }}</a>{{ if .via }} ({{ .via }}){{ end }} · <span class="position">{{ .position }}</span><span class="date"> | {{ .location }} · {{ .startDate }} - {{ .endDate }}</span></h3>
                 <p class="keywords">{{ .keywords }}</p>
                 <div class="highlights">
                     <ul>
@@ -45,32 +45,13 @@
                         {{ end }}
                     </ul>
                 </div>
-                {{if .clients }}
-                    <h4>Clients</h4>
-
-                    <div class="clients timeline-container">
-                    {{ range .clients }}
-                        <div class="client timeline-item" date-is="{{ .startDate }} - {{ .endDate }}">
-                            <h3><a href="{{ .website }}">{{ .company }}</a> · <span class="position">{{ .position }}</span> · {{ .location }}</h3>
-                            <p class="keywords">{{ .keywords }}</p>
-                            <div class="highlights">
-                                <ul>
-                                    {{ range .highlights }}
-                                        <li>{{ . }}</li>
-                                    {{ end }}
-                                </ul>
-                            </div>
-                        </div>
-                    {{ end }}
-                </div>
-                {{ end }}
             </div>
         {{ end }}
     </div>
     <h2>Volunteer</h2>
     <div class="volunteering timeline-container">
         {{ range $resume.volunteer }}
-            <div class="volunteer timeline-item" date-is="{{ .startDate }} - {{ .endDate }}">
+            <div class="volunteer timeline-item">
                 <p class="position">{{ .position }} @ {{ .organization }}</p>
                 <p><a href="{{ .website }}">{{ .website }}</a></p>
                 <div class="highlights">
@@ -83,29 +64,21 @@
             </div>
         {{ end }}
     </div>
-    <h3>Education</h3>
+    <h2>Education</h2>
     <div class="timeline-container">
         {{ range $resume.education }}
-            <div class="education timeline-item" date-is="{{ .startDate }} - {{ .endDate }}">
+            <div class="education timeline-item">
                 <p class="position">{{ .area }} · {{ .studyType }}</p>
-                <p>{{ .institution }}</p>
-                <div class="courses">
-                    <p>Courses:</p>
-                    <ul>
-                        {{ range .courses }}
-                            <li>{{ . }}</li>
-                        {{ end }}
-                    </ul>
-                </div>
+                <p>{{ .startDate }} - {{ .endDate }}, {{ .institution }}</p>
             </div>
         {{ end }}
     </div>
     <h2>Publications</h2>
     <div class="timeline-container">
         {{ range $resume.publications }}
-            <div class="timeline-item" date-is="{{ .releaseDate }}">
+            <div class="timeline-item">
                 <p class="position"><a href="{{ .website }}">{{ .name }}</a></p>
-                <p>{{ .publisher }}</p>
+                <p>{{ .releaseDate }}, {{ .publisher }}</p>
             </div>
         {{ end }}
     </div>

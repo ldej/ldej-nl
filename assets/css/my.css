@@ -173,7 +173,7 @@ span.tag {
 }
 
 .timeline-item {
-    padding: 3em 0em 1em 1em;
+    padding: 0.5em 0 0.1em 1em;
     position: relative;
     color: #333;
     border-left: 2px solid lightgrey;
@@ -181,17 +181,6 @@ span.tag {
 
 .timeline-item p {
     font-size: 1rem;
-}
-
-.timeline-item::before {
-     content: attr(date-is);
-     position: absolute;
-     left: 2em;
-     top: 1.0em;
-     display: block;
-     font-family: 'Roboto', sans-serif;
-     font-weight: 700;
-     font-size: .785rem;
 }
 
 .timeline-item::after {
@@ -205,6 +194,13 @@ span.tag {
      content: '';
      border: 2px solid darkgray;
      background: white;
+}
+
+.timeline-item:last-child {
+   border-image: linear-gradient(
+       to bottom,
+       lightgrey 60%,
+       rgba(211, 211, 211, 0)) 1 100%;
 }
 
 .highlights ul {
@@ -240,6 +236,10 @@ span.tag {
     font-size: 1rem;
 }
 
+.resume h3 .date {
+    font-weight: normal;
+}
+
 .post-content table {
     margin-bottom: 1rem;
     border-collapse: collapse;
@@ -247,4 +247,48 @@ span.tag {
 .post-content table td {
     padding: 5px;
     border: 1px solid gray;
+}
+
+a.pdf {
+    float: right;
+    position: relative;
+    top: -3em;
+}
+
+@media print {
+    header, footer {
+        display: none;
+    }
+    .measure {
+        max-width: 100%;
+    }
+    .post {
+        padding: 1em;
+    }
+    .avatar img {
+        height: 100px;
+    }
+    p, li {
+        font-size: 0.8rem;
+        line-height: 1.2;
+    }
+    .timeline-item {
+        padding: 0;
+        border-left: none;
+    }
+    .timeline-item::after {
+        display: none;
+    }
+    .timeline-item:last-child {
+        border-image: none;
+    }
+    .clients-header {
+        display: none;
+    }
+    h2 {
+        border-bottom: 1px solid lightgrey;
+    }
+    a.pdf {
+        display: none;
+    }
 }
