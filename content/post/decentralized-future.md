@@ -3,7 +3,7 @@ title: "The Future is Decentralized"
 date: 2020-07-29T14:39:03+05:30
 draft: false
 summary: A personal story about my interactions with decentralization.
-image: /images/bolivia1.webp
+image: images/bolivia1.webp
 tags:
 - Decentralization
 - IPFS

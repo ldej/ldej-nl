@@ -3,7 +3,7 @@ title: "My Domain Driven Design Notes"
 date: 2020-08-02T16:32:42+05:30
 draft: false
 summary: "I recently read the book Domain Driven Design Quickly. I made some notes and decided to put them here as a reference for myself."
-image: /images/ladakh4.webp
+image: images/ladakh4.webp
 tags:
 - Domain-Driven Design 
 

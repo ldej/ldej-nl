@@ -3,7 +3,7 @@ title: "Enterprise Go Architecture"
 date: 2020-08-06T10:40:40+05:30
 draft: false
 summary: "I had the opportunity to work on a platform that is written in Go. I'm going to take a look to see what the structure is like and which libraries are used."
-image: /images/ladakh5.webp
+image: images/ladakh5.webp
 tags:
 - Go
 - Web

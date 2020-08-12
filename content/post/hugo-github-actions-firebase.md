@@ -3,7 +3,7 @@ title: "Deploy your Hugo website to Firebase using Github Actions"
 date: 2020-07-20T11:28:00+05:30
 draft: false
 summary: "How to deploy automatically build and deploy a Hugo website to Firebase using Github Actions."
-image: /images/ladakh2.webp
+image: images/ladakh2.webp
 tags:
 - Hugo
 - Firebase
