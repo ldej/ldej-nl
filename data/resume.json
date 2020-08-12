@@ -6,9 +6,36 @@
     "email": "resume@ldej.nl",
     "phone": "+91 844 8244 800",
     "website": "https://ldej.nl",
-    "summary": "",
+    "summary": [
+      "I'm a software engineer with ten years of experience in developing web applications. I provide technical leadership for small teams.",
+      "My favourite language right now is Go, though I've had a lot of fun in Python before that. You can wake me up to night to talk about decentralization.",
+      "There is no better developer experience than a good architecture, automated tests, CI/CD and cloud native.",
+      "I am and speak Dutch, but I get around with English as well. I currently live and work in India. I'm open to remote working and love travelling."
+    ],
     "location": "Gurgaon, India"
   },
+  "skills": [
+    {
+      "title": "Software Development",
+      "points": [
+        "Develop backend systems for web applications and services. I have experience with various languages, databases and frameworks. I know my way around microservices and scaling of large websites.",
+        "Contribute to frontend development: I am familiar with Vue.js, React, CSS and other frontend technologies.",
+        "I write tests to make my code better. I use BDD and API contract tests.",
+        "Serverless is my state of mind, I developed application using Google Cloud Platform, Amazon Web Services and Azure.",
+        "DevOps: automate CI/CD pipelines, build docker images, and infrastructure is code."
+      ]
+    },
+    {
+      "title": "Technical Leadership",
+      "points": [
+        "Work with engineers to design and architect complex systems. Work with product owners to prioritize and plan features.",
+        "Interview engineering candidates.",
+        "Inspire developers, perform code reviews and establish best practices.",
+        "Communicate and document effectively.",
+        "Give talks and workshops on various subjects including Cloud Native Development, Go, and decentralization."
+      ]
+    }
+  ],
   "work": [
     {
       "company": "Xebia",
@@ -26,7 +53,7 @@
         {
           "company": "Unifyed",
           "position": "Senior Software Engineer",
-          "location": "Gurgaon, India (remote due to lockdown)",
+          "location": "Gurgaon, India (remote)",
           "website": "https://www.unifyed.com",
           "startDate": "Mar 2020",
           "endDate": "Jul 2020",
@@ -155,17 +182,6 @@
         "Building web shops using Python and Django.",
         "Building a front-end using JS/jQuery.",
         "Answering client inquiries."
-      ]
-    },
-    {
-      "company": "Dacolian / Q-Free",
-      "position": "Intern",
-      "location": "Beilen, The Netherlands",
-      "website": "https://www.q-free.com",
-      "startDate": "Apr 2009",
-      "endDate": "Jul 2009",
-      "highlights": [
-        "Developed a video de-interlace filter in C++ using MS DirectShow."
       ]
     }
   ],

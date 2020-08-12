@@ -224,7 +224,8 @@ span.tag {
     float: left;
     place-items: center;
     display: grid;
-    margin-right: 1em;
+    margin-right: 2em;
+    margin-bottom: 1em;
 }
 
 .resume-basics .details p {
@@ -233,6 +234,10 @@ span.tag {
 
 .resume-basics .summary {
     clear: both;
+}
+
+.resume h3 {
+    font-size: 1rem;
 }
 
 .post-content table {
