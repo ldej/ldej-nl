@@ -8,7 +8,6 @@ enableRobotsTXT = true
     tag = "tags"
 
 [params]
-    paginate = 10
     author = "Laurence de Jong"
     keywords = "Laurence de Jong, ldej, Software Engineering, blog, Go"
     description = "A place where Laurence de Jong writes about things."
