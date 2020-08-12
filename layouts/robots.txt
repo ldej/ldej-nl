@@ -1,0 +1,3 @@
+Sitemap: https://ldej.nl/sitemap.xml
+User-Agent: *
+Disallow: /api/
