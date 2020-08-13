@@ -910,6 +910,10 @@ body {
     font-style: italic
 }
 
+.post-meta a {
+    line-height: 2.2em;
+}
+
 .post-summary {
     display: block;
     color: #333;
