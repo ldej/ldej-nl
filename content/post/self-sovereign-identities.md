@@ -2,7 +2,7 @@
 title: "Self-Sovereign Identities"
 date: 2020-08-21T10:20:18+05:30
 draft: false
-summary: How DIDs (Decentralized Identities) are the fundamental building block of Self-Sovereign Identities"
+summary: How Decentralized Identities are the fundamental building block of Self-Sovereign Identities
 image: images/ladakh6.webp
 tags:
 - Decentralization

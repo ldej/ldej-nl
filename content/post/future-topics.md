@@ -9,8 +9,8 @@ draft: true
 #  title: "Working in the Trenches"
 ---
 
-- https://github.com/evanw/esbuild
 - IPFS
+- https://github.com/evanw/esbuild
 - Hugo extensions
 - Go-wasm
 - gRPC
