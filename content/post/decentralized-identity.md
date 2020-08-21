@@ -6,6 +6,7 @@ summary: Decentralized identities are going to reshape are online identities by 
 image: images/bolivia2.webp
 tags:
 - Decentralization
+- Identities
 - IPFS
 
 #reddit:
@@ -100,4 +101,4 @@ Let's say you want to create a DID via an app on your phone. You are not going t
 
 The [uPort](https://www.uport.me/) project is doing very similar but then for the Ethereum blockchain. This project is also part of an contributing to the Decentralized Identity Foundation. Another project to check out is [Blockstack](https://www.blockstack.org/).
 
-To read more about decentralized identities in general I can recommend [this article](https://www.frontiersin.org/articles/10.3389/fbloc.2019.00017/full) byt the frontiers in Blockchain. To read more about the project of the Decentralized Identity Foundation I recommend [this article](https://medium.com/decentralized-identity/overview-of-decentralized-identity-standards-f82efd9ab6c7).
+To read more about decentralized identities in general I can recommend [this article](https://www.frontiersin.org/articles/10.3389/fbloc.2019.00017/full) byt the frontiers in Blockchain. To read more about the project of the Decentralized Identity Foundation I recommend [this article](https://medium.com/decentralized-identity/overview-of-decentralized-identity-standards-f82efd9ab6c7). And the Decentralized Identity Foundation also published a great list of media explaining [Where to begin?](https://medium.com/decentralized-identity/where-to-begin-b2a55b898b3). 
