@@ -129,4 +129,4 @@ The last part, or actually the first part of the CID, is the `<base-encoding>`. 
 
 The IPFS network consists of nodes instead of a centralized server. You can run a node to join the IPFS network as well. The node joins a peer-to-peer network that is based on a Decentralized Hash Table (DHT).
 
-DHTs are 
+https://storj.io/blog/2019/02/a-brief-overview-of-kademlia-and-its-use-in-various-decentralized-platforms/

@@ -14,7 +14,7 @@ tags:
 #  title: "Working in the Trenches"
 ---
 
-After writing about [Decentralized Identities]({{< relref "/post/decentralized-identity.md" >}}) I read more articles and watched a couple of videos that cleared up some details. The article [Where to begin?](https://medium.com/decentralized-identity/where-to-begin-b2a55b898b3) by the Decentralized Identity Foundation gave me these useful links. In particular the video [Decentralized Identities (DIDs) - The Fundamental Building Block of Self Sovereign Identity](https://www.youtube.com/watch?v=Jcfy9wd5bZI) where this blog post is going to be based on.
+After writing about [Decentralized Identities]({{< relref "/post/decentralized-identity.md" >}}) I read more articles and watched a couple of videos that cleared up some details. The article [Where to begin?](https://medium.com/decentralized-identity/where-to-begin-b2a55b898b3) by the Decentralized Identity Foundation gave me these useful links. In particular the videos [Decentralized Identities (DIDs) - The Fundamental Building Block of Self Sovereign Identity](https://www.youtube.com/watch?v=Jcfy9wd5bZI) and [Decentralized Key Management (DKMS): An Essential Missing Piece of the SSI Puzzle](https://www.youtube.com/watch?v=NJxaYsAo6pI) by Drummond Reed where this blog post is based on.
 
 ## Three models of digital identity
 
@@ -167,3 +167,13 @@ All the architecture described to far is there to set up a connection between tw
 Taking the example of a driver's license institute. The verifiable claim is that you get a driver's license from the institute. Let's call the driver's license institute the issuer as they are going to issue your drivers license. The issuer has a public DID (which refers to a public key) on a blockchain they want to use. When they issue your drivers license they will sign (with their private key) the claim, in this case your divers license, and give it to you, the holder of the claims, to put it in your wallet. The claim will contain a DID (which refers to a public key) that you own. When the holder needs to present the claim to a party who needs to verify it, they counter-sign the claim to show that they are the owner of the DID the claim is made for. The verifier can then verify both the signature that proves that the holder owns the DID and the signature of the issuer that proves that they issued the drivers license to the holder.
 
 The system that makes this interaction possible is the decentralized public-key infrastructure that is built on top of a blockchain.
+
+## DKMS (Decentralized Key Management System)
+
+The standard covers the communication between edge wallets and cloud wallets. Applies to the wallets, and applies to the agents that read from and write to the wallets. It is an open standard that makes sure you never have to worry about security, privacy or vendor lock-in. For users, the wallet is most likely going to be on their phone.
+
+One of the primary reasons for cloud agents is to make it easy for you to have multiple DKMS wallets across different devices. The other primary reason is backup and recovery. Cloud agents continuously store a backup copy of your wallet encrypted with a special recovery key. Your recovery key is going to be part of all your devices. So when you loose a device and want to add a new one, you can use the recovery key to add the new device.
+
+The two main methods for recovery are offline recovery using paper wallets, and social recovery using trustees. If you have no device left, the recovery methods can be a paper recovery key, or a "cold storage" hardware. Metal versions of keys can be made as well. One of the issues with this solution is, how are you going to remember where this key is after a long period of time, let's say 10, 20, 30 years.
+
+The second method is social recovery. It lets you shard your recovery key into pieces that you share with your choice of trustees.
