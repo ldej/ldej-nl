@@ -127,6 +127,10 @@ The last part, or actually the first part of the CID, is the `<base-encoding>`. 
 
 ### Decentralized Network
 
-The IPFS network consists of nodes instead of a centralized server. You can run a node to join the IPFS network as well. The node joins a peer-to-peer network that is based on a Decentralized Hash Table (DHT).
+The IPFS network consists of nodes instead of a centralized server. You can run a node to join the IPFS network as well. The node joins a peer-to-peer network that is based on a Decentralized Hash Table (DHT). DHTs are one of the wonders of decentralized applications.
+
+Let's start with a normal hash table. A hash table is a key value store that maps hashes (the key), to values. The value can be anything, it can be a blob of data, a file, a json structure, a URL. You name it.
+
+In a DHT, the values are a set of locations. They are the locations where the data that is identified by the hash can be found. In IPFS these locations are so-called Peer IDs. A Peer ID consists of 
 
 https://storj.io/blog/2019/02/a-brief-overview-of-kademlia-and-its-use-in-various-decentralized-platforms/
