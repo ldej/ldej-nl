@@ -1,15 +1,15 @@
 {{ partial "head.html" . }}
 <div class="site-wrapper">
     {{ partial "header.html" . }}
-    <div class="content centered">
+    <div class="content skydive centered">
         <div class="about center">
-            <div class="avatar">
-                <picture>
-                    <source type="image/webp" srcset="{{ resources.Get "images/skydive1.webp" }}">
-                    <source srcset="{{ resources.Get "images/skydive1.jpg" }}">
-                    <img class="circle" alt="Laurence de Jong" src="{{ resources.Get "images/skydive1.jpg" }}">
-                </picture>
-            </div>
+{{/*            <div class="avatar">*/}}
+{{/*                <picture>*/}}
+{{/*                    <source type="image/webp" srcset="{{ resources.Get "images/skydive1.webp" }}">*/}}
+{{/*                    <source srcset="{{ resources.Get "images/skydive1.jpg" }}">*/}}
+{{/*                    <img class="circle" alt="Laurence de Jong" src="{{ resources.Get "images/skydive1.jpg" }}">*/}}
+{{/*                </picture>*/}}
+{{/*            </div>*/}}
             <h1>Laurence de Jong</h1>
             <h2>Full Stack Software Engineer</h2>
             {{ partial "social_links.html" }}

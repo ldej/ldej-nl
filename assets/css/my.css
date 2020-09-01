@@ -296,3 +296,16 @@ a.pdf {
 .posts li {
     padding-bottom: 1em;
 }
+
+.skydive {
+    background: url("images/skydive2.webp") center;
+    background-size: cover;
+    align-items: flex-end;
+    margin-bottom: 0;
+    padding-bottom: 2em;
+    color: white;
+}
+
+.skydive svg {
+    fill: white;
+}
