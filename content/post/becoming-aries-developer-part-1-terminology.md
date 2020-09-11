@@ -1,5 +1,5 @@
 ---
-title: "Becoming an Aries Developer - Part 1"
+title: "Becoming an Aries Developer - Part 1: Terminology"
 date: 2020-09-10T16:20:12+05:30
 draft: false
 summary: Background knowledge for terms in the Self-Sovereign Identity space.
