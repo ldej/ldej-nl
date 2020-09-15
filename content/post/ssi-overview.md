@@ -13,6 +13,8 @@ tags:
 #  title: "Working in the Trenches"
 ---
 
+https://learnthings.online/course/2020/03/06/becoming-a-hyperledger-aries-developer
+
 SSI
 did
 diddoc

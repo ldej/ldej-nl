@@ -131,7 +131,6 @@ $ aca-py start \
   --wallet-type indy \
   --wallet-name Laurence1 \
   --endpoint http://localhost:8000/ \
-  --invite-base-url http://localhost:4455/invite \
   --webhook-url http://localhost:4455/webhooks \
   --public-invites \
   --auto-accept-invites \
@@ -160,8 +159,6 @@ When you run a production instance of your application, you want this to always 
 `--wallet-name Laurence1` libindy creates a wallet in `~/.indy_client/wallet/<name>` where if you don't provide a name, it will use `default`. If you want to run multiple agents on the same machine, you need to provide unique names to avoid both trying to use `default`.
 
 `--endpoint http://localhost:8000/` This is the URL at which your ACA-py instance will be available for other ACA-py instances to reach. This URL will be used for establishing connections. The protocol, address and port should be the same as for `--inbound-transport`.
-
-`--invite-base-url http://localhost:4455/invite` When you make a connection between two agents, you start with making an invitation. In the demo the invite is a JSON object that is copied and pasted. You can also make a QR code of the invite and then scan that with an app on your phone. The sharing of an invitation an out-of-band operation, meaning it requires sharing of the invite via a different channel. When you create an invitation, you can also create an invitation URL. Your application will need to listen on that URL to receive the invitation. It can then pass the invitation data to ACA-py where the rest of the process of making a connection will be handled. More on the invite URL in part 3.
 
 `--public-invites` This allows you to use the public DID that is registered in the ledger sending invitations and receiving connection requests.
 
