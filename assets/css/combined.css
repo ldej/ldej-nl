@@ -965,7 +965,7 @@ code span {
     margin-top: 0;
 }
 
-p code, li code, .tip-content code {
+p code, li code, .tip-content p code, .tip-content li code {
     background: #eaeaea;
     border-radius: 5px;
     padding: 1px 6px;

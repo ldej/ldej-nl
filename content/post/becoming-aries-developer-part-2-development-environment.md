@@ -121,7 +121,7 @@ After some experimenting I figured out a set of command-line parameters that wor
 
 ```shell script
 $ aca-py start \
-  --label Alice \
+  --label Laurence \
   --inbound-tranport http 0.0.0.0 8000 \
   --outbound-transport http \
   --admin 0.0.0.0 11000 \
@@ -129,7 +129,7 @@ $ aca-py start \
   --genesis-url http://localhost:9000/genesis \
   --seed Laurence000000000000000000000000 \
   --wallet-type indy \
-  --wallet-name Laurence1 \
+  --wallet-name Laurence \
   --endpoint http://localhost:8000/ \
   --webhook-url http://localhost:4455/webhooks \
   --public-invites \
@@ -146,7 +146,7 @@ $ aca-py start \
 
 `--admin 0.0.0.0 11000` This is the address and port you can connect to with your application/controller. It is also the port where you will be able to access the OpenAPI/Swagger documentation for your ACA-py instance.
 
-`--admin-insecure-mode` Allows you to use the OpenAPI/Swagger documentation over HTTP.
+`--admin-insecure-mode` Allows you to use the admin web server without api-key. Obviously don't use this in production. Use `--admin-api-key` instead.
 
 `--genesis-url http://localhost:9000/genesis` Points to the VON-network webserver where the genesis file can be found. Other command-line arguments can be used to point to a file on disk for example.
 
