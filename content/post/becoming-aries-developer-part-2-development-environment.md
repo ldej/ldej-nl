@@ -7,6 +7,7 @@ image: images/ladakh1.webp
 tags:
 - Decentralization
 - Self-Sovereign Identities
+- Hyperledger Aries
 
 #reddit:
 #  created: 1594708583 
