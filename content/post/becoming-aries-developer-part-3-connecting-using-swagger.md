@@ -137,6 +137,7 @@ Example of a non-public invite:
     Use the `/connections/receive-invitation` endpoint.  
     The body should be only the invitation object, there are two examples in the tip above here.  
     Alias is the name that Bob will give to this connection, so in this case Alice.
+    Auto-accept the invitation can be enabled here to automatically perform step 3.
 3. Bob accepts the invitation.  
     Use the `/connections/{id}/accept-invitation` endpoint.  
     The `{id}` should be the `connection_id` from the response of `/connections/receive-invitation`.  
@@ -156,7 +157,11 @@ Example of a non-public invite:
     In the Connection protocol, a message needs to be sent and then the connection will be marked as 'Active'.
 10. Alice sends a basic message to Bob.  
     Use the `/connections/{id}/send-message` endpoint.  
-    The `{id}` is the `connection_id` for Alice's connection to Bob. For Bob there is a different `connection_id` for the connection with Alice.  
+    The `{id}` is the `connection_id` for Alice's connection to Bob. For Bob there is a different `connection_id` for the connection with Alice.
+    
+## Automatic accepting
+
+ACA-py support command line options to automatically accept invites and requests when they come in. This allows you to skip 3 to 8. This is useful for development, but of course should not be used for production. The command line flags are `--auto-accept-invites` and `--auto-accept-requests`. The same parameters can be overridden in step 1 for Alice to automatically accept Bob's request in step 5. Similarly, Bob can specify auto-accept in step 2 so step 3 will be done automatically.
     
 ## Conclusion
 
