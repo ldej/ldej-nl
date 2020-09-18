@@ -120,4 +120,4 @@ func (app *App) ProblemReportEventHandler(event acapy.ProblemReportEvent) {
 
 ## Conclusion
 
-You can now build a controller for ACA-py in go using the `go-aries-client` library. Please submit issues and pull-requests in case of questions and feature requests. In the next version and blog post I will issue a credential using the connected clients.
+You can now build a controller for ACA-py in go using the `go-acapy-client` library. Please submit issues and pull-requests in case of questions and feature requests. In the next version and blog post I will issue a credential using the connected clients.

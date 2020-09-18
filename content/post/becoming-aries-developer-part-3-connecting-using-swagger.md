@@ -154,7 +154,8 @@ Example of a non-public invite:
 8. Bob receives the connection response.  
     This happens automatically when Alice sends the connection response.
 9. Alice and Bob established a connection.  
-    In the Connection protocol, a message needs to be sent and then the connection will be marked as 'Active'.
+    In the Connection protocol, a message needs to be sent and then the connection will be marked as 'Active'.  
+    This can be done automatically with `--auto-ping-connection`.
 10. Alice sends a basic message to Bob.  
     Use the `/connections/{id}/send-message` endpoint.  
     The `{id}` is the `connection_id` for Alice's connection to Bob. For Bob there is a different `connection_id` for the connection with Alice.
