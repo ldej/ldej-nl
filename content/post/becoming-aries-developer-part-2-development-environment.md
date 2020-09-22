@@ -136,6 +136,7 @@ $ aca-py start \
   --public-invites \
   --auto-accept-invites \
   --auto-accept-requests \
+  --auto-ping-connection \
   --debug-connections
 ```
 
@@ -165,7 +166,7 @@ When you run a production instance of your application, you want this to always 
 
 `--webhook-url http://localhost:4455/webhooks` ACA-py is sending and receiving messages from one instance to another, for example to set up a connection or to issue credentials. Whenever an event in ACA-py happens, a call is done to the webhook URL on different topics, so your application can get live updates and update the interface for example.
 
-`--auto-accept-invites` and `--auto-accept-requests` result in the automatic acceptation of invites, which results in the sending of a connection request, which will be automatically accepted, which results in response after which the connection is established. More on invites and requests in part 3.
+`--auto-accept-invites` and `--auto-accept-requests` result in the automatic acceptation of invites, which results in the sending of a connection request, which will be automatically accepted, which results in response after which the connection is established. More on invites and requests in part 3. `--auto-ping-connection` sends a ping message after establishing the connection to mark it as 'active'.
 
 `--debug-connections` When you manually go through the steps of invites and requests, it's a good idea to enable this flag as it gives clear output of what is going on. You can also debug for credentials and presentations.
 

@@ -3,6 +3,7 @@ title = "Laurence de Jong"
 theme = ["pixyll"]
 
 enableRobotsTXT = true
+enableEmoji = true
 
 [indexes]
     tag = "tags"

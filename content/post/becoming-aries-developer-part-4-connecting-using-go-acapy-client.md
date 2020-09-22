@@ -2,7 +2,7 @@
 title: "Becoming an Aries Developer - Part 4: Connecting using go-acapy-client"
 date: 2020-09-16T11:04:04+05:30
 draft: false
-summary:
+summary: Connecting two clients using `go-acapy-client`
 image: images/ladakh1.webp
 tags:
 - Decentralization
