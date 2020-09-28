@@ -93,6 +93,14 @@ optional arguments:
   -v, --version      print application version and exit
 ```
 
+If you want to run the latest code outside of docker, you can:
+
+```shell script
+$ pip3 install --no-cache-dir -e .
+```
+
+After that, running `aca-py` will be the version that you have checked out. 
+
 ## Running the demo
 
 The ACA-py repository contains a demo which is a Python application that communicates with ACA-py over HTTP. The demo application does not import libindy and does not import from aries-cloudagent.

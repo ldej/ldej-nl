@@ -224,4 +224,4 @@ After having established a connection between agents, we are now able to issue c
 
 To see a working example of issuing credentials, check out [Issuing Credentials](https://github.com/ldej/go-acapy-client/tree/master/examples/issue_credential).
 
-In the next part I will discuss presenting proof of credentials to a verifier.
+In the next part I will discuss credential revocation.
