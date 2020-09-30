@@ -1,5 +1,5 @@
 ---
-title: "Becoming an Aries Developer - Part 2: Development Environment"
+title: "Becoming a Hyperledger Aries Developer - Part 2: Development Environment"
 date: 2020-09-11T13:20:12+05:30
 draft: false
 summary: Setting up of a development environment with an Indy network and Aries Cloud Agent Python.
@@ -15,7 +15,7 @@ tags:
 #  title: "Working in the Trenches"
 ---
 
-In [part 1]({{< relref "/post/becoming-aries-developer-part-1-terminology.md" >}}) I gave an introduction to the terms used in the Self-Sovereign Identity space. In this second part I'm going to talk about the set up of the environment to develop an application using ACA-py.
+In [part 1]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-1-terminology.md" >}}) I gave an introduction to the terms used in the Self-Sovereign Identity space. In this second part I'm going to talk about the set up of the environment to develop an application using ACA-py.
 
 We're going to set up a Hyperledger Indy network using VON-network, and then we are going to set up ACA-py.
 
@@ -178,6 +178,8 @@ When you run a production instance of your application, you want this to always 
 
 `--debug-connections` When you manually go through the steps of invites and requests, it's a good idea to enable this flag as it gives clear output of what is going on. You can also debug for credentials and presentations.
 
+## Conclusion 
+
 With a development environment like this you can start developing an application that uses ACA-py against a locally running Indy ledger network.
 
 To create an application, you can take different routes, you can:
@@ -186,3 +188,5 @@ To create an application, you can take different routes, you can:
 - talk to ACA-py over HTTP
 
 I am creating a Go client library for ACA-py that communicates over HTTP. After creating the client you can easily perform all actions on ACA-py from Go.
+
+In the In [part 3]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-3-connecting-using-swagger" >}}) I am going to start two agents and create a connection between them.

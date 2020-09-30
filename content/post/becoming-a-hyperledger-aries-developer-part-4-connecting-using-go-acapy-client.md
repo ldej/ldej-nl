@@ -1,5 +1,5 @@
 ---
-title: "Becoming an Aries Developer - Part 4: Connecting using go-acapy-client"
+title: "Becoming a Hyperledger Aries Developer - Part 4: Connecting using go-acapy-client"
 date: 2020-09-16T11:04:04+05:30
 draft: false
 summary: Connecting two clients using `go-acapy-client`
@@ -15,7 +15,7 @@ tags:
 #  title: "Working in the Trenches"
 ---
 
-In [part 1]({{< relref "/post/becoming-aries-developer-part-1-terminology.md" >}}) I gave an introduction to the terms used in the Self-Sovereign Identity space. In [part 2]({{< relref "/post/becoming-aries-developer-part-2-development-environment.md" >}}) I explained the tools and command-line arguments for the development environment. In [part 3]({{< relref "/post/becoming-aries-developer-part-3-connecting-using-swagger" >}}) I set up two agents, and they connect using the invite and request/response protocol. In this part I introduce the `go-acapy-client` library that allows you to interact with ACA-py from Go.
+In [part 1]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-1-terminology.md" >}}) I gave an introduction to the terms used in the Self-Sovereign Identity space. In [part 2]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-2-development-environment.md" >}}) I explained the tools and command-line arguments for the development environment. In [part 3]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-3-connecting-using-swagger" >}}) I set up two agents, and they connect using the invite and request/response protocol. In this part I introduce the `go-acapy-client` library that allows you to interact with ACA-py from Go.
 
 ## Set up
 
@@ -120,4 +120,4 @@ func (app *App) ProblemReportEventHandler(event acapy.ProblemReportEvent) {
 
 ## Conclusion
 
-You can now build a controller for ACA-py in go using the `go-acapy-client` library. Please submit issues and pull-requests in case of questions and feature requests. In the next version and blog post I will issue a credential using the connected clients.
+You can now build a controller for ACA-py in go using the `go-acapy-client` library. Please submit issues and pull-requests in case of questions and feature requests. In [part 5]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-5-issue-credentials" >}}) I will issue a credential using the connected clients.

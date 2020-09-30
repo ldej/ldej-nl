@@ -1,5 +1,5 @@
 ---
-title: "Becoming an Aries Developer - Part 3: Connecting using Swagger"
+title: "Becoming a Hyperledger Aries Developer - Part 3: Connecting using Swagger"
 date: 2020-09-15T06:05:19+05:30
 draft: false
 summary: Starting two ACA-py instances with the right parameters and establishing a connection between them.
@@ -15,7 +15,7 @@ tags:
 #  title: "Working in the Trenches"
 ---
 
-In [part 1]({{< relref "/post/becoming-aries-developer-part-1-terminology.md" >}}) I gave an introduction to the terms used in the Self-Sovereign Identity space. In [part 2]({{< relref "/post/becoming-aries-developer-part-2-development-environment.md" >}}) I explained the tools and command-line arguments for the development environment. In this part I'm going to set up two agents, and they are going to connect using the invite and request/response protocol.
+In [part 1]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-1-terminology.md" >}}) I gave an introduction to the terms used in the Self-Sovereign Identity space. In [part 2]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-2-development-environment.md" >}}) I explained the tools and command-line arguments for the development environment. In this part I'm going to set up two agents, and they are going to connect using the invite and request/response protocol.
 
 The work on connecting two agents to create a connection and exchange messages is ongoing. This means that whatever I write here might be outdated tomorrow.
 
@@ -166,4 +166,4 @@ ACA-py support command line options to automatically accept invites and requests
     
 ## Conclusion
 
-It takes some effort to understand with which parameters to start the ACA-py instances and how to connect two agents. In the end the connecting of two agents can be done entirely via Swagger. In the next part I will discuss how you can do this using my `go-acapy-client` library.
+It takes some effort to understand with which parameters to start the ACA-py instances and how to connect two agents. In the end the connecting of two agents can be done entirely via Swagger. In [part 4]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-4-connecting-using-go-acapy-client" >}}) I will discuss how you can do this using my `go-acapy-client` library.

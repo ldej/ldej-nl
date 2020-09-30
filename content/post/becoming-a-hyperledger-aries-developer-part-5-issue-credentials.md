@@ -1,5 +1,5 @@
 ---
-title: "Becoming an Aries Developer - Part 5: Issue Credentials"
+title: "Becoming a Hyperledger Aries Developer - Part 5: Issue Credentials"
 date: 2020-09-21T12:18:23+05:30
 draft: false
 summary: Issuing a credential from an issuer to a holder using `go-acapy-client`
@@ -15,7 +15,7 @@ tags:
 #  title: "Working in the Trenches"
 ---
 
-In [part 1]({{< relref "/post/becoming-aries-developer-part-1-terminology.md" >}}) I gave an introduction to the terms used in the Self-Sovereign Identity space. In [part 2]({{< relref "/post/becoming-aries-developer-part-2-development-environment.md" >}}) I explained the tools and command-line arguments for the development environment. In [part 3]({{< relref "/post/becoming-aries-developer-part-3-connecting-using-swagger" >}}) I set up two agents, and they connect using the invite and request/response protocol. In [part 4]({{< relref "/post/becoming-aries-developer-part-4-connecting-using-go-acapy-client" >}}) I introduced the `go-acapy-client` library that allows you to interact with ACA-py from Go. With the established connection between agents you can issue a credential, which is what I'm going to do in this part.
+In [part 1]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-1-terminology.md" >}}) I gave an introduction to the terms used in the Self-Sovereign Identity space. In [part 2]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-2-development-environment.md" >}}) I explained the tools and command-line arguments for the development environment. In [part 3]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-3-connecting-using-swagger" >}}) I set up two agents, and they connect using the invite and request/response protocol. In [part 4]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-4-connecting-using-go-acapy-client" >}}) I introduced the `go-acapy-client` library that allows you to interact with ACA-py from Go. With the established connection between agents you can issue a credential, which is what I'm going to do in this part.
 
 In self-sovereign identities, credentials are what allow you to hold verified truths. The government can issue your social security number, the driving institute can issue your drivers licence, the university can issue your degree. These credentials are cryptographically signed by the issuer and you, the holder, can prove that they are yours.
 
@@ -224,4 +224,4 @@ After having established a connection between agents, we are now able to issue c
 
 To see a working example of issuing credentials, check out [Issuing Credentials](https://github.com/ldej/go-acapy-client/tree/master/examples/issue_credential).
 
-In the next part I will discuss credential revocation.
+In [part 6]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-6-revocation" >}}) I will discuss credential revocation.

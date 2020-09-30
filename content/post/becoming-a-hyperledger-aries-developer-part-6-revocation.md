@@ -1,5 +1,5 @@
 ---
-title: "Becoming an Aries Developer - Part 6: Revocation"
+title: "Becoming a Hyperledger Aries Developer - Part 6: Revocation"
 date: 2020-09-28T11:58:24+05:30
 draft: false
 summary: Creating a revocation registry, using the tails server and revoking a credential.
@@ -15,7 +15,7 @@ tags:
 #  title: "Working in the Trenches"
 ---
 
-In [part 1]({{< relref "/post/becoming-aries-developer-part-1-terminology.md" >}}) I gave an introduction to the terms used in the Self-Sovereign Identity space. In [part 2]({{< relref "/post/becoming-aries-developer-part-2-development-environment.md" >}}) I explained the tools and command-line arguments for the development environment. In [part 3]({{< relref "/post/becoming-aries-developer-part-3-connecting-using-swagger" >}}) I set up two agents, and they connect using the invite and request/response protocol. In [part 4]({{< relref "/post/becoming-aries-developer-part-4-connecting-using-go-acapy-client" >}}) I introduced the `go-acapy-client` library that allows you to interact with ACA-py from Go. In [part 5] credentials got issued over the established connection between the agents. In this part I am going to discuss revocation.
+In [part 1]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-1-terminology.md" >}}) I gave an introduction to the terms used in the Self-Sovereign Identity space. In [part 2]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-2-development-environment.md" >}}) I explained the tools and command-line arguments for the development environment. In [part 3]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-3-connecting-using-swagger" >}}) I set up two agents, and they connect using the invite and request/response protocol. In [part 4]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-4-connecting-using-go-acapy-client" >}}) I introduced the `go-acapy-client` library that allows you to interact with ACA-py from Go. In [part 5]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-5-issue-credentials" >}}) credentials got issued over the established connection between the agents. In this part I am going to discuss revocation.
 
 ## Context
 
@@ -93,5 +93,5 @@ When an issuer revokes a credential, it only communicates with the ledger to upd
 
 ## Conclusion
 
-With the tails server and revocation registry set up, let's jump to presenting proof of non-revocation in the next blog post.
+With the tails server and revocation registry set up, let's jump to presenting proof of non-revocation in part 7.
  

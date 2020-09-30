@@ -1,5 +1,5 @@
 ---
-title: "Becoming Aries Developer Part X Future"
+title: "Becoming a Hyperledger Aries Developer Part X Future"
 date: 2020-09-23T10:32:36+05:30
 draft: true
 summary:
