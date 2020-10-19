@@ -9,6 +9,9 @@ build:
 resume:	build
 	cat public/resume/index.html| wkhtmltopdf - ./static/Laurence.de.Jong-resume.pdf
 
+images:
+	bash ./scripts/process_images.sh
+
 # resize to 1440
 # convert static/images/bolivia2.jpg -resize 1440x static/images/bolivia2.1440.jpg
 # webp

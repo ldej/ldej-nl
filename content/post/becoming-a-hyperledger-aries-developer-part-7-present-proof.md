@@ -30,7 +30,5 @@ There are two parties involved: the prover and the verifier
 4. Verifier verifies presentation
 5. Verifier sends presentation acknowledgement (prover receives presentation acknowledgement)
 
-
-
 Sending a presentation requires a revocation registry:
 `400: Error when constructing proof: Error: Invalid structure. Caused by: Revocation Registry Id not found. CommonInvalidStructure.`

@@ -3,7 +3,7 @@ title: "Becoming a Hyperledger Aries Developer - Part 6: Revocation"
 date: 2020-09-28T11:58:24+05:30
 draft: false
 summary: Creating a revocation registry, using the tails server and revoking a credential.
-image: images/ladakh1.webp
+image: images/ladakh12.webp
 tags:
 - Decentralization
 - Self-Sovereign Identities
@@ -38,6 +38,8 @@ In the next blog post I'm going to talk about proving credentials, and for crede
 ## Active Development
 
 While I'm writing this blog post and building `go-acapy-client`, the revocation registry endpoints [are updated](https://github.com/hyperledger/aries-cloudagent-python/pull/717/files). I suspect that a [new release](https://github.com/hyperledger/aries-cloudagent-python/releases) will be added soon which will include the new revocation registry endpoints. I think this is going to be release v0.6.0 as API changes require at least a minor version bump.
+
+Update (15-10-2020): I was wrong, the version is going to be v0.5.5.
 
 ## Creating a revocation registry with a credential definition
 
@@ -86,6 +88,8 @@ A revocation registry has a maximum size. The size should be at least 4, and max
 When a revocation registry reaches its maximum size (that number of credentials have been issued), a new revocation registry can be made for the same credential definition. Remember that this requires another payment.
 
 There is a balance between the size of the revocation registry, and the usability of the file size of the tails file, and this balance will be different per use case.
+
+Update: In [PR735](https://github.com/hyperledger/aries-cloudagent-python/pull/735) functionality gets added to get the revocation registry witness deltas from the ledger, which allows you to prove the non-revocation of a credential. With this, a new endpoint gets added `/credential/revoked/{credential_id}` that allows you to check if the credential has been revoked. 
 
 ## Revocation notification
 

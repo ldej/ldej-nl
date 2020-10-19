@@ -3,7 +3,7 @@ title: "Becoming a Hyperledger Aries Developer - Part 1: Terminology"
 date: 2020-09-10T16:20:12+05:30
 draft: false
 summary: Background knowledge for terms in the Self-Sovereign Identity space.
-image: images/ladakh1.webp
+image: images/ladakh7.webp
 tags:
 - Decentralization
 - Self-Sovereign Identities
@@ -55,4 +55,4 @@ A [DIDComm Working Group](https://identity.foundation/working-groups/did-comm.ht
 
 It required a lot of reading to get a feeling for what the state of DIDs currently is. I've mainly focussed on the Hyperledger part, but in the future I'd like to dive into DIDs in other ecosystems too.
 
-In [part 2](({{< relref "/post/becoming-a-hyperledger-aries-developer-part-2-development-environment.md" >}})) I'm going to talk about the Go-application I created that communicates with ACA-py.
+In [part 2]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-2-development-environment.md" >}}) I'm going to talk about the Go-application I created that communicates with ACA-py.

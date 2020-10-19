@@ -3,7 +3,7 @@ title: "Becoming a Hyperledger Aries Developer - Part 5: Issue Credentials"
 date: 2020-09-21T12:18:23+05:30
 draft: false
 summary: Issuing a credential from an issuer to a holder using `go-acapy-client`
-image: images/ladakh1.webp
+image: images/ladakh11.webp
 tags:
 - Decentralization
 - Self-Sovereign Identities

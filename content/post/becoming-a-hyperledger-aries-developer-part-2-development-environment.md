@@ -3,7 +3,7 @@ title: "Becoming a Hyperledger Aries Developer - Part 2: Development Environment
 date: 2020-09-11T13:20:12+05:30
 draft: false
 summary: Setting up of a development environment with an Indy network and Aries Cloud Agent Python.
-image: images/ladakh1.webp
+image: images/ladakh8.webp
 tags:
 - Decentralization
 - Self-Sovereign Identities

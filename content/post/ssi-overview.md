@@ -3,7 +3,7 @@ title: "SSI Overview"
 date: 2020-09-03T16:02:44+05:30
 draft: true
 summary:
-image: images/ladakh1.webp
+image: images/agra2.webp
 tags:
 - 
 

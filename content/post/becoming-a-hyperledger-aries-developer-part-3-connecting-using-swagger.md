@@ -3,7 +3,7 @@ title: "Becoming a Hyperledger Aries Developer - Part 3: Connecting using Swagge
 date: 2020-09-15T06:05:19+05:30
 draft: false
 summary: Starting two ACA-py instances with the right parameters and establishing a connection between them.
-image: images/ladakh1.webp
+image: images/ladakh9.webp
 tags:
 - Decentralization
 - Self-Sovereign Identities
