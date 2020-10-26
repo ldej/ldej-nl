@@ -21,21 +21,69 @@ There are several ledgers for you to connect to for both development and demo pu
 
 If you are creating an agent that wants to create schemas, credential definitions and issue credentials, you need to have a public DID registered in a ledger. For the Sovrin production ledger this means you need to request it and pay for actions on the ledger. Connecting to and writing to development ledgers is free, however you still need to register a DID. That's what I'm going to explain in this blog post.
 
-## Registering a DID on BCoverin
+## Genesis file
 
-A DID can only be registered via a DID that has the right permissions to write to the ledger. In the case of the BCoverin ledgers, there is a ledger browser that allows you to register a DID.
+In order to write to a ledger, you require the genesis file. For the Sovrin ledgers you can find the genesis file in their github repo: [github.com/sovrin-foundation/sovrin](https://github.com/sovrin-foundation/sovrin/tree/stable/sovrin).
 
-The BCoverin project has three environments. At each of these web pages there is an option for you to register a new DID on the ledger.
+With the BCoverin ledgers you have two options. You can download the genesis file and load it with `--genesis-file`, or you can give the direct url as `--genesis-url`.
 
-- http://dev.bcovrin.vonx.io/
-- http://test.bcovrin.vonx.io/
-- http://prod.bcovrin.vonx.io/
+- http://dev.bcovrin.vonx.io/genesis
+- http://test.bcovrin.vonx.io/genesis
+- http://prod.bcovrin.vonx.io/genesis
 
-You can register your DID based on a seed that you can decide yourself. Store this seed value as this is what you need to start your aca-py.
+## Create a DID for BuilderNet using ACA-py and register it on BuilderNet
 
-## Registering a DID on Sovrin ledgers
+You can create a DID using ACA-py. When you start ACA-py in provision mode, it will create a DID and verkey for you based in the `--seed` value that you provide.
+
+Start ACA-py with:
+
+```shell script
+$ aca-py provision \
+  --endpoint https://<your-acapy-public-url>/ \
+  --genesis-file ./pool_transactions_builder_genesis \
+  --wallet-type indy \
+  --wallet-name <your-wallet-name> \
+  --wallet-key <your-wallet-key> \
+  --seed <your-32-character-seed>
+Created new wallet
+Wallet type: indy
+Wallet name: <your-wallet-name>
+Created new public DID: <new-did>
+Verkey: <new-verkey>
+```
+
+- `--endpoint` This is the public url your ACA-py instance is available on for other agents to connect to. This is __NOT__ the admin endpoint for controlling ACA-py.
+- `--genesis-file` As with every blockchain, to join it you require the genesis-file.
+- `--wallet-type indy` For now, you require an Indy wallet to connect to a Hyperledger Indy network.
+- `--wallet-name` This is the name of your wallet. In case you are not using a Postgres backend for your wallet, it is the name of the folder where your wallet information will be stored. For example `~/.indy_client/wallet/<your-wallet-name`
+- `--wallet-key` This is the key required to unlock your wallet. It is a value you can decide yourself, but you need to keep it secret.
+- `--seed` This is the seed value that you can choose.
+
+It will then ask you to accept the transaction author agreement:
+
+```shell script
+Please select an option:
+ 1. Accept the transaction author agreement and store the acceptance in the wallet
+ 2. Acceptance of the transaction author agreement is on file in my organization
+ X. Skip the transaction author agreement
+[1]>
+```
+
+Before you choose an option, head over to [selfserve.sovrin.org](https://selfserve.sovrin.org/) to register the DID and verkey on BuilderNet. When you have done that, choose option 1.
+
+If you choose option 1 before registering your DID and verkey on SelfServe, you will be greeted with an error message:
+
+```
+...
+aries_cloudagent.ledger.error.LedgerTransactionError: Ledger rejected transaction request: client request invalid: could not authenticate, verkey for <your-verkey> cannot be found
+...
+aries_cloudagent.commands.provision.ProvisionError: Error during provisioning
+```
+
+## Registering a DID on Sovrin ledgers using `indy-cli`
 
 There are three Sovrin ledgers available:
+
 - Sovrin Builder
 - Sovrin Staging
 - Sovrin Prod
@@ -127,9 +175,17 @@ You should then also be able to register a schema:
 indy> ledger schema name=MyFirstSchema version=1.0 attr_names=FirstName,LastName,Address,Birthdate,SSN
 ```
 
-## Registering a DID using ACA-py
+## Registering a DID on BCoverin
 
-I have not had the opportunity to experiment with this. But I suspect it should be possible to initialize a wallet and connect ACA-py to BuilderNet. Then you can create a local DID and enter the DID and verkey on the SelfServe website. After that you should be in the same state as when using `indy-cli`, but I will update this when I tried it out.
+A DID can only be registered via a DID that has the right permissions to write to the ledger. In the case of the BCoverin ledgers, there is a ledger browser that allows you to register a DID.
+
+The BCoverin project has three environments. At each of these web pages there is an option for you to register a new DID on the ledger.
+
+- http://dev.bcovrin.vonx.io/
+- http://test.bcovrin.vonx.io/
+- http://prod.bcovrin.vonx.io/
+
+You can register your DID based on a seed that you can decide yourself. Store this seed value as this is what you need to start your aca-py.
 
 ## Provisioning
 
@@ -145,7 +201,7 @@ ACA-py has a `provision` argument. This is what they say about provisioning in t
 
 To me, it sounds like provisioning should be used to set up a local wallet, a schema and a credential definition. However, only setting up a local wallet seems to be part of the provision mode of ACA-py. This means that registering a schema and credential definition should be part of the provisioning step of your application. More on that in a later post.
 
-If you have set up a wallet using indy-cli, your wallet will be configured already and if you use the basic storage mode, you should be able to find your wallet in `~/.indy_client/wallet/<your-wallet-name>`. In that case you can start ACA-py with the same `--wallet-name` and `--wallet-key` as you provided when you registered a DID.
+If you have set up a wallet using aca-py or indy-cli, your wallet will be configured already and if you use the basic storage mode, you should be able to find your wallet in `~/.indy_client/wallet/<your-wallet-name>`. In that case you can start ACA-py with the same `--wallet-name` and `--wallet-key` as you provided when you registered a DID.
 
 If you have registered a DID using a BCoverin browser, you can use the `provision` mode of ACA-py to create a wallet configured for the BuilderNet ledger with the seed value that the BCoverin browser gave you.
 
@@ -166,13 +222,6 @@ Created new public DID: <new-did>
 Verkey: <new-verkey>
 ```
 
-- `--endpoint` This is the public url your ACA-py instance is available on for other agents to connect to. This is __NOT__ the admin endpoint for controlling ACA-py.
-- `--genesis-file` As with every blockchain, to join it you require the genesis-file.
-- `--wallet-type indy` For now, you require an Indy wallet to connect to a Hyperledger Indy network.
-- `--wallet-name` This is the name of your wallet. In case you are not using a Postgres backend for your wallet, it is the name of the folder where your wallet information will be stored. For example `~/.indy_client/wallet/<your-wallet-name`
-- `--wallet-key` This is the key required to unlock your wallet. It is a value you can decide yourself, but you need to keep it secret.
-- `--seed` This is the seed value that the BCoverin browser will show you.
-
 Running the same command twice will not cause any problems, as the provision tool will verify that you have the private keys for the public DID in your wallet and that nothing needs to be done.
 
 When you run the provision command, it will ask you to accept an agreement.
@@ -182,11 +231,13 @@ When you run the provision command, it will ask you to accept an agreement.
 I have found 6 public Hyperledger Indy networks.
 
 The Government of British Columbia has three:
+
 - http://dev.bcovrin.vonx.io/
 - http://test.bcovrin.vonx.io/
 - http://prod.bcovrin.vonx.io/
 
 And then there are the Sovrin ledgers:
+
 - Sovrin Builder
 - Sovrin Staging
 - Sovrin Prod
@@ -200,16 +251,6 @@ Which of these you want to use for development is up to you. However, if you wan
 | [Esatus](https://esatus.com/)     | ?            | ?                  | ?             | ?                  | ?                  | ?                  |
 | [Lissi](https://lissi.id/)        | ?            | ?                  | ?             | ?                  | ?                  | ?                  |
 | ?                                 |              |                    |               |                    |                    |                    |
-
-## Genesis file
-
-In order to write to a ledger, you require the genesis file. For the Sovrin ledgers you can find the genesis file in their github repo: [github.com/sovrin-foundation/sovrin](https://github.com/sovrin-foundation/sovrin/tree/stable/sovrin).
-
-With the BCoverin ledgers you have two options. You can download the genesis file and load it with `--genesis-file`, or you can give the direct url as `--genesis-url`.
-
-- http://dev.bcovrin.vonx.io/genesis
-- http://test.bcovrin.vonx.io/genesis
-- http://prod.bcovrin.vonx.io/genesis
 
 ## Finding your transaction
 
