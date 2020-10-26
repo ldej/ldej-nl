@@ -2,7 +2,7 @@
 title: "Connecting ACA-py to Development Ledgers"
 date: 2020-10-18T10:02:14+05:30
 draft: false
-summary: Register a public DID and develop against the BCoverin Dev ledger or the Sovin BuilderNet ledger.
+summary: Register a public DID and develop against the BCoverin Dev ledger or the Sovrin BuilderNet ledger.
 image: images/agra1.webp
 tags:
 - Decentralization
@@ -31,7 +31,7 @@ With the BCoverin ledgers you have two options. You can download the genesis fil
 - http://test.bcovrin.vonx.io/genesis
 - http://prod.bcovrin.vonx.io/genesis
 
-## Create a DID for BuilderNet using ACA-py and register it on BuilderNet
+## Create a DID for Sovrin BuilderNet using ACA-py and register it on BuilderNet with SelfServe
 
 You can create a DID using ACA-py. When you start ACA-py in provision mode, it will create a DID and verkey for you based in the `--seed` value that you provide.
 
@@ -80,17 +80,7 @@ aries_cloudagent.ledger.error.LedgerTransactionError: Ledger rejected transactio
 aries_cloudagent.commands.provision.ProvisionError: Error during provisioning
 ```
 
-## Registering a DID on Sovrin ledgers using `indy-cli`
-
-There are three Sovrin ledgers available:
-
-- Sovrin Builder
-- Sovrin Staging
-- Sovrin Prod
-
-The production ledger is publicly available, but you cannot write to that ledger for free, as is requires registration with Sovrin.
-
-The Builder and Staging environment are available for development. Builder is for active development, Staging is for demos.
+## Registering a DID on Sovrin BuilderNet using `indy-cli`
 
 To register a DID at the Builder and Staging ledgers, you can use [selfserve.sovrin.org](https://selfserve.sovrin.org/). At the bottom there is a link which describes how you can create a DID. However, the document is not super clear, so I'm going to describe what I did.
 
@@ -175,7 +165,7 @@ You should then also be able to register a schema:
 indy> ledger schema name=MyFirstSchema version=1.0 attr_names=FirstName,LastName,Address,Birthdate,SSN
 ```
 
-## Registering a DID on BCoverin
+## Registering a DID on BCoverin Dev
 
 A DID can only be registered via a DID that has the right permissions to write to the ledger. In the case of the BCoverin ledgers, there is a ledger browser that allows you to register a DID.
 
