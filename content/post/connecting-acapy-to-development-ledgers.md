@@ -91,7 +91,7 @@ $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 68DB5E88
 $ sudo add-apt-repository "deb https://repo.sovrin.org/sdk/deb bionic master"
 $ sudo apt-get update
 $ sudo apt-get install -y indy-cli
-``` 
+```
 
 The document describes that you also need `libsovtoken`, however that seems to not be available on Ubuntu 18.04, and it turned out not to be required. The document also describes how to set-up a payment address, but that is also not required.
 
@@ -152,7 +152,7 @@ Then go to [selfserve.sovrin.org](https://selfserve.sovrin.org/), select Builder
 
 ```shell script
 indy> ledger get-nym did=<your-did>
-```  
+```
 
 Then, you can configure that DID as the public did in your wallet using:
 ```shell script
@@ -238,7 +238,7 @@ Which of these you want to use for development is up to you. However, if you wan
 | --------------------------------- | ------------ | ------------------ | ------------- | ------------------ | ------------------ | ------------------ |
 | [Trinsic](https://trinsic.id/)    |              | :heavy_check_mark: |               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Connect.me](https://connect.me/) | ?            | ?                  | ?             | ?                  | ?                  | ?                  |
-| [Esatus](https://esatus.com/)     | ?            | ?                  | ?             | ?                  | ?                  | ?                  |
+| [Esatus](https://esatus.com/)     | ?            | :heavy_check_mark: |               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Lissi](https://lissi.id/)        | ?            | ?                  | ?             | ?                  | ?                  | ?                  |
 | ?                                 |              |                    |               |                    |                    |                    |
 
