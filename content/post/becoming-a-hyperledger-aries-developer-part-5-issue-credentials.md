@@ -200,6 +200,8 @@ Expected structure:
 
 Maybe I will find out in a later stage why that is :smile:
 
+Update Oct 2020: I [reported the issue](https://github.com/hyperledger/aries-cloudagent-python/issues/721), it has been fixed and is part of ACA-py v0.5.6. 
+
 ## Development and debugging
 
 For development purposes you can automate a large part of the flow. First of all, to make debugging easier, you can provide `--debug-credentials` to ACA-py. The flow of issuing credentials can be automated using:

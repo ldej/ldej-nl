@@ -232,15 +232,17 @@ And then there are the Sovrin ledgers:
 - Sovrin Staging
 - Sovrin Prod
 
+Update 28-10-2020: I also found https://idunion.esatus.com/, but I have not been able to find how to register a DID on this network.
+
 Which of these you want to use for development is up to you. However, if you want to create an agent that issues credentials, and you want to receive and store these credentials with an existing Android/iOS app, then you need to know which apps are compatible with which ledgers.
 
-| Mobile client                     | BCoverin Dev | BCoverin Test      | BCoverin Prod | Sovrin Builder     | Sovrin Staging     | Sovrin Production  |
-| --------------------------------- | ------------ | ------------------ | ------------- | ------------------ | ------------------ | ------------------ |
-| [Trinsic](https://trinsic.id/)    |              | :heavy_check_mark: |               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Connect.me](https://connect.me/) | ?            | ?                  | ?             | ?                  | ?                  | ?                  |
-| [Esatus](https://esatus.com/)     | ?            | :heavy_check_mark: |               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Lissi](https://lissi.id/)        | ?            | ?                  | ?             | ?                  | ?                  | ?                  |
-| ?                                 |              |                    |               |                    |                    |                    |
+| Mobile client                     | BCoverin Dev       | BCoverin Test      | BCoverin Prod | Sovrin Builder     | Sovrin Staging     | Sovrin Production  |
+| --------------------------------- | ------------------ | ------------------ | ------------- | ------------------ | ------------------ | ------------------ |
+| [Trinsic](https://trinsic.id/)    |                    | :heavy_check_mark: |               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Connect.me](https://connect.me/) | ?                  | ?                  | ?             | ?                  | ?                  | ?                  |
+| [Esatus](https://esatus.com/)     | ?                  | :heavy_check_mark: |               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Lissi](https://lissi.id/) <sup>[1](https://lissi-id.medium.com/the-lissi-wallet-supports-multiple-networks-ledgers-3f46657e0652)</sup>    | :heavy_check_mark: | :heavy_check_mark: | ?             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| ?                                 |                    |                    |               |                    |                    |                    |
 
 ## Finding your transaction
 

@@ -24,3 +24,4 @@ draft: true
 - https://medium.com/pinata/what-is-an-ipfs-pinning-service-f6ed4cd7e475
 - https://medium.com/textileio/easy-personal-ipfs-pinning-service-with-textile-9d366da4e420
 - https://pinata.cloud/
+- Migrations in Go with Liquibase (https://www.calhoun.io/database-migrations-in-go/)

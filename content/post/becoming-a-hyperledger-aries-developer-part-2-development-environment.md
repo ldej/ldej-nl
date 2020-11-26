@@ -17,7 +17,7 @@ tags:
 
 In [part 1]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-1-terminology.md" >}}) I gave an introduction to the terms used in the Self-Sovereign Identity space. In this second part I'm going to talk about the set up of the environment to develop an application using ACA-py.
 
-We're going to set up a Hyperledger Indy network using VON-network, and then we are going to set up ACA-py.
+I'm going to set up a Hyperledger Indy network using VON-network, and then I'm are going to set up ACA-py.
 
 ## Start Hyperledger Indy nodes using VON-network
 
