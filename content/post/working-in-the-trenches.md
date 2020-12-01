@@ -6,10 +6,10 @@ summary: "I joined a project which turns out to have substantial technical debt.
 image: images/ladakh3.webp
 tags:
 - Developer Experience
-reddit:
-  created: 1594708583 
-  url: https://www.reddit.com/r/ldej/comments/hqwgj8/discuss_working_in_the_trenches/
-  title: "Discuss: Working in the Trenches"
+#reddit:
+#  created: 1594708583 
+#  url: https://www.reddit.com/r/ldej/comments/hqwgj8/discuss_working_in_the_trenches/
+#  title: "Discuss: Working in the Trenches"
 ---
 
 Whenever I join a project I'm curious to find out what the situation is like. Which technology stack are they using? What is the developer experience like? What is the technical debt? Are they doing agile development? I like to be positively surprised, but for this project it was rather the contrary.

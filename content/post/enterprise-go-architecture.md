@@ -8,11 +8,12 @@ tags:
 - Go
 - Web
 - Domain-Driven Design
+- Liquibase
 
-reddit:
-  created: 1597301347
-  url: https://www.reddit.com/r/ldej/comments/i8v2qr/enterprise_go_architecture_laurence_de_jong/
-  title: "Enterprise Go Architecture | Laurence de Jong"
+#reddit:
+#  created: 1597301347
+#  url: https://www.reddit.com/r/ldej/comments/i8v2qr/enterprise_go_architecture_laurence_de_jong/
+#  title: "Enterprise Go Architecture | Laurence de Jong"
 ---
 
 Recently I had the opportunity to work on a platform that is written in Go. The platform has about 10 (micro)services that are all well-structured and organised. I'm going to take a look to see what the structure is like.

@@ -10,10 +10,10 @@ tags:
 - Github Actions
 - Web
 
-reddit:
-  created: 1595246336
-  url: https://www.reddit.com/r/ldej/comments/hujzir/deploy_your_hugo_website_to_firebase_using_github/
-  title: "Deploy your Hugo website to Firebase using Github Actions"
+#reddit:
+#  created: 1595246336
+#  url: https://www.reddit.com/r/ldej/comments/hujzir/deploy_your_hugo_website_to_firebase_using_github/
+#  title: "Deploy your Hugo website to Firebase using Github Actions"
 ---
 
 I have used [Hugo](https://gohugo.io) to create my website, and I decided to deploy it to Firebase. I automated the deployment using Github Actions. The documentation of all of these is perfect, but when I tried to piece them together I needed to search a bit more to get it working. I created this guide to make it easier for everybody else.
