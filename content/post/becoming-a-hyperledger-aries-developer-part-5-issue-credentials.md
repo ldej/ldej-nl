@@ -69,7 +69,7 @@ schemaID := "WgWxqztrNooG92RXvxSTWv:2:schema_name:1.0"
 credentialDefinitionID, err := client.CreateCredentialDefinition(tag, supportRevocation, revocationRegistrySize, schemaID)
 ```
 
-To support revocation, a revocation registry needs to be created first, more on that in a later blog post.
+To support revocation, a revocation registry needs to be created first, more on that in [part 6]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-6-revocation" >}}).
 
 ## The issuing credentials dance
 
@@ -95,7 +95,7 @@ To keep track of the dance, both parties are storing credential exchange records
 Holder sends a proposal
 ```go
 // Holder
-credentialProposalRequest := CredentialProposalRequest{
+credentialProposalRequest := acapy.CredentialProposalRequest{
     CredentialDefinitionID: "", 
     ConnectionID:           "",
     IssuerDID:              "",
@@ -148,7 +148,90 @@ credentials, err := client.GetCredentials(max, index, wql)
 credential, err := client.GetCredential(credentialID)
 ```
 
-One thing to note here is that the retrieved credential using the `/credentials` and `/credential/{credential_id}` endpoints do not match the structure that is described in the Swagger documentation.
+### WQL: Some query language
+
+The third parameter for fetching credentials is `wql`. The Swagger documentation describes it as "(JSON) WQL query". I assume QL stands for Query Language, but I have no idea what the "W" means. WQL should not be confused with [Windows Management Instrumentation Query Language (WQL)](https://en.wikipedia.org/wiki/WQL).
+
+At the time of writing, the implementation for it can be found at [storage/basic.py:135](https://github.com/hyperledger/aries-cloudagent-python/blob/master/aries_cloudagent/storage/basic.py#L135). There seems to be no documentation for it, so let me take the opportunity to write it.
+
+Fetch credentials with the matching schema ID:
+```json
+{"schema_id": "DLgHAREgKpDYHhU99Dddgv:2:for-bob-3:1.0"}
+```
+
+Fetch the credentials which have an attribute with the **name** 'drink' which has the **value** 'martini':
+```json
+{"attr::drink::value": "martini"}
+```
+
+Fetch the credentials which have an attribute with the name 'drink' regardless of its value:
+```json
+{"attr::drink::marker": "1"}
+```
+
+Fetch the credentials which have an attribute with the name 'code' and its value is **IN** the listed values:
+```json
+{"attr::code::value": {"$in": ["abc", "def", "ghi"]}}
+```
+
+Fetch the credentials which do **NOT** have an attribute with the name 'drink' and value 'martini':
+```json
+{"$not": {"attr::drink::value": "martini"}}
+```
+
+Fetch all credentials that either have a 'drink' with value 'martini' **OR** that have a 'code' with one of the listed values:
+```json
+{"$or": [{"attr::drink::value": "martini"}, {"attr::code::value": {"$in": ["abc", "def", "ghi"]}}}
+```
+
+Fetch the credentials which have an attribute with the name 'score' and its value is not equal to 0:
+```json
+{"attr::score::value": {"$neq": "0"}}
+```
+
+Fetch the credentials which have an attribute with the name 'score' and its value is **g**reater **t**han 10:
+```json
+{"attr::score::value": {"$gt": "10"}}
+```
+
+Fetch the credentials which have an attribute with the name 'score' and its value is **g**reater **t**han 10 or **e**qual:
+```json
+{"attr::score::value": {"$gte": "10"}}
+```
+
+Fetch the credentials which have an attribute with the name 'score' and its value is **l**ess **t**han 10:
+```json
+{"attr::score::value": {"$lt": "10"}}
+```
+
+Fetch the credentials which have an attribute with the name 'score' and its value is **l**ess **t**han 10 or **e**qual:
+```json
+{"attr::score::value": {"$lte": "10"}}
+```
+
+The `$gt`, `$gte`, `$lt` and `$lte` return an error for me when I use them with Indy wallet:
+```text
+Error: Error when constructing wallet credential query:
+Error: Wallet query error. Caused by: 
+Invalid combination of tag name and value for $gt operator. WalletQueryError.
+```
+
+There is a comment in the code for a `$like` operator, but it has not been implemented.
+
+Filters can be combined and as you please:
+
+```json
+{
+    "schema_id": "DLgHAREgKpDYHhU99Dddgv:2:for-bob-3:1.0",
+    "$not": {"attr::drink::value": "martini"}
+}
+```
+
+Currently you are left to your own devices when using wql with `go-acapy-client`. This means you need to construct the json yourself and pass it as a string.
+
+### Credential structure mismatch
+
+One thing to note is that the retrieved credential using the `/credentials` and `/credential/{credential_id}` endpoints do not match the structure that is described in the Swagger documentation.
 
 Example of a retrieved credential:
 
@@ -200,7 +283,7 @@ Expected structure:
 
 Maybe I will find out in a later stage why that is :smile:
 
-Update Oct 2020: I [reported the issue](https://github.com/hyperledger/aries-cloudagent-python/issues/721), it has been fixed and is part of ACA-py v0.5.6. 
+Update Oct 2020: I [reported the issue](https://github.com/hyperledger/aries-cloudagent-python/issues/721), it has been fixed and is part of ACA-py v0.5.6. The Swagger documentation has been updated to match the returned structure.
 
 ## Development and debugging
 
