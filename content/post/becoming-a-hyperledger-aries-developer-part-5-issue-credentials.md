@@ -181,7 +181,10 @@ Fetch the credentials which do **NOT** have an attribute with the name 'drink' a
 
 Fetch all credentials that either have a 'drink' with value 'martini' **OR** that have a 'code' with one of the listed values:
 ```json
-{"$or": [{"attr::drink::value": "martini"}, {"attr::code::value": {"$in": ["abc", "def", "ghi"]}}}
+{"$or": [
+  {"attr::drink::value": "martini"},
+  {"attr::code::value": {"$in": ["abc", "def", "ghi"]}}
+]}
 ```
 
 Fetch the credentials which have an attribute with the name 'score' and its value is not equal to 0:
@@ -216,9 +219,7 @@ Error: Wallet query error. Caused by:
 Invalid combination of tag name and value for $gt operator. WalletQueryError.
 ```
 
-There is a comment in the code for a `$like` operator, but it has not been implemented.
-
-Filters can be combined and as you please:
+Filters can be combined and as you please, and then they function as an `$and` operator:
 
 ```json
 {
@@ -226,6 +227,8 @@ Filters can be combined and as you please:
     "$not": {"attr::drink::value": "martini"}
 }
 ```
+
+There is a comment in the ACA-py code for a `$like` operator, but it has not been implemented.
 
 Currently you are left to your own devices when using wql with `go-acapy-client`. This means you need to construct the json yourself and pass it as a string.
 
