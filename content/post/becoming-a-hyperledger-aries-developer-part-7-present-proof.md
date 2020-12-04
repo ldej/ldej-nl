@@ -25,25 +25,146 @@ You have received credentials, for example a driver's license, a passport or you
 
 There are two parties involved: the prover and the verifier
 
-1. Prover sends proposal (verifier receives proposal)
+1. Prover sends proposal (verifier receives proposal) (this step is optional)
 2. Verifier sends request (prover receives request)
-3. Prover sends presentation (verifier receives presentation)
-4. Verifier verifies presentation
-5. Verifier sends presentation acknowledgement (prover receives presentation acknowledgement)
+3. Prover sends presentation proof (verifier receives presentation proof)
+4. Verifier verifies presentation proof
+5. Verifier sends presentation proof acknowledgement (prover receives presentation proof acknowledgement)
 
 You can read more about the protocol at [RFC0037](https://github.com/hyperledger/aries-rfcs/tree/master/features/0037-present-proof).
-
-If the issuer has not set up a revocation registry when the credential definition got created, then the holder cannot send a presentation. When the holder tries to send a presentation, the following error will occur:
-
-`400: Error when constructing proof: Error: Invalid structure. Caused by: Revocation Registry Id not found. CommonInvalidStructure.`
 
 ## Present Proof with `go-acapy-client`
 
 Presenting proof is the most difficult part of Aries, at least in my opinion. There seem to be many possibilities, but the documentation for it is rather scarce.
 
+In part 5 I explained how to issue credentials, and in part 6 I talked about revocation. For presenting proof to work out, you need to create credentials that have the option to be revoked. If the issuer has not set up a revocation registry when the credential definition got created, then the holder cannot send a presentation. When the holder tries to send a presentation, the following error will occur:
 
+`400: Error when constructing proof: Error: Invalid structure. Caused by: Revocation Registry Id not found. CommonInvalidStructure.`
 
-`{"attr::name::key": "Bob"}`
+With that out of the way, let's take a look at step 2 in the dance, creating a 'request for presentation'.
+
+### Request for Presentation
+
+```go
+request := acapy.PresentationRequestRequest{
+    ConnectionID: connectionID,
+    Comment:      comment,
+    ProofRequest: acapy.NewProofRequest(
+        "Please prove to me that you have these",
+        "1234567890",
+        requestedPredicates,
+        requestedAttributes,
+        "1.0",
+        acapy.NonRevoked{
+            From: time.Now().Add(-time.Hour * 24 * 7).Unix(),
+            To:   time.Now().Unix(),
+        },
+    ),
+}
+client.SendPresentationRequest(request)
+```
+
+Let's go over the fields. `ConnectionID` is the connection you want to request a presentation proof from. `Comment` is the text you can send with the request that can be displayed to the user.
+
+The `ProofRequest` is constructed using a name ("Please prove to me that you have these"), a nonce (1234567890), the requested predicates, the requested attributes, a version number, and a time interval within which the attributes should be valid.
+
+What the value of the nonce should be, or how to generate it, is not yet clear to me.
+
+The requested attributes are constructed like:
+
+```go
+requestedAttributes := map[string]acapy.RequestedAttribute{
+    "score": acapy.RequestedAttribute{
+        Restrictions: []Restrictions{{ // Required in case of Names
+            CredentialDefitionID: "some-cred-def-id"
+        }},
+        Name:  "score", // XOR with Names
+        Names: ["score"], // XOR with Name
+        NonRevoked: acapy.NonRevoked{
+            From: time.Now().Add(-time.Hour * 24 * 7).Unix(),
+            To:   time.Now().Unix(),
+        },
+    }
+}
+```
+
+A couple of things to note here. **First**, you can either use `Name`, or `Names`, but not both. When you use `Names`, you are required to add `Restrictions`. The `Restrictions` can have a couple of values. So far I have found:
+
+```json
+[
+    {
+      "cred_def_id": "...",
+      "issuer_did": "...",
+      "schema_name": "...",
+      "schema_id": "...",
+      "schema_issuer_did": "...",
+      "schema_version": "...",
+      "attr::attr1::value": "my-value"
+    }
+]
+```
+
+The Swagger documentation describes:
+```text
+If present, credential must satisfy one of given restrictions: specify schema_id, schema_issuer_did, 
+schema_name, schema_version, issuer_did, cred_def_id, and/or attr::<attribute-name>::value 
+where <attribute-name> represents a credential attribute name
+```
+
+The `go-acapy-client` library supports all the keys except for the last one. The last key looks like [WQL](https://ldej.nl/post/becoming-a-hyperledger-aries-developer-part-5-issue-credentials#wql-some-query-language), but I have yet to confirm if that is enforced.
+
+These restrictions are sent to the prover, who can find credentials that match the restrictions, and based on those send a proof. So far it doesn't look like the prover is enforcing these restrictions, it might be that the verifier will verify the restriction.
+
+**Second**, the keys used in the `requestedAttributes`, can be chosen freely. These are the keys that the prover will use when he responds with a presentation.
+
+**Third**, both the `acapy.ProofRequest` and the individual requested attributes have a `NonRevoked` field. When a proof presentation is created by the prover, it will check for each attribute if it is valid in the specified `NonRevoked` time interval. It will first check if the individual requested attribute has a `NonRevoked` field, if it has not, it will use the `ProofRequest.NonRevoked` value. If both don't have a `NonRevoked` specified, then no time interval is taken into account.
+
+**Fourth**, if the `NonRevoked` time interval is before the revocation registry has been created, then the prover will face an error when constructing a proof:
+
+```text
+Error: Exception parsing rev reg delta response (interval ends before rev reg creation?): 
+Error: Item not found on ledger. Caused by: 
+Structure doesn't correspond to type. Most probably not found. Caused by: 
+data did not match any variant of untagged enum Reply. LedgerNotFound.
+```
+
+That's about it for the requested attributes, now let's take a look at the requested predicates.
+
+```go
+requestedPredicates := map[string]acapy.RequestedPredicates{
+    "age": acapy.RequestedPredicate{
+        Restrictions: []Restrictions{{ // Required in case of Names
+            CredentialDefitionID: "some-cred-def-id"
+        }},
+        Name:   "score", // XOR with Names
+        Names:  ["score"], // XOR with Name
+        PType:  acapy.PredicateLT,
+        PValue: 18,
+        NonRevoked: acapy.NonRevoked{
+            From: time.Now().Add(-time.Hour * 24 * 7).Unix(),
+            To:   time.Now().Unix(),
+        },
+    }
+}
+```
+
+Again the same rules apply to using `Name` exclusive or with `Names`, and `Restrictions` being required when using `Names`. The same rules about `NonRevoked` overriding the `NonRevoked` of the presentation request itself.
+
+There are two extra fields here, the `PType` and the `PValue`. They can be used for requesting attributes with rules for the value. For example, a predicate can define that the attribute 'age' should have a value greater than or equal to '18'. There are four predicate-types available:
+
+```go
+type PredicateType string
+
+const (
+	PredicateLT  PredicateType = "<"
+	PredicateLTE PredicateType = "<="
+	PredicateGT  PredicateType = ">"
+	PredicateGTE PredicateType = ">="
+)
+```
+
+### Presenting Proof
+
 
 
 ## Development and debugging
