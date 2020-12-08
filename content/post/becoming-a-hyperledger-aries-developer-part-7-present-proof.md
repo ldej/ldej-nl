@@ -230,7 +230,7 @@ When the presentation is verified, an update will be sent to the prover that the
 
 There are a couple of parameters available to automate the steps in this process. They are `--auto-respond-presentation-proposal`, `--auto-respond-presentation-request` and `--auto-verify-presentation`. They automated the steps that I described. The parameter `--debug-presentations` can be used to print extra output for debugging the presentations.
 
-## Connectionless present proof
+## Connectionless Proof
 
 These proofs require a connection to be established beforehand. But what if there is no connection yet? Let's say you are at a bar and need to prove that you are above the legal drinking age? In that case a connectionless proof presentation can be made.
 

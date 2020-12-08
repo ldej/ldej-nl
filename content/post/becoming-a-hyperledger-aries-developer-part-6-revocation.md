@@ -99,5 +99,5 @@ When an issuer revokes a credential, it only communicates with the ledger to upd
 
 ## Conclusion
 
-With the tails server and revocation registry set up, let's jump to presenting proof of non-revocation in part 7 (expected Dec 2020). In the meantime I have written a post about [connecting ACA-py to hosted ledgers]({{< relref "/post/connecting-acapy-to-development-ledgers.md" >}}).
+With the tails server and revocation registry set up, let's jump to presenting proof of non-revocation in [part 7]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-7-present-proof.md" >}}). In the meantime I have written a post about [connecting ACA-py to hosted ledgers]({{< relref "/post/connecting-acapy-to-development-ledgers.md" >}}).
  
