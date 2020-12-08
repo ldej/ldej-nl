@@ -8,6 +8,8 @@ tags:
 - Decentralization
 - Self-Sovereign Identities
 - Hyperledger Aries
+- aries-cloudagent-python
+- ACA-py
 
 #reddit:
 #  created: 1594708583 

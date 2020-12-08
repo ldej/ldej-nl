@@ -1,13 +1,15 @@
 ---
 title: "Becoming a Hyperledger Aries Developer - Part 7: Present Proof"
-date: 2020-09-23T10:32:27+05:30
-draft: true
-summary:
-image: images/ladakh1.webp
+date: 2020-12-08T06:32:27+05:30
+draft: false
+summary: Creating a presentation request, a presentation proof and verifying the proof.
+image: images/agra3.webp
 tags:
 - Decentralization
 - Self-Sovereign Identities
 - Hyperledger Aries
+- aries-cloudagent-python
+- ACA-py
 
 #reddit:
 #  created: 1594708583 
@@ -43,7 +45,7 @@ In part 5 I explained how to issue credentials, and in part 6 I talked about rev
 
 With that out of the way, let's take a look at step 2 in the dance, creating a 'request for presentation'.
 
-### Request for Presentation
+### Presentation Proposal
 
 ```go
 request := acapy.PresentationRequestRequest{
@@ -66,7 +68,7 @@ client.SendPresentationRequest(request)
 
 Let's go over the fields. `ConnectionID` is the connection you want to request a presentation proof from. `Comment` is the text you can send with the request that can be displayed to the user.
 
-The `ProofRequest` is constructed using a name ("Please prove to me that you have these"), a nonce (1234567890), the requested predicates, the requested attributes, a version number, and a time interval within which the attributes should be valid.
+The `ProofRequest` is constructed using a name ("Please prove to me that you have these"), a nonce ("1234567890"), the requested predicates, the requested attributes, a version number, and a time interval within which the attributes should be valid.
 
 What the value of the nonce should be, or how to generate it, is not yet clear to me.
 
@@ -113,7 +115,7 @@ where <attribute-name> represents a credential attribute name
 
 The `go-acapy-client` library supports all the keys except for the last one. The last key looks like [WQL](https://ldej.nl/post/becoming-a-hyperledger-aries-developer-part-5-issue-credentials#wql-some-query-language), but I have yet to confirm if that is enforced.
 
-These restrictions are sent to the prover, who can find credentials that match the restrictions, and based on those send a proof. So far it doesn't look like the prover is enforcing these restrictions, it might be that the verifier will verify the restriction.
+These restrictions are sent to the prover, who can find credentials that match the restrictions, and based on those send a proof. So far it doesn't look like the prover is checking these restrictions, it might be that the verifier will verify the restriction.
 
 **Second**, the keys used in the `requestedAttributes`, can be chosen freely. These are the keys that the prover will use when he responds with a presentation.
 
@@ -128,7 +130,7 @@ Structure doesn't correspond to type. Most probably not found. Caused by:
 data did not match any variant of untagged enum Reply. LedgerNotFound.
 ```
 
-That's about it for the requested attributes, now let's take a look at the requested predicates.
+That's about it for the requested attributes, now let's take a look at the **requested predicates**.
 
 ```go
 requestedPredicates := map[string]acapy.RequestedPredicates{
@@ -163,18 +165,118 @@ const (
 )
 ```
 
-### Presenting Proof
+### Constructing a Presentation Proof
 
+After receiving a presentation request, a presentation proof can be constructed.
 
+```go
+proof := acapy.NewPresentationProof(
+    requestedAttributes,
+    requestedPredicates,
+    selfAttestedAttributes,
+)
+client.SendPresentationByID(presentationExchangeID, proof)
+```
+
+The attributes that go into a presentation proof are directly linked to the presentation request. For example, if the presentation request has a restriction on the `CredentialDefinitionID`, then the prover needs to find a credential in its wallet that matches the `CredentialDefinitionID`.
+
+```go
+requestedAttributes := map[string]acapy.PresentationProofAttribute{}
+
+credentials, _ := app.client.GetCredentials(10, 0, "")
+
+for attrName, attr := range app.presentationExchange.PresentationRequest.RequestedAttributes {
+    credentialDefinitionID := attr.Restrictions[0].CredentialDefinitionID
+
+    var referent string
+    for _, credential := range credentials {
+        if credential.CredentialDefinitionID == credentialDefinitionID && credential.Attributes[attr.Names[0]] != "" {
+            referent = credential.Referent
+            break
+        }
+    }
+
+    requestedAttributes[attrName] = acapy.PresentationProofAttribute{
+        Revealed:     true,
+        Timestamp:    time.Now().Unix(),
+        CredentialID: referent,
+    }
+}
+```
+
+Matching credentials can also be retrieved by using the third parameter (`wql`) of `client.GetCredentials(10, 0, "")`. You can read more about WQL in [a previous blog post](https://ldej.nl/post/becoming-a-hyperledger-aries-developer-part-5-issue-credentials#wql-some-query-language).
+
+The `Revealed` value needs to be `true` to reveal the value in the proof. When the attribute is not revealed, the following error will show up:
+
+```text
+2020-12-07 17:34:33,660 aries_cloudagent.indy.sdk.verifier 
+ERROR Presentation on nonce=1023415730075370979973368 cannot be validated: 
+missing essential components [Missing requested attribute group '0_name_uuid']
+```
+
+I haven't looked into the predicates and self-attested attributes yet, [Aries RFC0037](https://github.com/hyperledger/aries-rfcs/tree/master/features/0037-present-proof) describes a lot more detail that I haven't used yet. I'll take a look into that in a later stage.
+
+### Verifying Presentation Proof
+
+The verification of a presentation proof is relatively straight-forward:
+
+```go
+presentationExchange, err := app.client.VerifyPresentationByID(presentationExchangeID)
+```
+
+When the presentation is verified, an update will be sent to the prover that the presentation has been acknowledged.
 
 ## Development and debugging
 
-`--auto-respond-presentation-proposal`
-`--auto-respond-presentation-request`
-`--auto-verify-presentation`
-
-`--debug-presentations`
+There are a couple of parameters available to automate the steps in this process. They are `--auto-respond-presentation-proposal`, `--auto-respond-presentation-request` and `--auto-verify-presentation`. They automated the steps that I described. The parameter `--debug-presentations` can be used to print extra output for debugging the presentations.
 
 ## Connectionless present proof
 
+These proofs require a connection to be established beforehand. But what if there is no connection yet? Let's say you are at a bar and need to prove that you are above the legal drinking age? In that case a connectionless proof presentation can be made.
+
+To do that, first a request has to be created using: `client.CreatePresentationRequest(...)`. The resulting json should be base64 encoded and attached in a request at `request_presentation~attach[0].data.base64`. The `~service` object is required for the verifier to know how to contact the prover.
+
+
+```json
+{
+    "@id": "3b67c4bf-3953-4ace-94ef-28e0969288c5",
+    "@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/present-proof/1.0/request-presentation",
+    "request_presentations~attach": [
+        {
+            "@id": "libindy-request-presentation-0",
+            "mime-type": "application/json",
+            "data": {
+                "base64": "eyJuYW1lIjo..."
+            }
+        }
+    ],
+    "comment": null,
+    "~service": {
+        "recipientKeys": [
+            "F2fFPEXABoPKt8mYjNAavBwbsmQKYqNTcv3HKqBgqpLw"
+        ],
+        "routingKeys": null,
+        "serviceEndpoint": "https://my-url.test.org"
+    }
+}
+```
+
+This object needs to be transformed into a QR code which can be scanned by the verifier. One problem with that is that the base64 encoded proof can become quite large, and there is a limit to the amount of data that can be represented in a QR code. There are two solutions to this. 
+
+The first option is, instead of creating a QR code that contains the data, a URL can be constructed with the connectionless proof data as a base64 encoded query parameter: 
+
+```text
+https://example.com/?data=eyd7f3k9adjj2HH88...
+```
+
+The second option is to store the data in a database and to make it accessible using a unique identifier. Accessing the URL would retrieve the data from the database and return it as json.
+
+[Aries RFC0434](https://github.com/hyperledger/aries-rfcs/tree/master/features/0434-outofband#url-shortening) describes the process of using these out-of-band messages. It also raps about url shortening as described in the second option.
+
+There is no functionality for connectionless proofs or other out-of-bound messages in `go-acapy-client` yet.
+
 ## Conclusion
+
+Constructing a presentation proposal and a presentation proof is not the most straight-forward part of Aries. I have described a simple process with simple attributes and need to discover the other parts later on. Please shoot me a message in case you have any queries or tips.
+
+This is going to be the last blog post in this series, however I will write about the other parts of presenting a proof, new features added to `go-acapy-client`, and an issuer and verifier that I'm creating using `go-acapy-client` in the future.
