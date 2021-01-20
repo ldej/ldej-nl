@@ -150,9 +150,9 @@ credentials, err := client.GetCredentials(max, index, wql)
 credential, err := client.GetCredential(credentialID)
 ```
 
-### WQL: Some query language
+### WQL: Wallet Query Language
 
-The third parameter for fetching credentials is `wql`. The Swagger documentation describes it as "(JSON) WQL query". I assume QL stands for Query Language, but I have no idea what the "W" means. WQL should not be confused with [Windows Management Instrumentation Query Language (WQL)](https://en.wikipedia.org/wiki/WQL).
+The third parameter for fetching credentials is `wql`. The Swagger documentation describes it as "(JSON) WQL query". WQL stands for [Wallet Query Language](https://github.com/hyperledger/aries-cloudagent-python/issues/175#issuecomment-529741526), not to be confused with [Windows Management Instrumentation Query Language (WQL)](https://en.wikipedia.org/wiki/WQL).
 
 At the time of writing, the implementation for it can be found at [storage/basic.py:135](https://github.com/hyperledger/aries-cloudagent-python/blob/master/aries_cloudagent/storage/basic.py#L135). There seems to be no documentation for it, so let me take the opportunity to write it.
 

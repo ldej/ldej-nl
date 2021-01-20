@@ -1,3 +1,8 @@
+article {
+    display: flex;
+    flex-direction: column;
+}
+
 .circle {
     object-fit: cover;
     border-radius: 50%;
@@ -308,4 +313,18 @@ a.pdf {
 
 .skydive svg {
     fill: white;
+}
+
+.filename {
+    align-self: flex-end;
+    z-index: 1;
+    font-family: "Roboto Mono", monospace;
+    font-weight: normal;
+    font-size: 0.9em;
+    margin-bottom: -1.8em;
+    padding-right: 1em;
+    padding-left: 1em;
+    border: #d3d3d3 solid 1px;
+    border-top-right-radius: 6px;
+    background: #eaeaea;
 }
