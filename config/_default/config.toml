@@ -1,6 +1,7 @@
 languageCode = "en-us"
 title = "Laurence de Jong"
 theme = ["pixyll"]
+relativeURLs = true
 
 enableRobotsTXT = true
 enableEmoji = true

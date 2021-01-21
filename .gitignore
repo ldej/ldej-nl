@@ -207,3 +207,6 @@ dist
 public
 
 static/to_process
+
+.textileseed
+.textile/repo
