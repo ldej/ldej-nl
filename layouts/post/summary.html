@@ -1,6 +1,5 @@
 <li>
-  {{ $baseurl := .Site.BaseURL }}
-  <a class="post-link" href="{{ .Permalink }}">
+  <a class="post-link" href="{{ .RelPermalink }}">
     <span class="bold">{{ .Title }} {{ if .Draft }}(draft){{end}} · <span class="post-meta">{{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} minute read</span></span>
     <span class="post-summary">{{ .Summary }}</span>
   </a>

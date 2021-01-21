@@ -5,11 +5,10 @@
     <div class="measure">
       <div class="post-header mb2">
         <h1>{{ .Title }}</h1>
-        {{ $baseurl := .Site.BaseURL }}
         <span class="post-meta">{{ .Date.Format "Jan 2, 2006" }} · <a href="{{ .Params.source }}">Source</a> ·
           {{ if isset .Params "tags" }} {{ if len .Params.tags }}
             {{ range $i, $e := .Params.tags }}
-              <a href="{{ $baseurl }}{{ $.Site.LanguagePrefix }}/tags/{{ . | urlize }}"><span class="tag">{{ . }}</span></a>
+              <a href="/tags/{{ . | urlize }}"><span class="tag">{{ . }}</span></a>
             {{ end }}
           {{ end }}
           {{ end }}

@@ -113,7 +113,7 @@ schema_name, schema_version, issuer_did, cred_def_id, and/or attr::<attribute-na
 where <attribute-name> represents a credential attribute name
 ```
 
-The `go-acapy-client` library supports all the keys except for the last one. The last key looks like [WQL](https://ldej.nl/post/becoming-a-hyperledger-aries-developer-part-5-issue-credentials#wql-some-query-language), but I have yet to confirm if that is enforced.
+The `go-acapy-client` library supports all the keys except for the last one. The last key looks like [WQL](/post/becoming-a-hyperledger-aries-developer-part-5-issue-credentials#wql-some-query-language), but I have yet to confirm if that is enforced.
 
 These restrictions are sent to the prover, who can find credentials that match the restrictions, and based on those send a proof. So far it doesn't look like the prover is checking these restrictions, it might be that the verifier will verify the restriction.
 
@@ -204,7 +204,7 @@ for attrName, attr := range app.presentationExchange.PresentationRequest.Request
 }
 ```
 
-Matching credentials can also be retrieved by using the third parameter (`wql`) of `client.GetCredentials(10, 0, "")`. You can read more about WQL in [a previous blog post](https://ldej.nl/post/becoming-a-hyperledger-aries-developer-part-5-issue-credentials#wql-some-query-language).
+Matching credentials can also be retrieved by using the third parameter (`wql`) of `client.GetCredentials(10, 0, "")`. You can read more about WQL in [a previous blog post](/post/becoming-a-hyperledger-aries-developer-part-5-issue-credentials#wql-some-query-language).
 
 The `Revealed` value needs to be `true` to reveal the value in the proof. When the attribute is not revealed, the following error will show up:
 

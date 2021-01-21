@@ -12,33 +12,27 @@
 <meta name="twitter:description" content="{{ .Site.Params.description }}" />
 
 <!-- links -->
-<base href="{{ .Permalink }}">
-<link rel="canonical" href="{{ .Site.BaseURL }}" itemprop="url" />
-<meta name="url" content="{{ .Permalink }}" />
-<meta name="twitter:url" content="{{ .Permalink }}" />
-<meta property="og:url" content="{{ .Permalink }}" />
+<link rel="canonical" href="{{ .RelPermalink }}" itemprop="url" />
+<meta name="url" content="{{ .RelPermalink }}" />
+<meta name="twitter:url" content="{{ .RelPermalink }}" />
+<meta property="og:url" content="{{ .RelPermalink }}" />
 
 <!-- image -->
 {{ with .Params.image }}
-    <meta itemprop="image" content="{{ . | absURL }}" />
-    <meta property="og:image" content="{{ . | absURL }}" />
-    <meta name="twitter:image" content="{{ . | absURL }}" />
-    <meta name="twitter:image:src" content="{{ . | absURL }}" />
-{{ else }}
-    <meta itemprop="image" content="{{ .Site.Params.ogimage | absURL }}" />
-    <meta property="og:image" content="{{ .Site.Params.ogimage | absURL }}" />
-    <meta name="twitter:image" content="{{ .Site.Params.ogimage | absURL }}" />
-    <meta name="twitter:image:src" content="{{ .Site.Params.ogimage | absURL }}" />
+    <meta itemprop="image" content="/{{ . }}" />
+    <meta property="og:image" content="/{{ . }}" />
+    <meta name="twitter:image" content="/{{ . }}" />
+    <meta name="twitter:image:src" content="/{{ . }}" />
 {{ end }}
 
 <!-- date -->
 <meta property="og:updated_time" content={{ .Lastmod.Format "2006-01-02T15:04:05Z0700" | safeHTML }} />
 <!-- Sitemap & RSS Feed Tags -->
-<link rel="sitemap" type="application/xml" title="Sitemap" href="{{ .Site.BaseURL }}sitemap.xml" />
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
 {{ with .OutputFormats.Get "RSS" }}
-    <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
-    <link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
+    <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+    <link href="{{ .RelPermalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
 {{ end }}
 
 <!-- To make sure this renders only in the article page, we check the section -->
@@ -89,14 +83,14 @@
       "dateModified": "{{ .Lastmod.Format "2006-01-02" }}",
       "image": {
         "@type": "imageObject",
-        "url": "{{ .Site.BaseURL }}{{ .Params.image }}"
+        "url": "{{ .Params.image }}"
       },
       "publisher": {
         "@type": "Organization",
         "name": "{{ .Site.Title }}",
         "logo": {
           "@type": "imageObject",
-          "url": "{{ .Site.BaseURL }}{{ .Site.Params.ogimage }}"
+          "url": "{{ .Site.Params.ogimage }}"
         }
       }
     }

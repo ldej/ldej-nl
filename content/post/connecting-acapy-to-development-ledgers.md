@@ -8,6 +8,9 @@ tags:
 - Decentralization
 - Self-Sovereign Identities
 - Hyperledger Aries
+- indy-cli
+- aries-cloudagent-python
+- ACA-py
 
 ---
 
@@ -69,9 +72,9 @@ Please select an option:
 [1]>
 ```
 
-Before you choose an option, head over to [selfserve.sovrin.org](https://selfserve.sovrin.org/) to register the DID and verkey on BuilderNet. When you have done that, choose option 1.
+**Before you choose an option**, head over to [selfserve.sovrin.org](https://selfserve.sovrin.org/) to register the DID and verkey on BuilderNet. Once you have done that, choose option 1.
 
-If you choose option 1 before registering your DID and verkey on SelfServe, you will be greeted with an error message:
+If you choose option 1 *before* registering your DID and verkey on SelfServe, you will be greeted with an error message:
 
 ```
 ...
@@ -187,7 +190,7 @@ ACA-py has a `provision` argument. This is what they say about provisioning in t
 > 
 > The provision and start separation is done for security and ledger management reasons. Provisioning a new wallet often (depending on the technical environment) requires higher authority (e.g. root) database credentials. Likewise, creating objects on a ledger often requires the use of a DID with more access permissions. By separating out provisioning from normal operations, those higher authority credentials do not need to be available on an ongoing basis. As well, on a production ledger such as Sovrin, there is a cost to write to the ledger. You don’t want to be accidentally writing ledger objects as you scale up and down ACA-Py instances based on load. We’ve seen instances of that.
 >
-> __(emphasis mine)__
+__(emphasis mine)__
 
 To me, it sounds like provisioning should be used to set up a local wallet, a schema and a credential definition. However, only setting up a local wallet seems to be part of the provision mode of ACA-py. This means that registering a schema and credential definition should be part of the provisioning step of your application. More on that in a later post.
 
