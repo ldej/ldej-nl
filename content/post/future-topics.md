@@ -10,12 +10,10 @@ draft: true
 ---
 
 - Migrations in Go with Liquibase (https://www.calhoun.io/database-migrations-in-go/)
-- Present Proof
 - Building the issuer
-- Replicator
+- postgres as a wallet backend for indy-cli and ACA-py
 - libp2p logical clocks
 - advent of code
-
 
 - IPFS
 - https://github.com/evanw/esbuild
