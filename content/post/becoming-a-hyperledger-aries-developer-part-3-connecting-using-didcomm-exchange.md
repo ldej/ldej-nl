@@ -14,7 +14,7 @@ tags:
 
 ---
 
-In [part 1]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-1-terminology.md" >}}) I gave an introduction to the terms used in the Self-Sovereign Identity space. In [part 2]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-2-development-environment.md" >}}) I explained the tools and command-line arguments for the development environment. In this part I'm going to set up two agents, and they are going to connect using the invite and request/response protocol. The [first version]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-3-connecting-using-swagger" >}}) of this blog post described how ACA-py agents can connect using the [RFC0160 Connection Protocol]. I did not use the Out-of-Band protocol as I did not see how that would add anything. In this blog post I will use the Out-of-Band protocol and RFC0023 DID Exchange as a first version of DID Exchange has been implemented in ACA-py v0.6.0.
+In [part 1]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-1-terminology.md" >}}) I gave an introduction to the terms used in the Self-Sovereign Identity space. In [part 2]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-2-development-environment.md" >}}) I explained the tools and command-line arguments for the development environment. In this part I'm going to set up two agents, and they are going to connect using the invite and request/response protocol. The [first version]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-3-connecting-using-swagger" >}}) of this blog post described how ACA-py agents can connect using the RFC0160 Connection Protocol. I did not use the Out-of-Band protocol as I did not see how that would add anything. In this blog post I will use the Out-of-Band protocol and RFC0023 DID Exchange because a first version of DID Exchange has been implemented in ACA-py v0.6.0.
 
 The work on connecting two agents to create a connection and exchange messages is ongoing. This means that whatever I write here might be outdated tomorrow.
 
@@ -288,7 +288,7 @@ Again you can provide an `alias`, it's still from Bob's perspective, so it shoul
 
 This happens automatically when Bob accepts the invitation. The request will directly go from Bob's ACA-py instance to Alice's ACA-py instance.
 
-Even though Alice started this interaction by creating an invitation, it is actually Bob that sends a connection request to Alice, therefore Bob is called the _requester_.
+Even though Alice started this interaction by creating an invitation, it is actually Bob that sends a connection request to Alice, therefore Bob is called the _requester_. Alice is called the _responder_.
 
 {{% big-point number="5" title="Alice receives the connection request" %}}
 
