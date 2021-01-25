@@ -1,7 +1,7 @@
 ---
 title: "Working in the Trenches"
 date: 2020-07-09T17:58:21+05:30
-draft: false
+draft: true
 summary: "I joined a project which turns out to have substantial technical debt."
 image: images/ladakh3.webp
 tags:
