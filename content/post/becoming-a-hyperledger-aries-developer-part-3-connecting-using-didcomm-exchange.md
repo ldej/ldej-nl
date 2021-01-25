@@ -1,9 +1,9 @@
 ---
 title: "Becoming a Hyperledger Aries Developer - Part 3: Connecting using DIDComm Exchange"
-date: 2020-09-15T06:05:19+05:30
+date: 2021-01-25T10:05:19+05:30
 draft: false
 summary: Starting two ACA-py instances with the right parameters and establishing a connection between them.
-image: images/ladakh9.webp
+image: images/agra5.webp
 tags:
 - Decentralization
 - Self-Sovereign Identities
