@@ -1,4 +1,4 @@
 <div class="big-point">
-    <span class="big-point-number">{{ .Get "number" }}</span>&nbsp;
+    <span class="big-point-number" {{ if .Get "color" }}style="background-color: {{ .Get "color" }}"{{ end }}>{{ .Get "number" }}</span>&nbsp;
     <div class="big-point-title">{{ .Get "title" }}</div>
 </div>

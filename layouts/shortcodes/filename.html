@@ -1,1 +1,1 @@
-<div class="filename">{{ .Get 0 }}</div>
+<div class="filename" {{ if .Get 1 }}style="background-color: {{ .Get 1 }}"{{ end }}>{{ .Get 0 }}</div>
