@@ -10,6 +10,7 @@ tags:
 - Hyperledger Aries
 - aries-cloudagent-python
 - ACA-py
+- DIDComm Exchange
 
 ---
 
