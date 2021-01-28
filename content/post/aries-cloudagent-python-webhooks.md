@@ -247,7 +247,10 @@ Example JSON body:
 
 ### Issuer Credential Revocation (`issuer_cred_rev`)
 
-When a credential has been issued, an update is done to the revocation registry. The `issuer_cred_rev` event contains the details of the update to the revocation registry for the issued credential.
+When a credential has been issued, an update is done to the revocation registry. The `issuer_cred_rev` event contains the details of the update to the revocation registry for the issued credential. I have seen two `state`s:
+
+- `issued`
+- `revoked`
 
 Example JSON body:
 

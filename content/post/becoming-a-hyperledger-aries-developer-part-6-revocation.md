@@ -37,12 +37,6 @@ I suggest reading [HIPE0011 - Credential Revocation](https://github.com/hyperled
 
 In the next blog post I'm going to talk about proving credentials, and for credentials to be proven in Indy, a revocation registry is required as the prover needs to prove a credential is valid by providing a proof of non-revocation.
 
-## Active Development
-
-While I'm writing this blog post and building `go-acapy-client`, the revocation registry endpoints [are updated](https://github.com/hyperledger/aries-cloudagent-python/pull/717/files). I suspect that a [new release](https://github.com/hyperledger/aries-cloudagent-python/releases) will be added soon which will include the new revocation registry endpoints. I think this is going to be release v0.6.0 as API changes require at least a minor version bump.
-
-Update (15-10-2020): I was wrong, the version is going to be v0.5.5.
-
 ## Creating a revocation registry with a credential definition
 
 When you create a credential definition, you can specify `supports_revocation: true` and the size of the registry. A revocation registry will automatically be created, and a tails file will be uploaded to the tails server. For this call to work, you need to specify `--tails-base-server http://some-place`. So let's set up a tails server.
@@ -79,7 +73,7 @@ The automatic creation of a revocation registry can also be done manually.
   
 ## Revoking a credential
 
-In the previous blog post I discussed issuing a credential. If you follow these steps but with enabled support for revocation, you can revoke a credential with `/issue-credential/revoke`. When you revoke a credential you can specify if the result should be published to the ledger immediately. If you don't publish immediately you can publish them manually or can you clear the pending revocations.
+In the previous blog post I discussed issuing a credential. If you follow these steps but with enabled support for revocation, then the issuer of the credential can revoke the credential with `/revocation/revoke`. When you revoke a credential you can specify if the result should be published to the ledger immediately. If you don't publish immediately, you can publish them manually using `/revocation/publish-revocations` or can you clear the pending revocations with `/revocation/clear-pending-revocations`.
 
 The reason you might want to wait with publishing, is because it is a transaction in the ledger. Any transaction in the Sovrin ledger costs money. The creation of a revocation registry [costs](https://sovrin.org/issue-credentials/) $20, and the publishing of a revocation update costs $0.10.
 
