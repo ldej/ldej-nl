@@ -113,14 +113,14 @@ credentialProposalRequest := acapy.CredentialProposalRequest{
 credentialExchange, err := client.SendCredentialProposal(credentialProposalRequest)
 ```
 
-The issuer receives the proposal and creates a credential exchange object to keep track of this credential exchange. The credential exchange records can be queried. A webhook will be triggered to notify the issuer when a proposal has been received.
+The issuer receives the proposal and creates a credential exchange object to keep track of this credential exchange. The credential exchange records can be queried. A [webhook]({{< relref "/post/aries-cloud-agent-python-webhooks.md" >}}) will be triggered to notify the issuer when a proposal has been received.
 
 ```go
 // Issuer
 credentialExchange, err := client.SendCredentialOfferByID(credentialExchangeID)
 ```
 
-Similarly, the holder will receive the offer, and a webhook will be triggered.
+Similarly, the holder will receive the offer, and a [webhook]({{< relref "/post/aries-cloud-agent-python-webhooks.md" >}}) will be triggered.
 
 ```go
 // Holder

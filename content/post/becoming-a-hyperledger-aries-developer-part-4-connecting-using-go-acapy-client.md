@@ -82,7 +82,7 @@ err := client.RemoveConnection(connectionID string)
 
 ## Webhooks
 
-The ACA-py client supports webhooks for events that happen in ACA-py and that your controller might want to know about. For example a connection request has come in, or a basic message has been received. `go-acapy-client` supports a convenient way of passing on the these messages to a function of your choosing:
+The ACA-py client supports [webhooks]({{< relref "/post/aries-cloud-agent-python-webhooks.md" >}}) for events that happen in ACA-py and that your controller might want to know about. For example a connection request has come in, or a basic message has been received. `go-acapy-client` supports a convenient way of passing on the these messages to a function of your choosing:
 
 ```go
 package main

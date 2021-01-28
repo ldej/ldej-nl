@@ -350,7 +350,7 @@ Connection promoted to active
 
 {{% big-point number="10" title="Alice and Bob can send basic messages" %}}
 
-Use the `/connections/{id}/send-message` endpoint. The `{id}` is the `connection_id` for Alice's connection to Bob. For Bob there is a different `connection_id` for the connection with Alice. Unfortunately the basic messages are not printed in the ACA-py terminal. For you to be notified about a basic message coming in, we need to take a look at webhooks, more on that in another blog post.
+Use the `/connections/{id}/send-message` endpoint. The `{id}` is the `connection_id` for Alice's connection to Bob. For Bob there is a different `connection_id` for the connection with Alice. Unfortunately the basic messages are not printed in the ACA-py terminal. For you to be notified about a basic message coming in, we need to take a look at [webhooks]({{< relref "/post/aries-cloud-agent-python-webhooks.md" >}}).
     
 ## Automatic accepting
 

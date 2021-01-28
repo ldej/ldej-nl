@@ -149,6 +149,7 @@ $ aca-py start \
   --auto-accept-invites \
   --auto-accept-requests \
   --auto-ping-connection \
+  --monitor-ping \
   --debug-connections
 ```
 
@@ -176,13 +177,17 @@ When you run a production instance of your application, you want this to always 
 
 `--endpoint http://localhost:8000/` This is the URL at which your ACA-py instance will be available for other ACA-py instances to reach. This URL will be used for establishing connections. The protocol, address and port should be the same as for `--inbound-transport`.
 
-`--webhook-url http://localhost:4455/webhooks` ACA-py is sending and receiving messages from one instance to another, for example to set up a connection or to issue credentials. Whenever an event in ACA-py happens, a call is done to the webhook URL on different topics, so your application can get live updates and update the interface for example. If you don't use webhooks yet, don't use the parameter as it will create a lot of errors in the ACA-py console.
+`--webhook-url http://localhost:4455/webhooks` [webhooks]({{< relref "/post/aries-cloud-agent-python-webhooks.md" >}}) ACA-py is sending and receiving messages from one instance to another, for example to set up a connection or to issue credentials. Whenever an event in ACA-py happens, a call is done to the webhook URL on different topics, so your application can get live updates and update the interface for example. If you don't use webhooks yet, don't use the parameter as it will create a lot of errors in the ACA-py console.
 
 `--public-invites` This allows you to use the public DID that is registered in the ledger sending invitations and receiving connection requests.
 
 `--auto-provision` With the release of ACA-py v0.6.0, the provisioning of a wallet has changed. In general, ACA-py has two main commands: `start` and `provision`. The provision command is there to separate the creation of wallets and the usage of wallets. In a production application, you do not want to create or overwrite a wallet by accident. Your wallet contains the keys for using a specific DID, and a DID is registered in an Indy blockchain for real money. That's why there are separate steps. On the other hand, for development it is convenient to not have to do two separate steps. That's why a new command-line parameter has been added that automatically provisions a wallet in case it does not exist.
 
-`--auto-accept-invites` and `--auto-accept-requests` result in the automatic acceptation of invites, which results in the sending of a connection request, which will be automatically accepted, which results in response after which the connection is established. More on invites and requests in part 3. `--auto-ping-connection` sends a ping message after establishing the connection to mark it as 'active'.
+`--auto-accept-invites` and `--auto-accept-requests` result in the automatic acceptation of invites, which results in the sending of a connection request, which will be automatically accepted, which results in response after which the connection is established. More on invites and requests in part 3.
+
+`--auto-ping-connection` sends a ping message after establishing the connection to mark it as 'active'. Note: with RFC0023 a ping is not required to mark a connection as active.
+
+`--monitor-ping` sends a [webhook]({{< relref "/post/aries-cloud-agent-python-webhooks.md" >}}) event when a ping message is received.
 
 `--debug-connections` When you manually go through the steps of invites and requests, it's a good idea to enable this flag as it gives clear output of what is going on. You can also debug for credentials and presentations.
 
