@@ -51,7 +51,7 @@ Example JSON body:
         "id": "#inline",
         "type": "did-communication",
         "recipientKeys": [
-          "did:key:z6Mkqh37jGK9wmsswpHbWAk6E7vX275881CNZfikXsQ5VxTz"
+          "did:​key:z6Mkqh37jGK9wmsswpHbWAk6E7vX275881CNZfikXsQ5VxTz"
         ],
         "serviceEndpoint": "http://localhost:4456/"
       }
