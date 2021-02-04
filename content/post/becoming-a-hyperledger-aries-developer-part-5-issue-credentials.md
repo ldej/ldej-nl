@@ -92,39 +92,41 @@ These steps and the details of each of the messages going back and forth between
 
 ## Issuing a credential with `go-acapy-client`
 
-To keep track of the dance, both parties are storing credential exchange records. These records hold information about the connection, the state and all possible steps and their data. A credential exchange records is represented in `go-acapy-client` by `acapy.CredentialExchange`.
+To keep track of the dance, both parties are storing credential exchange records. These records hold information about the connection, the state and all possible steps and their data. A credential exchange records is represented in `go-acapy-client` by `acapy.CredentialExchangeRecord`.
 
 Holder sends a proposal
 ```go
 // Holder
-credentialProposalRequest := acapy.CredentialProposalRequest{
-    CredentialDefinitionID: "", 
-    ConnectionID:           "",
-    IssuerDID:              "",
-    Comment:                "",
-    CredentialPreview:      CredentialPreview{},
-    SchemaName:             "",
-    SchemaVersion:          "",
-    SchemaID:               "",
-    SchemaIssuerDID:        "",
-    Trace:                  false,
-    AutoRemove:             false,
+var attributes = []acapy.CredentialPreviewAttribute{
+    {
+        MimeType: "text/plain",
+        Name:     "favourite_drink",
+        Value:    "martini",
+    },
 }
-credentialExchange, err := client.SendCredentialProposal(credentialProposalRequest)
+
+credentialExchange, err := client.ProposeCredential(
+	connectionID,
+	acapy.NewCredentialPreview(attributes),
+	"comment", // optional
+	credentialDefinitionID, // optional
+	issuerDID, // optional
+	schemaID, // optional
+)
 ```
 
 The issuer receives the proposal and creates a credential exchange object to keep track of this credential exchange. The credential exchange records can be queried. A [webhook]({{< relref "/post/aries-cloudagent-python-webhooks.md" >}}) will be triggered to notify the issuer when a proposal has been received.
 
 ```go
 // Issuer
-credentialExchange, err := client.SendCredentialOfferByID(credentialExchangeID)
+credentialExchange, err := client.OfferCredentialByID(credentialExchangeID)
 ```
 
 Similarly, the holder will receive the offer, and a [webhook]({{< relref "/post/aries-cloudagent-python-webhooks.md" >}}) will be triggered.
 
 ```go
 // Holder
-credentialExchange, err := client.SendCredentialRequestByID(credentialExchangeID)
+credentialExchange, err := client.RequestCredentialByID(credentialExchangeID)
 ```
 
 The issuer responds with the credential when agreed. In Aries RFC0036 it is explained that for example a payment can be done before the actual credential is issued.
@@ -232,7 +234,7 @@ Filters can be combined and as you please, and then they function as an `$and` o
 
 There is a comment in the ACA-py code for a `$like` operator, but it has not been implemented.
 
-Currently you are left to your own devices when using wql with `go-acapy-client`. This means you need to construct the json yourself and pass it as a string.
+Currently, you are left to your own devices when using wql with `go-acapy-client`. This means you need to construct the json yourself and pass it as a string.
 
 ### Credential structure mismatch
 
@@ -292,7 +294,7 @@ Update Oct 2020: I [reported the issue](https://github.com/hyperledger/aries-clo
 
 ## Development and debugging
 
-For development purposes you can automate a large part of the flow. First of all, to make debugging easier, you can provide `--debug-credentials` to ACA-py. The flow of issuing credentials can be automated using:
+For development purposes you can automate a large part of the flow. To make debugging easier, you can provide `--debug-credentials` to ACA-py. The flow of issuing credentials can be automated using:
 - `--auto-respond-credential-proposal`
 - `--auto-respond-credential-offer`
 - `--auto-respond-credential-request`
@@ -300,13 +302,28 @@ For development purposes you can automate a large part of the flow. First of all
 
 If you have read this blog post so far, then these command line options should speak for themselves. Of course these are for development and debugging, so never enable these for production usage.
 
-When you enable to automation of these steps, you can also use `SendCredential` to automate the flow:
+When you enable to automation of these steps, you can also use `IssueCredential` to automate the flow:
 
 ```go
-client.SendCredential(acapy.CredentialSendRequest{})
+var attributes = []acapy.CredentialPreviewAttribute{
+    {
+        MimeType: "text/plain",
+        Name:     "favourite_drink",
+        Value:    "martini",
+    },
+}
+
+credentialExchange, err := client.IssueCredential(
+    connectionID,
+    acapy.NewCredentialPreview(attributes),
+    "comment", // optional
+    credentialDefinitionID, // optional
+    issuerDID, // optional
+    schemaID, // optional
+)
 ```
 
-When you create a credential proposal or a credential offer, you can specify a flag called `AutoRemove`. This will automatically remove the credential exchange record after the exchange has completed. The automatic removal can also be disabled by providing `--preserve-exchange-records` to ACA-py.
+When you create a credential proposal or a credential offer, the credential exchange record will be automatically removed after the exchange has completed. The automatic removal can be disabled by providing `--preserve-exchange-records` to ACA-py.
 
 ## Conclusion
 
