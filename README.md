@@ -48,3 +48,14 @@ $ hugo -D
 https://gohugo.io/hosting-and-deployment/hosting-on-firebase/
 
 https://github.com/marketplace/actions/github-action-for-firebase
+
+## IntelliJ Proofreading Spellcheck en_GB
+
+Install Hunspell plugin
+
+```shell
+$ wget -O en_GB.aff https://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_GB.aff
+$ wget -O en_GB.dic https://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_GB.dic
+```
+
+In the `Settings/Preferences` dialog `Ctrl+Alt+S`, select `Editor | Proofreading | Spelling`. To add the new custom dictionary to the list, click the Add button or press Alt+Insert and specify the location of the `en_GB.dic` file.
