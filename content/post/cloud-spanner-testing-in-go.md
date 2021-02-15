@@ -146,7 +146,7 @@ Starting the Spanner Emulator docker container can be done using:
 
 It starts the container and checks the logs to wait for that message that the server is listening. The exposed port will be mapped to a random available port, so you should set the `SPANNER_EMULATOR_HOST` environment variable with the right port.
 
-There are some drawbacks to this though. On my machine it takes about 4 seconds for the container to start, so you don't want to start a docker container for each of your tests. However, if you want to run a set of integration tests, than this is a suitable solution. The only thing you need to remember is your tests do not start with a clean database, unless you create methods of either removing the data a test inserted, or by clearing all records from the database at the start of your tests.
+There are some drawbacks to this though. On my machine it takes about 4 seconds for the container to start, so you don't want to start a docker container for each of your tests. However, if you want to run a set of integration tests, than this is a suitable solution. The only thing you need to remember is your tests do not start with a clean database, unless you create methods of either removing the data a test inserted, or by [clearing all records from the database](https://github.com/google/trillian/blob/2053c7648b44d5de45863c3ad12550b511ad6a14/storage/cloudspanner/getdb_test.go#L128) at the start of your tests.
 
 ## Testing in Cloud Build
 

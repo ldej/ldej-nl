@@ -77,6 +77,10 @@ In the previous blog post I discussed issuing a credential. If you follow these 
 
 The reason you might want to wait with publishing, is because it is a transaction in the ledger. Any transaction in the Sovrin ledger costs money. The creation of a revocation registry [costs](https://sovrin.org/issue-credentials/) $20, and the publishing of a revocation update costs $0.10.
 
+## Tails server URL
+
+One of the parameters for starting ACA-py is `--tails-server-base-url`. ACA-py will use this url to connect to the tails server to upload and download tails files. The same url will be used when a revocation registry definition is created in the ledger. This means that when you create a controller that interacts with other controllers, the `--tails-server-base-url` needs to be a publicly available url.
+
 ## Multiple revocation registries
 
 A revocation registry has a maximum size. The size should be at least 4, and max 32768. Creating a revocation registry with the maximum size results in a tails file of over 8MB. A prover needs to have a copy of the tails in order to prove that their credential has not been revoked. If an agent has a lot of credentials and needs to prove a lot of them in a new situation, the size of the tails files might become a problem.
