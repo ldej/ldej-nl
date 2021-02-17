@@ -10,6 +10,7 @@ draft: true
 ---
 
 - Migrations in Go with Liquibase (https://www.calhoun.io/database-migrations-in-go/)
+- Migrations in Go with https://github.com/golang-migrate/migrate and Spanner
 - Building the issuer
 - libp2p logical clocks
 - advent of code
