@@ -267,6 +267,170 @@ Example JSON body:
 }
 ```
 
+### Credential Exchange Record V2 Updated (`issue_credential_v2_0`)
+
+The `issue_credential` topic is used when an update to a `CredentialExchangeV2` record occurs. With different states more fields of the event will be filled. The `state`s I've seen an event for are:
+
+- `offer-sent`
+- `offer-received`
+- `request-sent`
+- `request-received`
+- `credential-issued`
+- `done`
+
+Example JSON body:
+
+```json
+{
+  "cred_issue": {
+    "@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/issue-credential/2.0/issue-credential",
+    "@id": "b165c5da-8df8-4dff-80d6-d5a7ef8e59f0",
+    "~thread": {
+      "thid": "ca7c299b-9289-41e4-acb6-d9c3dd209986"
+    },
+    "credentials~attach": [
+      {
+        "@id": "0",
+        "mime-type": "application/json",
+        "data": {
+          "base64": "eyJzY2hlbWFfaWQiOiAiVmJWTHJGbTRycm0xYlJSdnpqZ1pNTDoyOkJvYjoxLjAiLCAiY3JlZF9kZWZfaWQiOiAiVmJWTHJGbTRycm0xYlJSdnpqZ1pNTDozOkNMOjEwMDQ6dGFnIiwgInJldl9yZWdfaWQiOiBudWxsLCAidmFsdWVzIjogeyJuYW1lIjogeyJyYXciOiAiQm9iIiwgImVuY29kZWQiOiAiOTMwMDYyOTAzMjU2Mjc1MDgwMjI3NzYxMDMzODYzOTU5OTQ3MTI0MDE4MDk0Mzc5MzA5NTc2NTIxMTEyMjEwMTU4NzIyNDQzNDUxODUifX0sICJzaWduYXR1cmUiOiB7InBfY3JlZGVudGlhbCI6IHsibV8yIjogIjEwOTM2OTQwODQ2MjM2Mzc0MjQ1NTAxNjgzOTE3MTE1NjU3OTM5MjY4MjIyMzU4NDIyNjUyODEyNzk5MjI0MDU0NTA4ODIwOTIyOTY4MyIsICJhIjogIjk0MTEwOTI1MDM4NzI0NzA1NjE4NDYwMzE0MTgwMTgwOTUwODgwNjA5Mzg5NDY4ODMwOTgxODk5OTU0ODIyMTAzOTUzNDk5MzM4MTQwNjcwNjQzMjUxODU3NDA5OTQwMzIyODk1MDU1MzU4MzM2NjUzOTY3NzM5NzgyMTM2ODAwNjQ1OTIyNzM4ODMzNTU0MjAxMDY3NDkwMjg0MDk0MTgxMDkyNTk1NzU2MjM1NDQ5ODI0MDYwNDQ3NTIzNTUzMDk5NjIwNDMwNTQ4MTI5OTI3MTM5MDgzODc2NzIxMjgwOTcwNjc5ODg2NzY4MDQ1NTg0MDU3MDkzODQ5NDE0MjQwOTA4MjI2MDkwMjIxMjc1NjczODU4NTYyOTgyMDM2NjkzMDI0MzY3MjA0MDU3NDk2Njc2NDc0MDgxMTAwMTMzNDQ0NTI3MTU4NTY2MjE1OTczNDEwMjgwNjgyNjM3ODE0Njc5MTExOTk4MjI3MTE1OTczMzI5NzgwMjY2MTgxNjgyMDk5MjEzMDUwMDY1NjI2Nzg3NDkzODQyOTIwNjUxMDE3NDU3ODkyOTg1MTYzOTI4Mzc3OTIzMjE4ODk4MTAxNDExMTcwMDE2MDMwMDk2NzM4OTE1MTEzMjc5NjI3MzIxNjMyNjcwNjU3MTE3ODE0OTAxNTY0NDQ5MTczMjM3MzI2NzA5ODM4ODM5NTU1NjMzNjY2NTUwMDE0NDYxODk3Mjc1MjQyMzM3ODQzMzU5MTg0NjM3ODE1NDk0MjY1MjQyMTI4MzgxODcwMTg4MzQ1NTE4NzU3MzcyMjg1NzMwNDM5NjE0ODMiLCAiZSI6ICIyNTkzNDQ3MjMwNTUwNjIwNTk5MDcwMjU0OTE0ODA2OTc1NzE5MzgyNzc4ODk1MTUxNTIzMDYyNDk3Mjg1ODMxMDU2NjU4MDA3MTMzMDY3NTkxNDk5ODE2OTA1NTkxOTM5ODcxNDMwMTIzNjc5MTMyMDYyOTkzMjM4OTk2OTY5NDIyMTMyMzU5NTY3NDI5MzAwMDUyNTkzOTI4NjU3NzEwNjU1NjcwMTc3NjQxMzEwMjI4MjciLCAidiI6ICI1NDUwNjMxOTExMzA2OTU2NTA5NTA4NjI4OTg3NjA4NzA3NzEzNzcwMTIzMTY5MDE1MDc1NTE2Njc5NTA0Njk3MTkxODA1NjEwNzE3OTQzMDI4OTI2Mzk1OTY5NDIwMTQwMDY3NzMyNjY5MTEwNjAwNTUwMjg2ODg3NzMwNTIwNDg1NDQxOTIwNzc3MzUzMzYzMzk0NTIwMjQwNjkxMTUwMjk4MDU0NzQwODQ1Mzk4NTY2NjU2MDgzNzgxNTA5MzEyNjMxMDIwMjY5NTUwODI4NjMzMTM0NjcxNjI4NTMzODQ3ODYxMzQxMzcxMzMzNTIzNjc4NTgzMTc2NTM5Mjc0Mzc3ODQ3NTEyOTIzOTM5NTY5ODU0NTE2NDUwMDYzOTk0Njg5OTQ5Mjg0MTgyODM3MjUyNTg2MzM4MzcyNzU3Nzc2Mzk5MjI4MTI3NDk3ODYzNzcwMDYwMTM4MjgyNTgwOTU2MjMyMTQ1MDg4NTM1NDA3NzA2NTM0ODQ2NTk3Njg0ODAzODAyODc1MzExODcwNzUwNTk2NDk4NjYwMzUxOTA5NTE5Mjc4NDE3ODY5MDM0NDU4MDM3MzQwMzUzNzU1MDQwNjU2MTY1NDkwMjk3NzM3NjY3NDY5MzQwNDM3NjI0OTU5NjQxMTQ1MDg1MTU4ODM3MDkyOTUyNTY1NTc0ODExNDEzNDI2MjgyODI2MDA5MzgzNzM0Mjc0MjQ2MDY0NzAwNzk4ODk1NDczNDM0NTU4NjMzMzE2NjQ2OTk3ODY5NTgyOTk1ODU5MjA1OTE5NzM4MjgwNzc1MzA3MzgyNTcxOTE2NDg2NjMwNzQ1NDQ4MTM2Njk4NDI4ODIxOTkzODkyNjY1MTg3MzY4MTAxNTg5OTQzNjQ5NjQwMjk1MzIxNzM3Njc1NjcwNjc3NzY1OTQ5Mzk1MzgwNzQ0MjUwNzg4MDkzMDgxNjAwNTkxMDg2ODYyNTkxNzkwODg3NTQ0NzIzNTQzMzY3ODAxNzQxNzg3NjU1OTYyNjY2MDQ3ODE3NzcxNDM4MjQ5MTMyMjI1OTQ1NDEzMDQyNjY5NDk0MjM0NDgxMzUyMzAwMjE4MTY1NzMyIn0sICJyX2NyZWRlbnRpYWwiOiBudWxsfSwgInNpZ25hdHVyZV9jb3JyZWN0bmVzc19wcm9vZiI6IHsic2UiOiAiNzUwODY5NzE5OTM4NTY4MTg1NDQ1ODc0MjA1MDg4NTQwNTA0OTg2NTI3Njg4NDE4MTA3MzQ2NTUyMDQ1NzYwNjIxNjQyNjg4MDA4Mjg2OTIzNTc2MTI4MTY1MjcxODQ5Njc4MjMyNzg1NDY1MTAyNTcxMzkzMjA2NTk2NDk0NjQ4MzUzMDIzNDUxNTgzOTQ3MDAxMTk2ODMyMTE5MzY2NDM0NzQ0NjA0MTA3MzcyODgzMTY3NDI1Mjg5NzY0MTM5MzYxMjU1NDU1MDUyMDkxNjUxNzY2MDMxNzIwNDA3MTk0MTI3NzQ4NzQ3MjU3NTQ3NTc1NjgyMjQ1NzcyNTgwODM2MDI5MjU1NDI2MDg2Njc3NjI1MDQ5NjY3MDc5NDU4Mjg2Nzk1NDQwMDMwODkwODkwODgzNjM5ODk4NDcyNTAzNzk2NDI0MjIxMjUwMDY5MzMwODczMzQ1NjYyNzg5MjcyMzM3NDM5NzE5Nzc4NDY0Mjc1Njk4MDAxMjg3MjQzNjI4OTU0MzE3OTk3OTUxNzUzOTY2MDkzMjIwOTc0ODQyMjM2Mjk2NDAzMTQ5MjM2NTM4Nzc1NDEzNDkyNzM3NTk2NjI0MjU2ODkzMjMxOTkwMjk0NzMyMTgxMTkyMTczMzE1MTAyMDUxMDkzODA2Nzc3MjY4NzI2MTU1NjY0NDc5ODA5NTYyMDEwMjM5MjM1Njc2MDYzODYxODk2MDI4OTM4MzQ1MjkyNTU3ODM1MDI3NzA2Nzg2NDQxNTIxNDgzNDYzNzc3NzA0MjU3OTY1NzA4NzMwOTQyMjE1ODg0NzExNzE4OTI3OSIsICJjIjogIjQ1ODAwMDAwMDY1Njg2OTE2MDg3NDkyNzg0MDY5NjI1NDQxMTgzNDkzODk2ODk2NTk0NTgzMDY2NTU4MDk2MzA4NTc4ODcyNTkzNTc2In0sICJyZXZfcmVnIjogbnVsbCwgIndpdG5lc3MiOiBudWxsfQ=="
+        }
+      }
+    ],
+    "formats": [
+      {
+        "attach_id": "0",
+        "format": "hlindy-zkp-v1.0"
+      }
+    ],
+    "comment": "Have it"
+  },
+  "trace": false,
+  "auto_offer": false,
+  "cred_ex_id": "f95a750e-24ac-4fad-bb20-1f2b9210fa0d",
+  "cred_preview": {
+    "@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/issue-credential/2.0/credential-preview",
+    "attributes": [
+      {
+        "name": "name",
+        "mime-type": "text/plain",
+        "value": "Bob"
+      }
+    ]
+  },
+  "cred_id_stored": "81b68b04-f29a-4dfe-b7e2-b4f10006e355",
+  "auto_remove": true,
+  "conn_id": "80c54704-6112-46a8-934d-39450fd063cb",
+  "state": "done",
+  "initiator": "external",
+  "thread_id": "ca7c299b-9289-41e4-acb6-d9c3dd209986",
+  "role": "holder",
+  "cred_offer": {
+    "@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/issue-credential/2.0/offer-credential",
+    "@id": "ca7c299b-9289-41e4-acb6-d9c3dd209986",
+    "~thread": {},
+    "credential_preview": {
+      "@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/issue-credential/2.0/credential-preview",
+      "attributes": [
+        {
+          "name": "name",
+          "mime-type": "text/plain",
+          "value": "Bob"
+        }
+      ]
+    },
+    "offers~attach": [
+      {
+        "@id": "0",
+        "mime-type": "application/json",
+        "data": {
+          "base64": "eyJzY2hlbWFfaWQiOiAiVmJWTHJGbTRycm0xYlJSdnpqZ1pNTDoyOkJvYjoxLjAiLCAiY3JlZF9kZWZfaWQiOiAiVmJWTHJGbTRycm0xYlJSdnpqZ1pNTDozOkNMOjEwMDQ6dGFnIiwgImtleV9jb3JyZWN0bmVzc19wcm9vZiI6IHsiYyI6ICI5NDAyMTEyOTE5MTg4NzE4OTY5OTM5NDk4OTMxMzk2Njk4OTg5NzUyNzYyMzI0Mzg3NDc2ODY2MjcyMDM2NzMzOTI5OTkyNDI1MDEyIiwgInh6X2NhcCI6ICIxODk4ODk0NzQ1NzkwNTI3ODg0ODgwNTkwNjg0ODk5NzM4NTI0ODk0MTQ5MzA3NTE4OTAyMjgyMDA0MzQ3NzM4ODkwMzY1NDkyMjU2MjE1NDU0MzQ4NDI4NzQwMjI3MDkwMzEwMTkzMDkyODg2NzQ3NjM5NjA4OTk4NjQwMjc2MDgzNTMzNzg0MzI4MjMzNjgxMzk5NTQwMTk4MTI0NTM3OTg2OTkyMDQ2MDk4NDU1MDM3NDM1NDg0OTc0OTYxMTI3NzAyODE2NDU3Nzg0MDAyMjA2MTE4Njg4MDE5MTMzMTA1MzIxNDQyODg0MTUyMDg5MTg4NDc4ODU1MTQ1MzY1ODc3NzQxMDYwMjAwMTQ0MzIxNDEzNzg3MzUxNDYwNzQwNDQ0NTMzMTM1NDA1ODY0MTcyNjkyMTk3NDgyMzkzMTg0NjY1Mjk1NDkwMDU0NzgzMjk1NzQyMzgxNTI0Nzg5NDgxNzQ3MjU5MjQwMzUxMjIyNTAyNTgxNDc5NzU4OTU1MjIyNjE3MDY4MTQ0OTI4OTk4MTc4MDY3NTc5Nzc2MTkwOTY3NDU4MzE2MTM5NzE3NDY1ODM1NzA0ODE0NjExNjA5MTk5Nzk4ODAxMDk0MDI4MDg3OTU1NjMxMDg2NzIyNzMxNTQ1Nzg1MjMzMjQ1MDg4NTI1MTcwOTk1NDgzNjY5OTg5OTMwODk2NzgxNjQwMDQ2ODI0MzQ5MDUyMzkzNDk1ODgwMjAwMjYxNTg2MDY0MDQ4OTIyNjc2OTAyODc3MjY2NTc3NjI3NzI4ODI0NDA4MDkwMDI5NDMyODU0MjUyMjI4ODQ5MDM2NDQ3NDAyMzAxNTY1ODM5NzMwMzk0Mzc4MzQzOTgxNTc3Nzk1OTk5OTExOTcwNDMwMDg5Mzc3NTM1NTgzNTc4ODk1NDQxMjIwMzAiLCAieHJfY2FwIjogW1sibmFtZSIsICIxMjIzNjY5NzI4MjczMDgzMTI1MjY3NjkxNTk0NzA1ODk0MjI2ODU4MTEzMjA5NjM1Njk3MTMxMDgzNzMxNzU2MjA2MjMxNDQzMDUwODQwNDk0MjkwMTM0NzcyNzkxNjk3ODE4NDc2OTA5NzYwODg3MDE1Mzc3NTcyNzE1MjE3MDk4MjA2MDc2MjYzMTkyNTQ0MTIwODc1NDU1MzQ1OTIyODI1NzM4NDk3OTAxMDc5MTIwNzEyNjUxMTQ3MDY3NjYwNTE4MzEzMDY1MTQzMzYwODMwMzkyNjIzOTIwNjQ1MTM2NzI3NzQwNTk4MzA2MDgwOTA3MjM1NTUzMjU3ODIxMzUxOTk2MjI2MzE3NTQ0MjEzODY4NTAxNzY5MzMwNjMwOTcwMTg0NzE2MTk5MDgzNTU1MDMyNzIwNTczMTU0MjM2NDQ4MjcyNDk5NjQzMTk1NjQ4OTc1OTk5NzQ3MTEyMDc3MTU3NTA2ODM1MDQxNzM2ODU0Njk2NTQzNDc3OTgwNjgzNDA0ODU2MTY1NjU0NTYyODQ4NzkwMDc4MjQyNTAwODcyNTM5ODE0MDIxNjg4MjIwODc5MjI1NDU1NjcyODg4NDA1ODI3MzY4NDY5MzYzMTQ4OTYyMTc4MDQ5OTExMDIzMzk4ODMyMTA1Nzg2MDUzMzU1Nzc1NzI0ODcyOTIwOTEzMjA3ODA1NTQzNDc1ODA5NDU0NzQ2NDgxNTQzOTk2MTIxNzQwNTMwMzk3NjY5MjAxNDQ2MDIwNzkxNzkxMTgyMjc2NjQ0NjY1NDc2NDI0NTQ3MjU0Nzc2MzI2NjA4NjIzMTAyMzcwNjA1NDUxMzQ5MTIyMjYwNjkyMzg5NTExMzIzMTQyMTU2Mzg2OTY5MzY5MTY4MjYyMTE2NDYxODYzMjQ2MTA2ODU1Nzg3NjU4NTciXSwgWyJtYXN0ZXJfc2VjcmV0IiwgIjE5MDc2OTYxNzc2NDEzMzEwMzc0NTMwNDA3MDYxMTYwODE1Nzk0NDE2NzU4MTc2OTU4MjY3MjEzNTI0MTAwNDMxNDAzODgxMzg4NDgzNTkxODU5NTI1ODk5NzUxMDkyNTE1MTQ2NzAyNjU0OTI4NjczOTkwMTYwMjU3NDkyNDY0Nzc4MjY2NDkxNDU0NTE0NDgzMzM0MjI4OTY0MDE5NTUwMDY4NzE5MTIzNDYwNDEzMjY0MjM5NDc1NTkyNTI1MTg4NjY0Nzc1MTE1NDcyODAzMzMxOTk5NzkyMTI1ODk5NjY4NzI2NjYwNTM4NzQyMzg3NjUzNzQyMzY4MjAzMzM1NDQ4OTUwNjY1MzQyMjA0NTkwMTY4OTU0MjExMDQ3NjM5NjQzNzY1MDAzNjAzNDczMDE5MjI0NDc4MTYwNDEyNTU3MzkxNDY4NzA1MDkwODA0OTI1NDI0OTQ5NzM4MjE2NzM1NjkyODMzNDU1MjU1NDczNTgzMTUzODY1NTcxMzQwNTI5MTY5OTczMjUxMTM1NzY2MTY1MzE4NTc1ODEyNzY5MzkzODA1NDcyMTk3Njg2OTMyMDA0MTUwMDY1MTY4NDE5NzUzNjQyMzQxMjc4MTc2OTc2NDIyMzI1NjU3MDk1ODQxOTU4MDg4OTYxMTk0MzE2ODYzNTUxMDEwODI0NzA1ODY3MTcwNjAyOTEyNzcxNjg5ODg0NTYzNzIxMTg3NDczMjQxMDk2NTQ1MTE0ODYzMDgxMzU0MTQ2MDc2NjczMzYzMTA2NjEyMzUyNDUyNzY1MDM3OTMwMDU3OTI5MDU5MTM0MjUyNjM3NDUyODAwNzM4NzYzMjg1ODgwNTg0ODQyMjg5NDMwMzU4MjEwOTY1ODI4ODk0MDI3ODA5OTM2MDc4MzgyMjU5Njg1ODk4NjM4MSJdXX0sICJub25jZSI6ICI1Mzk1NDQxMzgyNTQ3Mjg3NzUzODEwODEifQ=="
+        }
+      }
+    ],
+    "formats": [
+      {
+        "attach_id": "0",
+        "format": "hlindy-zkp-v1.0"
+      }
+    ],
+    "comment": "a"
+  },
+  "created_at": "2021-02-18 06:25:35.679391Z",
+  "cred_proposal": {
+    "@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/issue-credential/2.0/propose-credential",
+    "@id": "02911ccb-ef4c-44d8-82bc-c7ae19beb54c",
+    "credential_preview": {
+      "@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/issue-credential/2.0/credential-preview",
+      "attributes": [
+        {
+          "name": "name",
+          "mime-type": "text/plain",
+          "value": "Bob"
+        }
+      ]
+    },
+    "filters~attach": [
+      {
+        "@id": "0",
+        "mime-type": "application/json",
+        "data": {
+          "base64": "eyJzY2hlbWFfaWQiOiAiVmJWTHJGbTRycm0xYlJSdnpqZ1pNTDoyOkJvYjoxLjAiLCAiY3JlZF9kZWZfaWQiOiAiVmJWTHJGbTRycm0xYlJSdnpqZ1pNTDozOkNMOjEwMDQ6dGFnIn0="
+        }
+      }
+    ],
+    "formats": [
+      {
+        "attach_id": "0",
+        "format": "hlindy-zkp-v1.0"
+      }
+    ],
+    "comment": "a"
+  },
+  "updated_at": "2021-02-18 06:38:49.862857Z",
+  "auto_issue": false
+}
+```
+
+### Credential Exchange Indy Event (`issue_credential_v2_0_indy`)
+
+With the introduction of issue-credentials v2, the Indy and DIF parts have been moved out of the credential exchange and do now have their own webhook event.
+
+```json
+{
+  "cred_ex_indy_id": "74faf8b6-3fdc-46a1-ae9c-ccce1b88ddeb",
+  "created_at": "2021-02-18 06:25:44.996185Z",
+  "updated_at": "2021-02-18 06:25:44.996185Z",
+  "cred_ex_id": "f95a750e-24ac-4fad-bb20-1f2b9210fa0d",
+  "rev_reg_id": "WgWxqztrNooG92RXvxSTWv:4:WgWxqztrNooG92RXvxSTWv:3:CL:20:tag:CL_ACCUM:0",
+  "cred_request_metadata": {
+    "master_secret_blinding_data": {
+      "v_prime": "23506764754388066226969558506213373364652745689877455625304734591812049954570379417682560744791576456838509619858992264552218487073213573012550083162478350340369587835098066297377432713238222218032853205952896239993382325050722023352689877827714251852231614525376402278072614339094840452633754583334222006931971007976198477380690133236334663112093646419594238188554145760502636950415972975001375768659941431452263445531118349590029811108183824875103628802132812168348215855903538473076481684304649896385464903210891517299634297129418435511235721914590322319115940101023764528094025523256349399326861946232816913351808886587705662024637123898",
+      "vr_prime": null
+    },
+    "nonce": "633437605166629575715559",
+    "master_secret_name": "Bob57981"
+  }
+}
+```
+
+### Credential Exchange DIF Event (`issue_credential_v2_0_dif`)
+
+With the introduction of issue-credentials v2, the Indy and DIF parts have been moved out of the credential exchange and do now have their own webhook event.
+
+I have yet to receive a DIF event, this will probably work when connecting with an `aries-framework-go` instance as that supports the DIF SideTree Protocol.
+
+```json
+{
+  "created_at": "2021-02-18 05:33:00Z",
+  "cred_ex_dif_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "cred_ex_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "item": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "state": "active",
+  "updated_at": "2021-02-18 05:33:00Z"
+}
+```
+
 ### Presentation Exchange Record Updated (`present_proof`)
 
 When a proof of non-revocation is going on, a `PresentationExchange` record is updated. With each of the `state`s of the record more fields will be filled in the body. The states that I have seen a webhook event for are:
