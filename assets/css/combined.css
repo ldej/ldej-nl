@@ -974,8 +974,8 @@ p code, li code, .tip-content p code, .tip-content li code {
 .highlight {
     font-size: 12px;
     margin-bottom: 1rem;
-    border: lightgray solid 1px;
-    border-radius: 6px;
+    border: 1px solid lightgray;
+    border-radius: 6px 0 6px 0;
     line-height: 20px;
 }
 

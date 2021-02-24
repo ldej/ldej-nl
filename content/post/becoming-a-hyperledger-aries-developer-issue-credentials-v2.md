@@ -32,7 +32,20 @@ $ curl -X POST http://localhost:11000/schemas \
     "schema_name": "my-schema",
     "schema_version": "1.0"
 }'
-> {"schema_id": "M6HJ1MQHKr98nuxobuzJJg:2:my-schema:1.0", "schema": {"ver": "1.0", "id": "M6HJ1MQHKr98nuxobuzJJg:2:my-schema:1.0", "name": "my-schema", "version": "1.0", "attrNames": ["name", "age"], "seqNo": 1006}}
+> {
+  "schema_id": "M6HJ1MQHKr98nuxobuzJJg:2:my-schema:1.0",
+  "schema": {
+    "ver": "1.0",
+    "id": "M6HJ1MQHKr98nuxobuzJJg:2:my-schema:1.0",
+    "name": "my-schema",
+    "version": "1.0",
+    "attrNames": [
+      "name",
+      "age"
+    ],
+    "seqNo": 1006
+  }
+}
 ```
 
 You can retrieve the schema using the `/schemas/{id}` endpoint. The `id` can be either the `schema_id` or the `seqNo` values that the `POST` to `/schemas` returned:
@@ -40,13 +53,37 @@ You can retrieve the schema using the `/schemas/{id}` endpoint. The `id` can be 
 {{< filename "issuer" >}}
 ```shell
 $ curl http://localhost:11000/schemas/M6HJ1MQHKr98nuxobuzJJg:2:my-schema:1.0
-> {"schema": {"ver": "1.0", "id": "M6HJ1MQHKr98nuxobuzJJg:2:my-schema:1.0", "name": "my-schema", "version": "1.0", "attrNames": ["age", "name"], "seqNo": 1006}}
+> {
+  "schema": {
+    "ver": "1.0",
+    "id": "M6HJ1MQHKr98nuxobuzJJg:2:my-schema:1.0",
+    "name": "my-schema",
+    "version": "1.0",
+    "attrNames": [
+      "age",
+      "name"
+    ],
+    "seqNo": 1006
+  }
+}
 ```
 
 {{< filename "issuer" >}}
 ```shell
 $ curl http://localhost:11000/schemas/1006    
-> {"schema": {"ver": "1.0", "id": "M6HJ1MQHKr98nuxobuzJJg:2:my-schema:1.0", "name": "my-schema", "version": "1.0", "attrNames": ["age", "name"], "seqNo": 1006}}
+> {
+  "schema": {
+    "ver": "1.0",
+    "id": "M6HJ1MQHKr98nuxobuzJJg:2:my-schema:1.0",
+    "name": "my-schema",
+    "version": "1.0",
+    "attrNames": [
+      "age",
+      "name"
+    ],
+    "seqNo": 1006
+  }
+}
 ```
 
 The last call, based on the `seqNo` will come in useful later.
@@ -86,7 +123,17 @@ You can retrieve the credential definition by using the `/credential-definitions
 {{< filename "issuer" >}}
 ```shell
 $ curl http://localhost:11000/credential-definitions/M6HJ1MQHKr98nuxobuzJJg:3:CL:1006:default
-> {"credential_definition": {"ver": "1.0", "id": "M6HJ1MQHKr98nuxobuzJJg:3:CL:1006:default", "schemaId": "1006", "type": "CL", "tag": "default", "value": {<omitted>}}
+> {
+  "credential_definition": {
+    "ver": "1.0",
+    "id": "M6HJ1MQHKr98nuxobuzJJg:3:CL:1006:default",
+    "schemaId": "1006",
+    "type": "CL",
+    "tag": "default",
+    "value": {
+      <omitted>
+    }
+  }
 ```
 
 The interesting thing to note here is that a credential definition contains a `schemaId` in the form of a `seqNo` that we saw before. This `schemaId` can be used the retrieve the schema using `/schemas/{id}` endpoint as shown before.
@@ -185,7 +232,68 @@ $ curl -X POST http://localhost:11001/issue-credential-2.0/send-proposal \
     "indy": {}
   }
 }'
-> {"role": "holder", "auto_offer": false, "auto_issue": false, "auto_remove": true, "cred_preview": {"@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/issue-credential/2.0/credential-preview", "attributes": [{"name": "name", "value": "Bob"}]}, "cred_ex_id": "0ea86878-4369-41e8-8212-e4af42304f3d", "conn_id": "6c5c55ae-a5c9-4a8f-b095-adc88846d8f3", "state": "proposal-sent", "updated_at": "2021-02-24 06:13:35.921424Z", "created_at": "2021-02-24 06:13:35.921424Z", "initiator": "self", "cred_proposal": {"@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/issue-credential/2.0/propose-credential", "@id": "d263c3a9-95b7-42ce-bfce-58d10b256809", "comment": "I want this", "filters~attach": [{"@id": "0", "mime-type": "application/json", "data": {"base64": "e30="}}, {"@id": "1", "mime-type": "application/json", "data": {"base64": "e30="}}], "credential_preview": {"@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/issue-credential/2.0/credential-preview", "attributes": [{"name": "name", "value": "Bob"}]}, "formats": [{"attach_id": "0", "format": "dif/credential-manifest@v1.0"}, {"attach_id": "1", "format": "hlindy-zkp-v1.0"}]}, "thread_id": "d263c3a9-95b7-42ce-bfce-58d10b256809"}
+> {
+  "role": "holder",
+  "auto_offer": false,
+  "auto_issue": false,
+  "auto_remove": true,
+  "cred_preview": {
+    "@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/issue-credential/2.0/credential-preview",
+    "attributes": [
+      {
+        "name": "name",
+        "value": "Bob"
+      }
+    ]
+  },
+  "cred_ex_id": "0ea86878-4369-41e8-8212-e4af42304f3d",
+  "conn_id": "6c5c55ae-a5c9-4a8f-b095-adc88846d8f3",
+  "state": "proposal-sent",
+  "updated_at": "2021-02-24 06:13:35.921424Z",
+  "created_at": "2021-02-24 06:13:35.921424Z",
+  "initiator": "self",
+  "cred_proposal": {
+    "@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/issue-credential/2.0/propose-credential",
+    "@id": "d263c3a9-95b7-42ce-bfce-58d10b256809",
+    "comment": "I want this",
+    "filters~attach": [
+      {
+        "@id": "0",
+        "mime-type": "application/json",
+        "data": {
+          "base64": "e30="
+        }
+      },
+      {
+        "@id": "1",
+        "mime-type": "application/json",
+        "data": {
+          "base64": "e30="
+        }
+      }
+    ],
+    "credential_preview": {
+      "@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/issue-credential/2.0/credential-preview",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "Bob"
+        }
+      ]
+    },
+    "formats": [
+      {
+        "attach_id": "0",
+        "format": "dif/credential-manifest@v1.0"
+      },
+      {
+        "attach_id": "1",
+        "format": "hlindy-zkp-v1.0"
+      }
+    ]
+  },
+  "thread_id": "d263c3a9-95b7-42ce-bfce-58d10b256809"
+}
 ```
 
 The result you get back is a Credential Exchange Record. It is a record that contains the state of the credential dance. These records are stored in ACA-py and can be retrieved using the `/issue-credentials-2.0/records/{id}` endpoint where the `id` is the `cred_ex_id` in the result.
@@ -195,7 +303,15 @@ The issuer receives the proposal and can respond with an offer using the `/issue
 If the holder specified fields in `filter.indy`, the issuer will try to find a credential definition that matches those criteria and send an offer based on it. If no credential definition can be found, the issuer will be greeted with an error:
 
 ```text
-Error: Issuer has no operable cred def for proposal spec {'cred_def_id': 'WgWxqztrNooG92RXvxSTWv:3:CL:20:tag', 'issuer_did': 'WgWxqztrNooG92RXvxSTWv', 'schema_id': 'WgWxqztrNooG92RXvxSTWv:2:schema_name:1.0', 'schema_issuer_did': 'WgWxqztrNooG92RXvxSTWv', 'schema_name': 'preferences', 'schema_version': '1.0'}.
+Error: Issuer has no operable cred def for proposal spec 
+{
+  'cred_def_id': 'WgWxqztrNooG92RXvxSTWv:3:CL:20:tag',
+  'issuer_did': 'WgWxqztrNooG92RXvxSTWv',
+  'schema_id': 'WgWxqztrNooG92RXvxSTWv:2:schema_name:1.0',
+  'schema_issuer_did': 'WgWxqztrNooG92RXvxSTWv',
+  'schema_name': 'preferences',
+  'schema_version': '1.0'
+}.
 ```
 
 In that case, the holder will receive a problem report which can only be retrieved as a [webhook]({{< relref "/post/aries-cloudagent-python-webhooks.md" >}}).
@@ -231,7 +347,8 @@ Then the issuer can issue the credential.
 
 {{< filename "issuer" >}}
 ```shell
-$ curl -X POST http://localhost:11000/issue-credential-2.0/records/c4cfe54b-db4b-43d5-94ca-2d2d629bc72b/issue -H "Content-Type: application/json" -d '{"comment": "Please have this"}'
+$ curl -X POST http://localhost:11000/issue-credential-2.0/records/c4cfe54b-db4b-43d5-94ca-2d2d629bc72b/issue \
+  -H "Content-Type: application/json" -d '{"comment": "Please have this"}'
 > { <Credential Exchange Record> }
 ```
 
@@ -239,7 +356,8 @@ And finally the holder can store the received credential.
 
 {{< filename "holder" >}}
 ```shell
-$ curl -X POST http://localhost:11001/issue-credential-2.0/records/bac31f8c-660d-4ac4-b9a1-4ed7de47746a/store -H "Content-Type: application/json" -d '{}'
+$ curl -X POST http://localhost:11001/issue-credential-2.0/records/bac31f8c-660d-4ac4-b9a1-4ed7de47746a/store \
+  -H "Content-Type: application/json" -d '{}'
 > { <Credential Exchange Record> }
 ```
 
@@ -293,6 +411,7 @@ $ curl -X POST http://localhost:11000/issue-credential-2.0/send-offer \
     "indy": {}
   }
 }'
+> { <Credential Exchange Record> }
 ```
 
 After this offer, the flow continues with the holder responding with a request.
