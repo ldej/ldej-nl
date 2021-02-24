@@ -17,11 +17,13 @@ tags:
 #  title: "Working in the Trenches"
 ---
 
+**Update February 2020:** _ACA-py v0.6.0 has new endpoints for supporting Issue Credentials v2. I created [a new blog post]({{< relref "/post/becoming-a-hyperledger-aries-developer-issue-credentials-v2" >}}) which describes how to use these new endpoints and gives examples using `curl` instead of using `go-acapy-client`._
+
 In [part 1]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-1-terminology.md" >}}) I gave an introduction to the terms used in the Self-Sovereign Identity space. In [part 2]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-2-development-environment.md" >}}) I explained the tools and command-line arguments for the development environment. In [part 3]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-3-connecting-using-swagger" >}}) I set up two agents, and they connect using the invite and request/response protocol. In [part 4]({{< relref "/post/becoming-a-hyperledger-aries-developer-part-4-connecting-using-go-acapy-client" >}}) I introduced the `go-acapy-client` library that allows you to interact with ACA-py from Go. With the established connection between agents you can issue a credential, which is what I'm going to do in this part.
 
 In self-sovereign identities, credentials are what allow you to hold verified truths. The government can issue your social security number, the driving institute can issue your drivers licence, the university can issue your degree. These credentials are cryptographically signed by the issuer and you, the holder, can prove that they are yours.
 
-There are two main actors in the issuing of credentials: the issuer and the holder. An issuer is required to have a public DID (a DID registered in the blockchain) so that a verifier of a proof of a credential is able to look up the public key (via the DID) in order to validate the proof. The holder can have a private DID that is not registered on the blockchain. [Creating a public DID](https://sovrin.org/issue-credentials/) on the Sovrin ledger currently costs you $10.
+There are two main actors in the issuing of credentials: the issuer and the holder. An issuer is required to have a public DID (a DID registered in the blockchain) so that a verifier of a proof of a credential is able to look up the public key (via the DID) in order to validate the proof. The holder can have a private DID that is not registered on the blockchain. [Creating a public DID](https://sovrin.org/issue-credentials/) on the Sovrin MainNet ledger currently costs you $10, creating them on the development ledgers is free.
 
 After creating a public DID, an issuer needs to have two things before it can issue credentials. They are a schema definition and a credential definition, and both of [these are stored in the ledger](https://sovrin.org/wp-content/uploads/2018/10/What-Goes-On-The-Ledger.pdf):
 
@@ -29,13 +31,13 @@ After creating a public DID, an issuer needs to have two things before it can is
 >
 > Once a schema definition has been written to the Sovrin ledger, it can now be used by a credential issuer (bank, passport office, university, employer, etc.) to create an issuer-specific credential definition that is also written to the Sovrin ledger. This data structure is an instance of the schema on which it is based, plus the attribute-specific public verification keys that are bound to the private signing keys of the individual issuer. This approach enables an issuer to re-use an existing schema, and enables a verifier who receives a proof containing data from the issuer to look up the issuer’s credential definition on Sovrin, obtain their verification key(s) and verify the origin and integrity of that data.
 
-At the moment of writing, creating a schema on the Sovrin MainNet ledger costs $50, and creating a credential definition sets you back $25. With a credential definition, credentials can be issued for free. This means that issued credentials are not part of the ledger and should be kept safe by the holder.
+At the moment of writing, creating a schema on the Sovrin MainNet ledger costs $50, and creating a credential definition sets you back $25. With a credential definition, credentials can be issued for free. This means that issued credentials are not part of the ledger and should be kept safe by the holder in its wallet.
 
-As the quoted text explains, a schema can be used by many credential issuers. You can search for a schema using the VON-webserver, for example [http://localhost:9000/browse/domain?page=1&txn_type=101](http://localhost:9000/browse/domain?page=1&txn_type=101). I haven't found a way to query schemas directly from the VON-webserver or using ACA-py or libindy. For the Sovrin MainNet, StagingNet and BuilderNet you can use [indyscan.io](https://indyscan.io/) to browse the ledgers and search for schemas. More about moving from local development to using the Sovrin ledgers in a later blog post.
+As the quoted text explains, a schema can be used by many credential issuers. You can search for a schema using the VON-webserver, for example [http://localhost:9000/browse/domain?page=1&txn_type=101](http://localhost:9000/browse/domain?page=1&txn_type=101). I haven't found a way to query schemas directly from the VON-webserver or using ACA-py or libindy. For the Sovrin MainNet, StagingNet and BuilderNet you can use [indyscan.io](https://indyscan.io/) to browse the ledgers and search for schemas. More about moving from local development to using the Sovrin ledgers in [this blog post]({{< relref "/post/connecting-acapy-to-development-ledgers.md" >}}).
 
 ## Schema and credential definition
 
-A schema can be created by POSTing to the `/schemas` endpoint of ACA-py. You can use `RegisterSchema` if you use `go-acapy-client`.
+A schema can be created by `POST`ing to the `/schemas` endpoint of ACA-py. You can use `RegisterSchema` if you use `go-acapy-client`.
 
 ```go
 schemaName := "My Schema"
@@ -75,7 +77,7 @@ To support revocation, a revocation registry needs to be created first, more on 
 
 ## The issuing credentials dance
 
-There are two flows for issuing credentials, based on which party (issuer, holder) initiates the dance. When you, as a holder of credentials, start the dance, you start with sending a proposal to the issuer. The proposal contains what you would like to receive from the issuer. Based on that the issuer can send an offer to the holder. When the issuer starts the dance, it starts with sending an offer to the holder.
+There are two flows for issuing credentials, based on which party (issuer, holder) initiates the dance. When you, as a holder, start the dance, you start with sending a proposal to the issuer. The proposal contains what you would like to receive from the issuer. Based on that the issuer can send an offer to the holder. When the issuer starts the dance, it starts with sending an offer to the holder.
 
 The flow for issuing credentials is: 
 

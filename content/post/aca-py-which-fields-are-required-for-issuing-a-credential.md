@@ -66,6 +66,9 @@ This has a `schemaId`, but that is not the format of a `schema_id` that I expect
 
 The `schemaId` you see there is the sequence number of the transaction in which the schema got created. As `sklump` explained, the easiest way would be to query the ledger by transaction number, but unfortunately that is not available in ACA-py. A way to do it in ACA-py is by querying `/schemas/created` to retrieve the schema ids, and then iterate over them, get the details with `/schemas/{schema_id}` until you find the one where the `seqNo` matches with `schemaId` from the credential definition.
 
+Update 19-02-2021: As mentioned in [this thread](https://chat.hyperledger.org/channel/aries-cloudagent-python?msg=PGtAJyhW3kicm9M8B):
+> You can get the schema by transaction number with GET /schemas/{schema_id}; it will take a sequence number as the id here. [reference](https://github.com/hyperledger/aries-cloudagent-python/blob/db5330211d4d61ad2e71da1d6184700b9d954b76/aries_cloudagent/messaging/schemas/routes.py#L98)
+
 This works, but is incredibly awkward. Actually, this only works in cases where your controller is the one who created the schema! It costs money to create a schema, therefore reuse of schemas is promoted. You **do not** need to own a schema to create a credential definition. You **do** need to own a credential definition to issue a credential.
 
 So I have created a credential definition from somebody else's schema, will I not be able to retrieve the `schema_id`? Do I need to store `schema_id`s myself, so I can retrieve them later?
