@@ -347,3 +347,19 @@ blockquote p {
 blockquote p:last-child {
     margin-block-end: 0;
 }
+
+.hanchor {
+    float: left;
+    padding-right: 4px;
+    margin-left: -20px;
+    line-height: 1;
+    visibility: hidden;
+}
+
+.octicon-link {
+    color: #24292e;
+}
+
+h2:hover a { visibility: visible}
+h3:hover a { visibility: visible}
+h4:hover a { visibility: visible}
