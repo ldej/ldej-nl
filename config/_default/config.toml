@@ -11,8 +11,8 @@ enableEmoji = true
 
 [params]
     author = "Laurence de Jong"
-    keywords = "Laurence de Jong, ldej, Software Engineering, blog, Go"
-    description = "A place where Laurence de Jong writes about things."
+    keywords = "Laurence de Jong, ldej, Software Engineering, blog, Go, Hyperledger Aries"
+    description = "A place where Laurence de Jong writes about Hyperledger Aries, Go(lang) and Software Engineering."
     ogimage = "/images/ldej.jpg"
 
 [sitemap]
