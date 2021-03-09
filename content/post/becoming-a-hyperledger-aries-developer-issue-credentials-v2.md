@@ -109,7 +109,7 @@ For now, let's ignore revocation and create a credential definition without it.
 
 {{< filename "issuer" >}}
 ```shell
-$ curl http://localhost:11000/credential-definitions \
+$ curl -X POST http://localhost:11000/credential-definitions \
   -H 'Content-Type: application/json' \
   -d '{
     "schema_id": "M6HJ1MQHKr98nuxobuzJJg:2:my-schema:1.0",

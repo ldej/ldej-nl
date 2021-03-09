@@ -234,7 +234,7 @@ There are a couple of parameters available to automate the steps in this process
 
 These proofs require a connection to be established beforehand. But what if there is no connection yet? Let's say you are at a bar and need to prove that you are above the legal drinking age? In that case a connectionless proof presentation can be made.
 
-To do that, first a request has to be created using: `client.CreatePresentationRequest(...)`. The resulting json should be base64 encoded and attached in a request at `request_presentation~attach[0].data.base64`. The `~service` object is required for the verifier to know how to contact the prover.
+To do that, first a request has to be created using: `client.CreatePresentationRequest(...)`. The resulting json should be base64 encoded and attached in a request at `request_presentation~attach[0].data.base64`. The `~service` object is required for the prover to know how to contact the verifier.
 
 
 ```json
