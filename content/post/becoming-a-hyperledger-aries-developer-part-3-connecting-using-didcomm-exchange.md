@@ -77,6 +77,7 @@ $ aca-py start \
   --seed Alice000000000000000000000000000 \
   --endpoint http://localhost:8000/ \
   --debug-connections \
+  --public-invites \
   --auto-provision \
   --wallet-type indy \
   --wallet-name Alice \
@@ -164,15 +165,20 @@ Let's go through the steps of connecting two agents.
 
 {{% big-point number="1" title="Alice creates an invitation" %}}
 
-Use the endpoint `/out-of-band/create-invitation`.
-A valid body to post is:
-```json
-{
-    "include_handshake": true,
-    "use_public_did": false
-}
+Alice can create an invitation like:
+
+{{< filename "Alice" >}}
+```shell
+$ curl -X POST "http://localhost:11000/out-of-band/create-invitation" \
+   -H 'Content-Type: application/json' \
+   -d '{
+  "handshake_protocols": [
+    "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/didexchange/1.0"
+  ],
+  "use_public_did": false
+}'
 ```
-It is required to have either `include_handshake` or `attachments` or both in the body. I have not managed to get any `attachments` example to work, so let's stick to `include_handshake`.
+It is required to have either `handshake_protocols` or `attachments` or both in the body. I have not managed to get any `attachments` example to work, so let's stick to `handshake_protocols`.
 The field `use_public_did` signifies that the public DID will be used in invites, more on that in the tip below.
 
 {{% tip title="Public vs non-public invites" %}}
@@ -183,23 +189,37 @@ Example of a public invite:
 
 ```json
 {
-    "@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/connections/1.0/invitation",
-    "@id": "3b3bf176-6871-40d2-9b55-28da981c4833",
-    "label": "Alice",
-    "did": "did:sov:6i7GFi2cDx524ZNfxmGWcp"
+  "@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/out-of-band/1.0/invitation",
+  "@id": "c927b4a7-1901-433e-ac3f-16158431fd0a",
+  "handshake_protocols": [
+    "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/didexchange/1.0"
+  ],
+  "label": "Alice",
+  "service": [
+    "did:sov:UpFt248WuA5djSFThNjBhq"
+  ]
 }
 ```
 
 Example of a non-public invite:
 ```json
 {
-    "@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/connections/1.0/invitation",
-    "@id": "13e2cf1b-3d1f-41c9-b9bb-bb75b431775b",
-    "recipientKeys": [
-        "CrWjhZLLrggVN53PFUeiGvYHCPb4QtjRBXEdcje8Pypx"
-    ],
-    "label": "Alice",
-    "serviceEndpoint": "http://localhost:8000/"
+  "@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/out-of-band/1.0/invitation",
+  "@id": "e20d3d8f-8958-4201-89eb-e74d28b5806a",
+  "handshake_protocols": [
+    "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/didexchange/1.0"
+  ],
+  "label": "Alice",
+  "service": [
+    {
+      "id": "#inline",
+      "type": "did-communication",
+      "recipientKeys": [
+        "did:key:z6MkecMK1KjwHv9W7SvF3jhzBzhkAiuYHqADzvAKHu2wS6E6"
+      ],
+      "serviceEndpoint": "http://localhost:8000/"
+    }
+  ]
 }
 ```
 

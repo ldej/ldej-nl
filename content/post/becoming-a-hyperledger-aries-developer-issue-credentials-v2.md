@@ -175,7 +175,7 @@ $ curl -X POST http://localhost:11001/issue-credential-2.0/send-proposal \
   "connection_id": "6c5c55ae-a5c9-4a8f-b095-adc88846d8f3",
   "credential_preview": {
     "@type": "issue-credential/2.0/credential-preview",
-    "attributes": [2.0/send
+    "attributes": [
       {
         "mime-type": "plain/text",
         "name": "name", 
