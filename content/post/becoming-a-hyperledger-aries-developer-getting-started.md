@@ -404,6 +404,7 @@ The `serviceEndpoint` has the value that you have set with `--endpoint`.
 
 When Alice creates the invitation, the ACA-py instance will log that it has created an invitation:
 
+{{< filename "Alice" >}}
 ```text
 Created new connection
     connection: {'routing_state': 'none', 'invitation_key': 'b4eygXuTvzdSv1XK3ZwQtzdB8t79gcC2W46uDUz45XC', 'accept': 'manual', 'updated_at': '2021-03-11 08:01:16.546248Z', 'created_at': '2021-03-11 08:01:16.546248Z', 'connection_id': '9ebac177-a3d4-4a74-be42-82f4e0cafefa', 'state': 'invitation', 'invitation_mode': 'once', 'their_role': 'invitee', 'rfc23_state': 'invitation-sent'}
@@ -458,6 +459,7 @@ If you run two ACA-py instances next to each other you can just copy and paste t
 
 When Bob receives the invitation, the ACA-py instance will log it:
 
+{{< filename "Bob" >}}
 ```text
 Created new connection record from invitation
     connection: {'created_at': '2021-03-11 08:02:52.641290Z', 'state': 'invitation', 'updated_at': '2021-03-11 08:02:52.641290Z', 'their_role': 'inviter', 'invitation_msg_id': '638728b4-63b1-4a9a-82b8-c07d72925196', 'accept': 'manual', 'connection_id': '6c770a37-64ad-43f4-99c6-12c467c58dba', 'invitation_mode': 'once', 'routing_state': 'none', 'invitation_key': 'b4eygXuTvzdSv1XK3ZwQtzdB8t79gcC2W46uDUz45XC', 'rfc23_state': 'invitation-received', 'their_label': 'Alice'}
@@ -570,7 +572,6 @@ Accepted connection response
 
 Sent connection complete
     connection: {'created_at': '2021-03-11 08:02:52.641290Z', 'state': 'completed', 'updated_at': '2021-03-11 08:10:19.795287Z', 'their_role': 'inviter', 'invitation_msg_id': '638728b4-63b1-4a9a-82b8-c07d72925196', 'accept': 'manual', 'connection_id': '6c770a37-64ad-43f4-99c6-12c467c58dba', 'request_id': 'e598b0dc-9582-4979-9104-00c35ebf2c32', 'invitation_mode': 'once', 'routing_state': 'none', 'their_did': 'D8mvHXoPsYE17ma3KgTRre', 'invitation_key': 'b4eygXuTvzdSv1XK3ZwQtzdB8t79gcC2W46uDUz45XC', 'my_did': 'HzWWzUg5hnjycPCAm8ko2X', 'rfc23_state': 'completed', 'their_label': 'Alice'}
-
 ```
 
 Congratulations! A connection has been made between Alice and Bob. You can now take a break, don't forget to hydrate.
