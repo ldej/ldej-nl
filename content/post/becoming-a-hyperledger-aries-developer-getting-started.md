@@ -112,7 +112,7 @@ optional arguments:
   -v, --version      print application version and exit
 ```
 
-As you can see the commands added to the end are passed directly to ACA-py. The examples I give below assume that you have the `aca-py` command available, but you can substitute them with `docker run --net=host bcgovimages/aries-cloudagent:py36-1.16-0_0.6.0` as well. TODO explain about opening ports?
+As you can see the commands added to the end are passed directly to ACA-py. The examples I give below assume that you have the `aca-py` command available, but you can substitute them with `docker run --net=host bcgovimages/aries-cloudagent:py36-1.16-0_0.6.0` as well.
 
 ## Starting two ACA-py instances
 
