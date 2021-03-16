@@ -78,7 +78,7 @@ $ sudo apt-get update
 $ sudo apt-get install -y libindy
 ```
 
-If the installation of both ACA-py and `lidindy` succeeded, you should be able to run:
+If the installation of both ACA-py and `libindy` succeeded, you should be able to run:
 
 ```shell
 $ aca-py --help

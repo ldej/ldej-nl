@@ -13,7 +13,8 @@ draft: true
 - Migrations in Go with https://github.com/golang-migrate/migrate and Spanner
 - Building the issuer
 - libp2p logical clocks
-- advent of code
+
+- SSI business side https://sgershuni.medium.com/bullish-case-for-self-sovereign-identity-c2c26857f0ab
 
 - IPFS
 - https://github.com/evanw/esbuild
