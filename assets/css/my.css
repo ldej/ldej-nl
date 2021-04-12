@@ -79,7 +79,6 @@ article {
     justify-content: center;
     margin: 0 auto;
     width: 100%;
-    max-width: 90rem;
 }
 
 .site-wrapper {
@@ -310,7 +309,7 @@ a.pdf {
     background-size: cover;
     align-items: flex-end;
     margin-bottom: 0;
-    padding-bottom: 2em;
+    padding-bottom: 10%;
     color: white;
 }
 
