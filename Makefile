@@ -1,5 +1,3 @@
-# sudo apt install imagemagick cwebp
-
 run:
 	hugo server -D
 

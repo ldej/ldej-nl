@@ -2,6 +2,22 @@
 
 ![Hugo](https://github.com/ldej/ldej-nl/workflows/Hugo/badge.svg)
 
+## Checkout
+
+Either
+
+```shell
+$ git clone -r git@github.com:ldej/ldej-nl.git
+```
+
+or 
+
+```shell
+$ git clone git@github.com:ldej/ldej-nl.git
+$ git submodule init
+$ git submodule checkout
+```
+
 ## Hugo
 
 Install hugo
@@ -48,6 +64,18 @@ $ hugo -D
 https://gohugo.io/hosting-and-deployment/hosting-on-firebase/
 
 https://github.com/marketplace/actions/github-action-for-firebase
+
+## Webp images
+
+```shell
+$ sudo apt install imagemagick webp
+```
+
+Put images in `./static/to_process/`
+
+```shell
+$ make images
+```
 
 ## IntelliJ Proofreading Spellcheck en_GB
 
