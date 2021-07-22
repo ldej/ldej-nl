@@ -1,0 +1,9 @@
+{{ if eq (urls.Parse .Destination).Host "" -}}
+    <a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
+{{- else -}}
+    {{ if ne true (in (urls.Parse .Destination).Host (urls.Parse .Page.Site.BaseURL).Host) -}}
+        <a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }} target="_blank" rel="noopener nofollow">{{ .Text | safeHTML }}</a>
+    {{- else -}}
+        <a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
+    {{- end }}
+{{- end }}

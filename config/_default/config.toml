@@ -32,3 +32,5 @@ enableEmoji = true
     tabWidth = 4
   [markup.goldmark.renderer]
     unsafe = true
+  [markup.blackFriday]
+    nofollowLinks = true
