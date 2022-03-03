@@ -9,7 +9,7 @@
     "summary": [
       "I'm a software engineer with ten years of experience in developing web applications. I provide technical leadership for small teams.",
       "My favourite language right now is Go, though I've had a lot of fun in Python before that. You can wake me up at night to talk about decentralization.",
-      "I am and speak Dutch, but I get around with English as well. I currently live and work in India. I'm open to remote working and love travelling."
+      "I am and speak Dutch, but I get around with English as well. I currently live in India."
     ],
     "location": "Gurgaon, India"
   },
@@ -42,11 +42,64 @@
       "position": "Senior Consultant",
       "website": "https://xebia.com",
       "startDate": "Feb 2020",
-      "endDate": "present",
+      "endDate": "Nov 2021",
       "highlights": [
         "Gave talks on Google Cloud, Go Architecture, IPFS and  at the bi-weekly knowledge exchange sessions.",
         "Participated as judge at the Hackaton of the technical university in Dheradun.",
         "Participated in the hiring process by interviewing potential new hires."
+      ]
+    },
+    {
+      "company": "Novamedia / Postcode Lotteries",
+      "position": "Senior Software Engineer / Platform Developer",
+      "location": "Amsterdam, Netherlands (remote)",
+      "website": "https://dealornodeal.postcodeloterij.nl/",
+      "via": "via Xebia",
+      "startDate": "Apr 2021",
+      "endDate": "Nov 2021",
+      "keywords": "javascript, typescript, nodejs, express, react, graphql, aws (amplify, appsync, lambda, dynamodb, cognito, s3, api gateway, cloud formation, kms, waf, x-ray, cloudwatch), scrum",
+      "highlights": [
+        "Developed the Deal or No Deal game for Postcode Lotteries using AWS Amplify.",
+        "Explored AWS Amplify for the first time and rapidly mastered the unlaying technologies to quickly develop a working application.",
+        "Gathered and organized rapidly changing requirements to deliver a suitable solution.",
+        "Integrated with external parties to send and receives essential data.",
+        "Implemented NodeJS/Express endpoints for Lambdas that use TypeScript models generated from GraphQL definitions.",
+        "Extended the React front-end to use and display data from AppSync and Lambdas.",
+        "Developed a back-end system for generating input for lottery draws.",
+        "Created tests and set up automated testing, deployment and data migrations."
+      ]
+    },
+    {
+      "company": "Action",
+      "position": "Senior Software Engineer / Platform Developer",
+      "location": "Zwaagdijk, Netherlands (remote)",
+      "website": "https://shop.action.com",
+      "via": "via Xebia",
+      "startDate": "Feb 2021",
+      "endDate": "May 2021",
+      "keywords": "go, gcp (cloud run, spanner, cloud build), docker, scrum",
+      "highlights": [
+        "Created the online webshop for Action from the ground up.",
+        "Implemented the product catalog, ordering system and e-mails. Created the backoffice management system for products and orders.",
+        "Gathered requirements and implemented solutions for integration with external systems for content management and finances.",
+        "Configured CI/CD with Cloud Build and created extensive unit and integration tests.",
+      ]
+    },
+    {
+      "company": "IDFC First Bank",
+      "position": "Senior Software Engineer / Platform Architect",
+      "location": "Gurgaon, India (remote)",
+      "website": "https://www.idfcfirstbank.com/",
+      "via": "via Xebia",
+      "startDate": "Aug 2020",
+      "endDate": "Feb 2021",
+      "keywords": "go, microservices, kubernetes, gocd, oracledb, mulesoft, scrum",
+      "highlights": [
+        "Designed and integrated a fraud detection system.",
+        "Created a new microservice which includes authentication, authorization, logging, monitoring, tracing, database migrations, unit tests and integration tests."
+        "Configured GoCD to automatically build and test.",
+        "Gathered requirements from multiple teams and created an architecture.",
+        "Guided the team through the scrum rituals."
       ]
     },
     {
