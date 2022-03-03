@@ -96,7 +96,7 @@
       "keywords": "go, microservices, kubernetes, gocd, oracledb, mulesoft, scrum",
       "highlights": [
         "Designed and integrated a fraud detection system.",
-        "Created a new microservice which includes authentication, authorization, logging, monitoring, tracing, database migrations, unit tests and integration tests."
+        "Created a new microservice which includes authentication, authorization, logging, monitoring, tracing, database migrations, unit tests and integration tests.",
         "Configured GoCD to automatically build and test.",
         "Gathered requirements from multiple teams and created an architecture.",
         "Guided the team through the scrum rituals."
