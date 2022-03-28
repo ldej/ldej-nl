@@ -31,15 +31,15 @@ jobs:
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
-      # https://github.com/textileio/github-action-buckets
-      - name: Push to textile
-        id: bucket
-        uses: textileio/github-action-buckets@master
-        with:
-          key: ${{ secrets.TEXTILE_ACCOUNT_KEY }}
-          secret: ${{ secrets.TEXTILE_ACCOUNT_SECRET }}
-          bucket: 'ldej.nl'
-          thread: 'bafkzxsaqhkbvqup5tp6zupfstpfsiwitbqkururrwhsf5c4y2d5kdha'
-          path: 'public'
-#          pattern: '<FILE_PATTERN>'
-#          remove: '<REMOVE_BUCKET?>'
+#      # https://github.com/textileio/github-action-buckets
+#      - name: Push to textile
+#        id: bucket
+#        uses: textileio/github-action-buckets@master
+#        with:
+#          key: ${{ secrets.TEXTILE_ACCOUNT_KEY }}
+#          secret: ${{ secrets.TEXTILE_ACCOUNT_SECRET }}
+#          bucket: 'ldej.nl'
+#          thread: 'bafkzxsaqhkbvqup5tp6zupfstpfsiwitbqkururrwhsf5c4y2d5kdha'
+#          path: 'public'
+##          pattern: '<FILE_PATTERN>'
+##          remove: '<REMOVE_BUCKET?>'
