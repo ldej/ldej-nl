@@ -7,9 +7,9 @@
     "phone": "+91 844 8244 800",
     "website": "https://ldej.nl",
     "summary": [
-      "I'm a software engineer with ten years of experience in developing web applications. I provide technical leadership for small teams.",
+      "I'm a software engineer with over 10 years of experience in developing web applications. I provide technical leadership for small teams.",
       "My favourite language right now is Go, though I've had a lot of fun in Python before that. You can wake me up at night to talk about decentralization.",
-      "I am and speak Dutch, but I get around with English as well. I currently live in India."
+      "I am and speak Dutch, but I get around with English as well. I currently reside in India."
     ],
     "location": "Gurgaon, India"
   },
@@ -20,7 +20,7 @@
         "Develop backend systems for web applications and services. I have experience with various languages, databases and frameworks. I know my way around microservices and scaling of large websites.",
         "Contribute to frontend development: I am familiar with Vue.js, React, Angular, Mitrhil, CSS and other frontend technologies.",
         "I write tests to make my code better. I use BDD and API contract tests.",
-        "Serverless is my state of mind, I developed application using Google Cloud Platform, Amazon Web Services and Azure.",
+        "Serverless is my state of mind, I develop applications using Google Cloud Platform, Amazon Web Services and Azure.",
         "DevOps: automate CI/CD pipelines, build docker images, and infrastructure is code."
       ]
     },
@@ -31,7 +31,7 @@
         "Interview engineering candidates.",
         "Inspire developers, perform code reviews and establish best practices.",
         "Communicate and document effectively.",
-        "Give talks and workshops on various subjects including Cloud Native Development, Go, and decentralization."
+        "Give talks and workshops on various subjects including Cloud Native development, Go, and decentralization."
       ]
     }
   ],
