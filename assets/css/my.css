@@ -257,9 +257,10 @@ span.tag {
 }
 
 a.pdf {
-    float: right;
-    position: relative;
-    top: -3em;
+    margin-left: auto;
+    border: 1px solid #0096cc;
+    border-radius: 5px;
+    padding: 0 5px 0 5px;
 }
 
 @media print {
