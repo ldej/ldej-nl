@@ -12,7 +12,6 @@
         </div>
         <div class="details">
             <h1>{{ $resume.basics.name }}</h1>
-            <p><a href="mailto:info-remove-@ldej.nl">info@ldej.nl</a> · <a href="tel:{{ $resume.basics.phone }}">{{ $resume.basics.phone }}</a></p>
             <p><a href="https://www.linkedin.com/in/laurencedejong/">linkedin.com/in/laurencedejong</a> · <a href="https://github.com/ldej">github.com/ldej</a></p>
         </div>
     </div>
@@ -52,8 +51,7 @@
     <div class="volunteering timeline-container">
         {{ range $resume.volunteer }}
             <div class="volunteer timeline-item">
-                <p class="position">{{ .position }} @ {{ .organization }}</p>
-                <p><a href="{{ .website }}">{{ .website }}</a></p>
+                <p class="position">{{ .position }} @ <a href="{{ .website }}">{{ .organization }}</a></p>
                 <div class="highlights">
                     <ul>
                         {{ range .highlights }}
@@ -77,9 +75,11 @@
     <div class="timeline-container">
         {{ range $resume.publications }}
             <div class="timeline-item">
-                <p class="position"><a href="{{ .website }}">{{ .name }}</a></p>
-                <p>{{ .releaseDate }}, {{ .publisher }}</p>
+                <p class="position"><a href="{{ .website }}">{{ .name }}</a> ({{ .releaseDate }}, {{ .publisher }})</p>
             </div>
         {{ end }}
+    </div>
+    <div class="print-footer">
+        <p>Watermarked resume downloaded from https://ldej.nl/resume version {{ now.Format "02-01-2006" }} - DO NOT SPREAD WITHOUT CONSENT</p>
     </div>
 </div>

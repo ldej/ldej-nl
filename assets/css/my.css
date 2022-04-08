@@ -264,6 +264,8 @@ a.pdf {
 }
 
 @media print {
+    body { margin: 0; }
+
     header, footer {
         display: none;
     }
@@ -275,6 +277,7 @@ a.pdf {
     }
     .avatar img {
         height: 100px;
+        width: 100px;
     }
     p, li {
         font-size: 0.8rem;
@@ -283,6 +286,7 @@ a.pdf {
     .timeline-item {
         padding: 0;
         border-left: none;
+        page-break-inside: avoid;
     }
     .timeline-item::after {
         display: none;
@@ -297,6 +301,26 @@ a.pdf {
         border-bottom: 1px solid lightgrey;
     }
     a.pdf {
+        display: none;
+    }
+    .timeline-item p {
+        font-size: 0.7rem;
+    }
+    div.print-footer {
+        position: fixed;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+    }
+    div.print-footer p {
+        margin-bottom: 0;
+        font-size: 0.6rem;
+        color: darkgrey;
+    }
+}
+
+@media screen {
+    div.print-footer {
         display: none;
     }
 }
@@ -364,3 +388,11 @@ blockquote p:last-child {
 h2:hover a { visibility: visible}
 h3:hover a { visibility: visible}
 h4:hover a { visibility: visible}
+
+.row {
+    display: flex;
+}
+
+.pr10 {
+    padding-right: 10px;
+}
