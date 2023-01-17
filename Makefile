@@ -1,5 +1,6 @@
 install:
 	go install -tags extended github.com/gohugoio/hugo@latest
+	npm install -g firebase-tools
 
 run:
 	hugo server -D

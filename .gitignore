@@ -210,3 +210,5 @@ static/to_process
 
 .textileseed
 .textile/repo
+
+.hugo_build.lock
