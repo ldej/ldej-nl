@@ -1,3 +1,6 @@
+install:
+	go install -tags extended github.com/gohugoio/hugo@latest
+
 run:
 	hugo server -D
 
@@ -9,4 +12,3 @@ resume:	build
 
 images:
 	bash ./scripts/process_images.sh
-

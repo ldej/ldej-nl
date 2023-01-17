@@ -7,7 +7,7 @@
 Either
 
 ```shell
-$ git clone -r git@github.com:ldej/ldej-nl.git
+$ git clone --recursive git@github.com:ldej/ldej-nl.git
 ```
 
 or 
@@ -23,7 +23,7 @@ $ git submodule checkout
 Install hugo
 
 ```shell script
-$ go get -u github.com/gohugoio/hugo@v0.66.0
+$ go get -u github.com/gohugoio/hugo
 ```
 
 Start new site
