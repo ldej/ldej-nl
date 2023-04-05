@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@anthonyjdella/jsonresume-theme-anthonyjdella-stackoverflow": "^1.0.8",
+    "resume-cli": "^3.0.8"
+  }
+}

@@ -81,3 +81,29 @@ indy> load-plugin library=/home/laurencedejong/projects/aries-developer/indy-sdk
 indy> wallet create wallet_psx key storage_type=postgres_storage storage_config={"url":"localhost:5432"} storage_credentials={"account":"postgres","password":"mysecretpassword","admin_account":"postgres","admin_password":"mysecretpassword"}
 indy> wallet open wallet_psx key storage_credentials={"account":"postgres","password":"mysecretpassword","admin_account":"postgres","admin_password":"mysecretpassword"}
 ```
+
+## ChatGPT
+
+- Help learn Django from 1.6 to 4
+- Hindi classes for verbs
+
+## Build an application with
+
+- Go
+- https://turbo.hotwired.dev/
+- openapi3.yaml generate with deepmind and/or hashicorp/nomad
+- Use GRPC
+- Message queue nats/kafka/cloud
+- Redis for caching
+- MongoDB/Couchbase/InfluxDB
+- Tracing
+- Prometheus
+- go-jet
+- cobra commands
+- https://medium.com/@dilshataliev/rbac-with-golang-and-casbin-ea5385a69317
+- https://casbin.org/
+- https://docs.meilisearch.com/learn/getting_started/quick_start.html#setup-and-installation
+- LRU
+- https://opentelemetry.io/
+
+## Update resume

@@ -2,127 +2,152 @@
   "basics": {
     "name": "Laurence de Jong",
     "label": "Software Engineer",
-    "picture": "/images/ldej.webp",
+    "image": "https://ldej.nl/images/ldej.jpg",
     "email": "resume@ldej.nl",
     "phone": "+91 844 8244 800",
-    "website": "https://ldej.nl",
-    "summary": [
-      "I'm a Dutch software engineer with over 10 years of experience in developing web applications. I provide technical leadership for small teams.",
-      "My favourite language is Go, though I've had a lot of fun in Python before. You can wake me up to talk about decentralization."
+    "url": "https://ldej.nl",
+    "location": {},
+    "summary": "I'm a Dutch software engineer with over 10 years of experience in developing web applications. I provide technical leadership for small teams. My favourite language is Go, though I've had a lot of fun in Python before. You can wake me up to talk about decentralization.",
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "ldej",
+        "url": "https://github.com/ldej"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "laurencedejong",
+        "url": "https://www.linkedin.com/in/laurencedejong/"
+      }
     ]
   },
-  "skills": [
+  "work": [
     {
-      "title": "Software Development",
-      "points": [
-        "Develop backend systems for web applications and services. I have experience with various languages, databases and frameworks. I know my way around microservices and scaling of large websites.",
-        "Contribute to frontend development: I am familiar with Vue.js, React, Angular, Mitrhil, CSS and other frontend technologies.",
-        "I write tests to make my code better. I use BDD and API contract tests.",
-        "Serverless is my state of mind, I develop applications using Google Cloud Platform, Amazon Web Services and Azure.",
-        "DevOps: automate CI/CD pipelines, build docker images, and infrastructure is code."
+      "name": "CodeNotary",
+      "position": "Senior Backend Software Engineer",
+      "location": "Remote",
+      "url": "https://codenotary.com",
+      "startDate": "2022-04",
+      "endDate": "2023-02",
+      "keywords": [
+        "go",
+        "microservices",
+        "immudb",
+        "postgres",
+        "nats",
+        "solr",
+        "supply chain security"
+      ],
+      "highlights": [
+        "Added multi-tenancy, refactored the application in order to create automated tests",
+        "Integrated Solr search and added a message queue to offload processing. Standardized APIs using OpenAPI, designed a SBOM processing pipeline"
       ]
     },
     {
-      "title": "Technical Leadership",
-      "points": [
-        "Work with engineers to design and architect complex systems. Work with product owners to prioritize and plan features.",
-        "Interview engineering candidates.",
-        "Inspire developers, perform code reviews and establish best practices.",
-        "Communicate and document effectively.",
-        "Give talks and workshops on various subjects including Cloud Native development, Go, and decentralization."
-      ]
-    }
-  ],
-  "work": [
-    {
-      "company": "Xebia",
+      "name": "Xebia",
       "location": "Gurgaon, India",
       "position": "Senior Consultant",
-      "website": "https://xebia.com",
-      "startDate": "Feb 2020",
-      "endDate": "Nov 2021",
+      "url": "https://xebia.com",
+      "startDate": "2020-02",
+      "endDate": "2021-11",
       "highlights": [
         "Gave talks on Google Cloud, Go Architecture, IPFS and  at the bi-weekly knowledge exchange sessions.",
-        "Participated as judge at the Hackaton of the technical university in Dheradun.",
+        "Participated as judge at the Hackathon of the technical university in Dehradun.",
         "Participated in the hiring process by interviewing potential new hires."
       ]
     },
     {
-      "company": "Novamedia / Postcode Lotteries",
-      "position": "Senior Software Engineer / Platform Developer",
+      "name": "Novamedia / Postcode Lotteries",
+      "position": "Senior Software Engineer",
       "location": "Amsterdam, Netherlands (remote)",
-      "website": "https://dealornodeal.postcodeloterij.nl/",
-      "via": "via Xebia",
-      "startDate": "Apr 2021",
-      "endDate": "Nov 2021",
-      "keywords": "javascript, typescript, nodejs, express, react, graphql, aws (amplify, appsync, lambda, dynamodb, cognito, s3, api gateway, cloud formation, kms, waf, x-ray, cloudwatch), scrum",
+      "url": "https://dealornodeal.postcodeloterij.nl/",
+      "startDate": "2021-04",
+      "endDate": "2021-11",
+      "keywords": [
+        "typescript",
+        "nodejs",
+        "express",
+        "react",
+        "graphql",
+        "aws amplify",
+        "scrum"
+      ],
       "highlights": [
         "Developed the Deal or No Deal game for Postcode Lotteries using AWS Amplify.",
-        "Explored AWS Amplify for the first time and rapidly mastered the unlaying technologies to quickly develop a working application.",
-        "Gathered and organized rapidly changing requirements to deliver a suitable solution.",
-        "Integrated with external parties to send and receives essential data.",
         "Implemented NodeJS/Express endpoints for Lambdas that use TypeScript models generated from GraphQL definitions.",
-        "Extended the React front-end to use and display data from AppSync and Lambdas.",
-        "Developed a back-end system for generating input for lottery draws.",
-        "Created tests and set up automated testing, deployment and data migrations."
+        "Developed a back-end system for generating input for lottery draws."
       ]
     },
     {
-      "company": "Action",
-      "position": "Senior Software Engineer / Platform Developer",
+      "name": "Action",
+      "position": "Senior Software Engineer",
       "location": "Zwaagdijk, Netherlands (remote)",
-      "website": "https://shop.action.com",
-      "via": "via Xebia",
-      "startDate": "Feb 2021",
-      "endDate": "May 2021",
-      "keywords": "go, gcp (cloud run, spanner, cloud build), docker, scrum",
+      "url": "https://shop.action.com",
+      "startDate": "2021-02",
+      "endDate": "2021-05",
+      "keywords": [
+        "go",
+        "gcp cloud run",
+        "gcp spanner",
+        "gcp cloud build",
+        "docker",
+        "scrum"
+      ],
       "highlights": [
-        "Created the online webshop for Action from the ground up.",
-        "Implemented the product catalog, ordering system and e-mails. Created the backoffice management system for products and orders.",
-        "Gathered requirements and implemented solutions for integration with external systems for content management and finances.",
+        "Created the online webshop for Action. Implemented the product catalog, ordering system and e-mails. Created the backoffice management system for products and orders.",
+        "Implemented solutions for integration with external systems for content management and finances.",
         "Configured CI/CD with Cloud Build and created extensive unit and integration tests."
       ]
     },
     {
-      "company": "IDFC First Bank",
-      "position": "Senior Software Engineer / Platform Architect",
+      "name": "IDFC First Bank",
+      "position": "Senior Software Engineer",
       "location": "Gurgaon, India (remote)",
-      "website": "https://www.idfcfirstbank.com/",
-      "via": "via Xebia",
-      "startDate": "Aug 2020",
-      "endDate": "Feb 2021",
-      "keywords": "go, microservices, kubernetes, gocd, oracledb, mulesoft, scrum",
+      "url": "https://www.idfcfirstbank.com/",
+      "startDate": "2020-08",
+      "endDate": "2021-02",
+      "keywords": [
+        "go",
+        "microservices",
+        "kubernetes",
+        "gocd",
+        "oracledb",
+        "mulesoft",
+        "scrum"
+      ],
       "highlights": [
         "Designed and integrated a fraud detection system.",
         "Created a new microservice which includes authentication, authorization, logging, monitoring, tracing, database migrations, unit tests and integration tests.",
-        "Configured GoCD to automatically build and test.",
-        "Gathered requirements from multiple teams and created an architecture.",
-        "Guided the team through the scrum rituals."
+        "Configured GoCD to automatically build and test."
       ]
     },
     {
-      "company": "Unifyed",
+      "name": "Unifyed",
       "position": "Senior Software Engineer",
       "location": "Gurgaon, India (remote)",
-      "website": "https://www.unifyed.com",
-      "via": "via Xebia",
-      "startDate": "Mar 2020",
-      "endDate": "Jul 2020",
-      "keywords": "mongodb, nginx, microservices, jenkins, scrum",
+      "url": "https://www.unifyed.com",
+      "startDate": "2020-03",
+      "endDate": "2020-07",
+      "keywords": [
+        "mongodb",
+        "nginx",
+        "microservices",
+        "jenkins",
+        "scrum"
+      ],
       "highlights": [
-        "Implemented performance optimizations in a number of ways including hosting static files with nginx.",
+        "Implemented performance optimizations in a number of ways including hosting static files.",
         "Planned and upgraded their running MongoDB PSA clusters from version 3.4 to 4.2. Upgraded MongoDB drivers in all microservices and resolved compatibility issues.",
-        "Identified and planned technical debt backlog. Took Scrum Master role and set up a team that worked according to the Scrum methodology. Enabled proper refinement, planning, daily stand-ups, demos and retrospective.",
-        "Implemented automated building and deployment of the platform using Jenkins."
+        "Implemented automated building and deployment of the platform."
       ]
     },
     {
-      "company": "Xebia",
+      "name": "Xebia",
       "position": "Consultant Software Engineer",
       "location": "Hilversum, The Netherlands",
-      "website": "https://xebia.com",
-      "startDate": "May 2017",
-      "endDate": "Jan 2020",
+      "url": "https://xebia.com",
+      "startDate": "2017-05",
+      "endDate": "2020-01",
       "highlights": [
         "Gave talks on blockchain and IPFS at the bi-weekly knowledge exchange sessions. Participated in bi-monthly innovation days.",
         "Interviewed potential new hires.",
@@ -130,79 +155,107 @@
       ]
     },
     {
-      "company": "Duxxie",
+      "name": "Duxxie",
       "position": "Platform Developer",
       "location": "Utrecht, The Netherlands",
-      "website": "https://duxxie.nl",
-      "via": "via Xebia",
-      "startDate": "Jun 2018",
-      "endDate": "Jan 2020",
-      "keywords": "go, gcp app engine, event-sourcing, algolia, circleci, scrum",
+      "url": "https://duxxie.nl",
+      "startDate": "2018-06",
+      "endDate": "2020-01",
+      "keywords": [
+        "go",
+        "gcp app engine",
+        "event-sourcing",
+        "algolia",
+        "circleci",
+        "scrum"
+      ],
       "highlights": [
         "Tech lead for the development of the platform.",
-        "Developed on the backend written in Go with automated deployment to Google Cloud Platform App Engine.",
-        "Migration of App Engine from runtime v1 to v2. Worked with and expanded the custom event-sourcing system which uses GCP Task Queues. Implemented a catalogue search using Algolia. Introduced a CSM for the product catalogue.",
-        "Onboarding of external suppliers on the platform and integration of their systems.",
-        "Involved in the daily Scrum operation including refinement, planning, demos, retrospective and daily stand-ups."
+        "Migration of App Engine from runtime v1 to v2. Worked with and expanded the custom event-sourcing system. Implemented a catalogue search. Introduced a CMS for the product catalogue.",
+        "Onboard external suppliers on the platform and integration of their systems."
       ]
     },
     {
-      "company": "Nextail",
+      "name": "Nextail",
       "position": "Full-Stack Developer",
       "location": "Amsterdam, The Netherlands",
-      "website": "http://www.nextail.nl",
-      "via": "via Xebia",
-      "startDate": "Jun 2017",
-      "endDate": "May 2018",
-      "keywords": "go, gcp app engine, algolia, circleci, vue.js, scrum",
+      "url": "https://www.nextail.nl",
+      "startDate": "2017-06",
+      "endDate": "2018-05",
+      "keywords": [
+        "go",
+        "gcp app engine",
+        "algolia",
+        "circleci",
+        "vue.js",
+        "scrum"
+      ],
       "highlights": [
-        "Launch of a multi-tenant e-commerce platform. Backend development in Go with automated deployment to Google Cloud Platform App Engine.",
-        "Incorporate legacy IBM WebSphere e-commerce backend., Implement product catalogue search using Algolia.",
-        "Contribute to front-end development in Vue.js.",
-        "Involved in the daily Scrum operation including refinement, planning, demos, retrospective and daily stand-ups.",
+        "Launch of a multi-tenant e-commerce platform.",
+        "Incorporate legacy IBM WebSphere e-commerce backend. Implement product catalogue search using Algolia.",
         "Leading development team with remote workers."
       ]
     },
     {
-      "company": "Contracts11",
+      "name": "Contracts11",
       "position": "Software Engineer",
       "location": "Groningen, The Netherlands",
-      "website": "https://contracts11.com",
-      "startDate": "Feb 2015",
-      "endDate": "Nov 2016",
-      "keywords": "python, falcon, livescript, mithril, aws, microservices, rpc, nats, docker, rancher, elasticsearch, logstash, kibana, alertmanager",
+      "url": "https://contracts11.com",
+      "startDate": "2015-02",
+      "endDate": "2016-11",
+      "keywords": [
+        "python",
+        "falcon",
+        "livescript",
+        "mithril",
+        "aws (ec2, ecs, s3)",
+        "nats",
+        "docker",
+        "rancher",
+        "elk stack",
+        "alert-manager",
+        "smart contracts",
+        "IoT",
+        "LoRaWaN"
+      ],
       "highlights": [
-        "Involved in the research of a language to describe business processes. Generate models, database schemas, front-end and back-end functionality based on the descriptions. Research in decentralized technologies, smart contracts, Internet-of-Things and LoRaWAN.",
-        "Develop a back office system for a liquor trader that could process price lists in various formats. The system could show price trends across the market and advise on selling and buying. Develop a backend that uses Python, Falcon and a self-developed rpc system using NATS as message bus. Developed the front-end using Livescript, Mithril.",
-        "DevOps: Set up Jenkins, Postgres with automated migrations, monitoring, logging and alerting using ElasticSearch, Logstash, Kibana and Alertmanager. Set up Docker orchestration using Rancher. Automated deployment to AWS using EC2, ECS and S3 buckets.",
-        "Collect and prioritize client requirements and inquiries with weekly demos.",
-        "Helped organize the Web11 conference. Speaker at Web11 conference. Speaker at PyGrunn 2015."
+        "Research and develop a language to describe business processes. Generate models, database schemas, front-end and back-end functionality based on the descriptions.",
+        "Developed a back office system for a liquor trader that could process price lists in various formats. The system could show price trends across the market and advise on selling and buying.",
+        "DevOps: Set up Jenkins, Postgres with automated migrations, monitoring, logging and alerting using ELK stack. Set up Docker orchestration using Rancher."
       ]
     },
     {
-      "company": "Paylogic",
+      "name": "Paylogic",
       "position": "Software Developer",
       "location": "Groningen, The Netherlands",
-      "website": "https://paylogic.com",
-      "startDate": "Sep 2011",
-      "endDate": "Sep 2014",
-      "keywords": "python, django, sqlalchemy, django, pytest",
+      "url": "https://paylogic.com",
+      "startDate": "2011-09",
+      "endDate": "2014-09",
+      "keywords": [
+        "python",
+        "django",
+        "sqlalchemy",
+        "django",
+        "pytest"
+      ],
       "highlights": [
-        "Research and select a Continuous Integration tool (selected Jenkins). Set up Jenkins including a build farm.",
-        "Set up automated database generation for local development. Set up automated testing using pytest. Automated database migrations using Alembic (SQLAlchemy). Analyzed and solved database performance issues.,",
-        "Developed back-end functionality for the ticketing platform using Python, Django, SQLAlchemy, pytest.",
-        "Developed front-end functionality using JavaScript/jQuery.",
-        "Speaker at PyGrunn 2012."
+        "Research and select a Continuous Integration tool. Set up Jenkins including a build farm.",
+        "Set up automated database generation for local development. Set up automated testing using pytest. Automated database migrations using Alembic. Analyzed and solved database performance issues.",
+        "Developed functionality for the ticketing platform."
       ]
     },
     {
-      "company": "Ytec",
+      "name": "Ytec",
       "position": "Junior Software Developer",
       "location": "Groningen, The Netherlands",
-      "website": "https://ytec.nl",
-      "startDate": "Nov 2009",
-      "endDate": "Jul 2010",
-      "keywords": "python, django",
+      "url": "https://ytec.nl",
+      "startDate": "2009-11",
+      "endDate": "2010-07",
+      "keywords": [
+        "python",
+        "django",
+        "jQuery"
+      ],
       "highlights": [
         "Building web shops using Python and Django. Building the front-end using JS/jQuery."
       ]
@@ -212,9 +265,8 @@
     {
       "organization": "DjangoGirls",
       "position": "Coach",
-      "website": "https://djangogirls.org",
-      "startDate": "Nov 2014",
-      "endDate": "present",
+      "url": "https://djangogirls.org",
+      "startDate": "2014-11",
       "summary": "",
       "highlights": [
         "Organised: 03-02-2018 - Amsterdam",
@@ -228,8 +280,8 @@
       "institution": "University of Groningen",
       "area": "Computing Science",
       "studyType": "Master of Science (MSc) · Software Engineering & Distributed Systems",
-      "startDate": "Sep 2012",
-      "endDate": "Sep 2015",
+      "startDate": "2012-09",
+      "endDate": "2015-09",
       "courses": [
         "Advanced Software Architecture",
         "Web and Cloud Computing",
@@ -253,27 +305,11 @@
       "institution": "Hanzehogeschool Groningen",
       "area": "Technische Informatica",
       "studyType": "Bachelor of Applied Science (B.A.Sc.) · Embedded Software Engineering",
-      "startDate": "Sep 2007",
-      "endDate": "Jul 2012",
+      "startDate": "2007-09",
+      "endDate": "2012-07",
       "courses": [
         "Embedded Software Engineering"
       ]
-    }
-  ],
-  "publications": [
-    {
-      "name": "Thesis: Decentralized Link Sharing, Towards a Framework for Decentralized Applications",
-      "publisher": "University of Groningen",
-      "releaseDate": "Aug 2015",
-      "website": "http://fse.studenttheses.ub.rug.nl/13283/1/Laurence.de.Jong.s2314363.Thesis.V4.pdf",
-      "summary": ""
-    },
-    {
-      "name": "Applying link analysis algorithms to psychopathology symptom networks",
-      "publisher": "University of Groningen",
-      "releaseDate": "Oct 2014",
-      "website": "https://core.ac.uk/reader/232449792",
-      "summary": ""
     }
   ]
 }

@@ -87,3 +87,11 @@ $ wget -O en_GB.dic https://cgit.freedesktop.org/libreoffice/dictionaries/plain/
 ```
 
 In the `Settings/Preferences` dialog `Ctrl+Alt+S`, select `Editor | Proofreading | Spelling`. To add the new custom dictionary to the list, click the Add button or press Alt+Insert and specify the location of the `en_GB.dic` file.
+
+## Resume
+
+```shell 
+$ npm install -g resume-cli
+$ npm install @anthonyjdella/jsonresume-theme-anthonyjdella-stackoverflow
+$ resume export resume.pdf --resume ./data/resume.json --format pdf --theme ./node_modules/@anthonyjdella/jsonresume-theme-anthonyjdella-stackoverflow/
+```

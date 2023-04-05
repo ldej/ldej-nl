@@ -224,6 +224,18 @@ span.tag {
     font-style: italic;
 }
 
+.keyword {
+    display: inline-block;
+    margin: 2px 2px 2px 0;
+    padding: 4px 5px 5px;
+    font-size: 0.8rem;
+    line-height: 1;
+    color: #3e6d8e;
+    background-color: #dfeaf1;
+    border: 0 solid #dfeaf1;
+    white-space: nowrap;
+}
+
 .resume-basics .avatar {
     float: left;
     place-items: center;
@@ -264,10 +276,17 @@ a.pdf {
 }
 
 @media print {
-    body { margin: 0; }
+    html, body {
+        height: auto;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
 
     header, footer {
         display: none;
+        height: 0;
     }
     .measure {
         max-width: 100%;
@@ -299,6 +318,7 @@ a.pdf {
     }
     h2 {
         border-bottom: 1px solid lightgrey;
+        font-size: 1.5rem
     }
     a.pdf {
         display: none;
@@ -316,6 +336,12 @@ a.pdf {
         margin-bottom: 0;
         font-size: 0.6rem;
         color: darkgrey;
+    }
+    .resume {
+        font-size: 0.8rem;
+    }
+    .site-wrap:after {
+        height: 0;
     }
 }
 

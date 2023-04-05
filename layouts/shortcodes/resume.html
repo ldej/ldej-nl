@@ -1,5 +1,5 @@
 {{ $resume := .Site.Data.resume }}
-<a class="pdf" href="/Laurence.de.Jong.resume.pdf">download as pdf</a>
+<a class="pdf" href="/Laurence.de.Jong.resume-05-04-2023.pdf">download as pdf</a>
 
 <div class="resume">
     <div class="resume-basics">
@@ -16,27 +16,15 @@
         </div>
     </div>
     <div class="summary">
-        {{ range $resume.basics.summary }}
-            <p>{{ . }}</p>
-        {{ end }}
+        {{ $resume.basics.summary }}
     </div>
-    <h2>Skills</h2>
-    <div>
-        {{ range $resume.skills }}
-            <h3>{{ .title }}</h3>
-            <ul>
-                {{ range .points }}
-                    <li>{{ . }}</li>
-                {{ end }}
-            </ul>
-        {{ end }}
-    </div>
+    <div style="clear: both"></div>
     <h2>Experience</h2>
     <div class="resume-work timeline-container">
         {{ range $resume.work }}
             <div class="job timeline-item">
-                <h3><a href="{{ .website }}">{{ .company }}</a>{{ if .via }} ({{ .via }}){{ end }} · <span class="position">{{ .position }}</span><span class="date"> | {{ .location }} · {{ .startDate }} - {{ .endDate }}</span></h3>
-                <p class="keywords">{{ .keywords }}</p>
+                <h3><a href="{{ .url }}">{{ .name }}</a>{{ if .via }} ({{ .via }}){{ end }} · <span class="position">{{ .position }}</span><span class="date"> | {{ .location }} · {{ (printf "%s-01" .startDate | time).Format "Jan 2006"  }} - {{ (printf "%s-01" .endDate | time).Format "Jan 2006"  }}</span></h3>
+                <div class="keywords">{{ range .keywords }}<span class="keyword">{{ . }}</span>{{ end }}</div>
                 <div class="highlights">
                     <ul>
                         {{ range .highlights }}
@@ -68,14 +56,6 @@
             <div class="education timeline-item">
                 <p class="position">{{ .area }} · {{ .studyType }}</p>
                 <p>{{ .startDate }} - {{ .endDate }}, {{ .institution }}</p>
-            </div>
-        {{ end }}
-    </div>
-    <h2>Publications</h2>
-    <div class="timeline-container">
-        {{ range $resume.publications }}
-            <div class="timeline-item">
-                <p class="position"><a href="{{ .website }}">{{ .name }}</a> ({{ .releaseDate }}, {{ .publisher }})</p>
             </div>
         {{ end }}
     </div>
