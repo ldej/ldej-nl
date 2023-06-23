@@ -1,7 +1,7 @@
 ---
 title: "Generating Go server code from OpenAPI 3 definitions"
 date: 2023-06-23T06:05:19+05:30
-draft: true
+draft: false
 summary: Define endpoints in OpenAPI 3 and generate server Go code. But which tools should you use?
 image: images/roadtrip01.webp
 tags:
