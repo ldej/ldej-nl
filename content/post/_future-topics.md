@@ -82,11 +82,6 @@ indy> wallet create wallet_psx key storage_type=postgres_storage storage_config=
 indy> wallet open wallet_psx key storage_credentials={"account":"postgres","password":"mysecretpassword","admin_account":"postgres","admin_password":"mysecretpassword"}
 ```
 
-## ChatGPT
-
-- Help learn Django from 1.6 to 4
-- Hindi classes for verbs
-
 ## Build an application with
 
 - Go
@@ -105,5 +100,8 @@ indy> wallet open wallet_psx key storage_credentials={"account":"postgres","pass
 - https://docs.meilisearch.com/learn/getting_started/quick_start.html#setup-and-installation
 - LRU
 - https://opentelemetry.io/
+- https://github.com/census-instrumentation/opencensus-go
+- https://github.com/caarlos0/env
+- https://github.com/cespare/reflex
 
 ## Update resume

@@ -23,27 +23,6 @@
   },
   "work": [
     {
-      "name": "CodeNotary",
-      "position": "Senior Backend Software Engineer",
-      "location": "Remote",
-      "url": "https://codenotary.com",
-      "startDate": "2022-04",
-      "endDate": "2023-02",
-      "keywords": [
-        "go",
-        "microservices",
-        "immudb",
-        "postgres",
-        "nats",
-        "solr",
-        "supply chain security"
-      ],
-      "highlights": [
-        "Added multi-tenancy, refactored the application in order to create automated tests",
-        "Integrated Solr search and added a message queue to offload processing. Standardized APIs using OpenAPI, designed a SBOM processing pipeline"
-      ]
-    },
-    {
       "name": "Xebia",
       "location": "Gurgaon, India",
       "position": "Senior Consultant",
