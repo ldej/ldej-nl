@@ -1,5 +1,5 @@
 {{ $resume := .Site.Data.resume }}
-<a class="pdf" href="/Laurence.de.Jong.resume.pdf">download as pdf</a>
+<a class="pdf" href="/Laurence-de-Jong-resume-15-01-2025.pdf">download as pdf</a>
 
 <div class="resume">
     <div class="resume-basics">
@@ -12,7 +12,12 @@
         </div>
         <div class="details">
             <h1>{{ $resume.basics.name }}</h1>
-            <p><a href="https://www.linkedin.com/in/laurencedejong/">linkedin.com/in/laurencedejong</a> · <a href="https://github.com/ldej">github.com/ldej</a></p>
+            <p>
+<!--                <a href="mailto:{{ $resume.basics.email }}">{{ $resume.basics.email }}</a> ·-->
+<!--                <a href="tel:{{ $resume.basics.phone }}">{{ $resume.basics.phone }}</a> ·-->
+                <a href="https://www.linkedin.com/in/laurencedejong/">linkedin.com/in/laurencedejong</a> ·
+                <a href="https://github.com/ldej">github.com/ldej</a>
+            </p>
         </div>
     </div>
     <div class="summary">
@@ -59,7 +64,7 @@
             </div>
         {{ end }}
     </div>
-    <div class="print-footer">
-        <p>Watermarked resume downloaded from https://ldej.nl/resume version {{ now.Format "02-01-2006" }} - DO NOT SPREAD WITHOUT CONSENT</p>
-    </div>
+<!--    <div class="print-footer">-->
+<!--        <p>Watermarked resume downloaded from https://ldej.nl/resume version {{ now.Format "02-01-2006" }} - DO NOT SPREAD WITHOUT CONSENT</p>-->
+<!--    </div>-->
 </div>

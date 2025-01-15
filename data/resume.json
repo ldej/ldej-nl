@@ -7,7 +7,7 @@
     "phone": "+91 844 8244 800",
     "url": "https://ldej.nl",
     "location": {},
-    "summary": "I'm a Dutch software engineer with over 10 years of experience in developing web applications. I provide technical leadership for small teams. My favourite language is Go, though I've had a lot of fun in Python before. You can wake me up to talk about decentralization.",
+    "summary": "I'm a Dutch software engineer with experience in developing web applications, APIs, integrating external systems, various databases and authentication systems. I provide technical leadership for small teams. My favourite language is Go, though I've had a lot of fun with Python as well. You can wake me up to talk about decentralization.",
     "profiles": [
       {
         "network": "GitHub",
@@ -23,10 +23,54 @@
   },
   "work": [
     {
+      "name": "Syntho",
+      "location": "Amsterdam, The Netherlands (remote)",
+      "position": "Senior Software Engineer",
+      "url": "https://syntho.ai/",
+      "startDate": "2023-04",
+      "endDate": "2025-05",
+      "keywords": [
+        "python",
+        "fastapi",
+        "django",
+        "sso",
+        "redis",
+        "celery",
+        "postgres",
+        "ray",
+        "synthetic data"
+      ],
+      "highlights": [
+        "Integrated SSO, standardized APIs using OpenAPI, developed and extended functionality",
+        "Migrated to mono-repository, improved development development time by making it possible to develop locally independently"
+      ]
+    },
+    {
+      "name": "CodeNotary",
+      "location": "Remote",
+      "position": "Senior Software Engineer",
+      "url": "https://codenotary.com/",
+      "startDate": "2022-04",
+      "endDate": "2023-02",
+      "keywords": [
+        "go",
+        "microservices",
+        "immudb",
+        "postgres",
+        "nats",
+        "solr",
+        "supply chain security"
+      ],
+      "highlights": [
+        "Added multi-tenancy, refactored the application in order to create automated tests",
+        "Integrated Solr search and added a message queue to offload processing. Standardized APIs using OpenAPI, designed an SBOM processing pipeline"
+      ]
+    },
+    {
       "name": "Xebia",
       "location": "Gurgaon, India",
       "position": "Senior Consultant",
-      "url": "https://xebia.com",
+      "url": "https://xebia.com/",
       "startDate": "2020-02",
       "endDate": "2021-11",
       "highlights": [
@@ -38,7 +82,7 @@
     {
       "name": "Novamedia / Postcode Lotteries",
       "position": "Senior Software Engineer",
-      "location": "Amsterdam, Netherlands (remote)",
+      "location": "Amsterdam, The Netherlands (remote)",
       "url": "https://dealornodeal.postcodeloterij.nl/",
       "startDate": "2021-04",
       "endDate": "2021-11",
@@ -60,7 +104,7 @@
     {
       "name": "Action",
       "position": "Senior Software Engineer",
-      "location": "Zwaagdijk, Netherlands (remote)",
+      "location": "Zwaagdijk, The Netherlands (remote)",
       "url": "https://shop.action.com",
       "startDate": "2021-02",
       "endDate": "2021-05",
