@@ -1,7 +1,7 @@
 ---
 title: "Deploy your Hugo website to statichost.eu"
 date: 2026-10-09T16:31:57+02:00
-draft: true
+draft: false
 summary: "How to build and deploy a Hugo website from a git repository to statichost.eu, including the webhook that triggers a build."
 image: images/roadtrip09.webp
 tags:
