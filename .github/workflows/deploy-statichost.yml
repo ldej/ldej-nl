@@ -1,0 +1,37 @@
+name: Deploy to statichost.eu
+# statichost.eu does not build on push by itself -- their docs have you register a
+# POST webhook (https://builder.statichost.eu/<site>) in the repo or provider. That
+# webhook never fired for our pushes, and when the default branch was renamed
+# master -> main every push became a silent no-op. So the trigger lives here, where
+# it is visible, versioned, and explicitly scoped to the branch that deploys.
+#
+# The webhook is unauthenticated unless you turn on webhook authentication in the
+# site's Settings -> Source & build. If you do, add a repo secret named
+# STATICHOST_API_KEY and this step will start sending it automatically.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  trigger:
+    name: Trigger build
+    runs-on: ubuntu-latest
+    steps:
+      - name: POST the statichost webhook
+        env:
+          STATICHOST_API_KEY: ${{ secrets.STATICHOST_API_KEY }}
+        run: |
+          set -euo pipefail
+          headers=(-H "Accept: application/json")
+          if [ -n "${STATICHOST_API_KEY:-}" ]; then
+            headers+=(-H "Authorization: Bearer ${STATICHOST_API_KEY}")
+          fi
+          response=$(curl -sS -m 60 -X POST "${headers[@]}" https://builder.statichost.eu/ldej)
+          echo "statichost said: ${response}"
+          # Fail loudly on anything unexpected: a silently un-triggered deploy is
+          # exactly the failure mode this workflow exists to prevent.
+          case "${response}" in
+            *"Started build"*) echo "build queued" ;;
+            *) echo "::error::statichost did not queue a build (response above)"; exit 1 ;;
+          esac
