@@ -3,6 +3,7 @@ title: "About"
 date: 2020-06-01T12:49:49+05:30
 draft: false
 slug: "about"
+type: "page"
 ---
 
 I'm a software engineer from The Netherlands. I've completed my Master of Computing Science in 2015 at the [University of Groningen](https://www.rug.nl/masters/computing-science/?lang=en), The Netherlands.

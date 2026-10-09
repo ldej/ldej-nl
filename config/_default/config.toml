@@ -1,4 +1,4 @@
-languageCode = "en-us"
+locale = "en-us"
 title = "Laurence de Jong"
 theme = ["pixyll"]
 relativeURLs = true
@@ -6,8 +6,9 @@ relativeURLs = true
 enableRobotsTXT = true
 enableEmoji = true
 
-[indexes]
+[taxonomies]
     tag = "tags"
+    category = "categories"
 
 [params]
     author = "Laurence de Jong"
