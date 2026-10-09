@@ -1,0 +1,16 @@
+# Build configuration for statichost.eu.
+# Docs: https://www.statichost.eu/docs/build-config/
+#
+# The builder clones this repository (recursively, so the themes/pixyll submodule
+# comes along), runs `command` inside `image`, then publishes `public`.
+#
+# Verified locally with this exact image and command: 117 pages, no warnings, and
+# the sitemap URL set identical to the currently deployed site. The image is pinned
+# to a version-based tag on purpose (a floating tag would drift under us again, the
+# way the GitHub Actions "hugo-version: latest" did when Hugo removed .Site.Author).
+#
+# The site builds with baseURL https://ldej.nl/ (config/production) while relativeURLs
+# keeps every link working on the *.statichost.page preview domain too.
+image: hugomods/hugo:0.165.0
+command: hugo --environment production --minify
+public: public
