@@ -1,5 +1,16 @@
-name: Build and Deploy
-on: [push]
+name: Build check (manual)
+# statichost.eu is the deployer now: it builds and publishes this repo on every
+# push, driven by statichost.yml. This workflow is no longer tied to a push, and
+# it no longer deploys anywhere -- Firebase Hosting was retired (the project was
+# deleted). What is left is a manual, reproducible build gate: run it from the
+# Actions tab when you want a second opinion on whether the site still builds
+# from a clean checkout (it also exercises the pixyll submodule clone).
+#
+# History, so nobody re-learns it the hard way: this was `on: [push]` deploying
+# to Firebase, and its Build step had been failing silently because it asked for
+# `hugo-version: latest` after Hugo removed .Site.Author from the theme's feed.
+on: workflow_dispatch
+
 jobs:
 
   build:
@@ -16,30 +27,10 @@ jobs:
       - name: Hugo setup
         uses: peaceiris/actions-hugo@v3
         with:
-          # The Hugo version to download (if necessary) and use. Example: 0.58.2
-          hugo-version: latest # optional, default is latest
-          # Download (if necessary) and use Hugo extended version. Example: true
-          extended: true # optional, default is false
+          # Pinned to the version statichost.yml builds with: a floating tag is
+          # exactly what silently broke this pipeline before.
+          hugo-version: '0.165.0'
+          extended: true
 
       - name: Build
         run: hugo --environment production --minify
-
-      - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only hosting
-        env:
-          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
-
-#      # https://github.com/textileio/github-action-buckets
-#      - name: Push to textile
-#        id: bucket
-#        uses: textileio/github-action-buckets@master
-#        with:
-#          key: ${{ secrets.TEXTILE_ACCOUNT_KEY }}
-#          secret: ${{ secrets.TEXTILE_ACCOUNT_SECRET }}
-#          bucket: 'ldej.nl'
-#          thread: 'bafkzxsaqhkbvqup5tp6zupfstpfsiwitbqkururrwhsf5c4y2d5kdha'
-#          path: 'public'
-##          pattern: '<FILE_PATTERN>'
-##          remove: '<REMOVE_BUCKET?>'

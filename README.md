@@ -1,6 +1,5 @@
 # ldej.nl
 
-![Hugo](https://github.com/ldej/ldej-nl/workflows/Hugo/badge.svg)
 
 ## Checkout
 
