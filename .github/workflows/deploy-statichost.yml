@@ -23,9 +23,11 @@ jobs:
           STATICHOST_API_KEY: ${{ secrets.STATICHOST_API_KEY }}
         run: |
           set -euo pipefail
+          token="${STATICHOST_API_KEY:-}"
           headers=(-H "Accept: application/json")
-          if [ -n "${STATICHOST_API_KEY:-}" ]; then
-            headers+=(-H "Authorization: Bearer ${STATICHOST_API_KEY}")
+          if [ -n "$token" ]; then
+            auth="Authorization: Bearer ${token}"
+            headers+=(-H "$auth")
           fi
           response=$(curl -sS -m 60 -X POST "${headers[@]}" https://builder.statichost.eu/ldej)
           echo "statichost said: ${response}"
